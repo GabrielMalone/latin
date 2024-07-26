@@ -1,11 +1,11 @@
 services:
   - type: web
-    name: latin-reader-app
+    name: frontend-service
     env: docker
     plan: free
     repo: https://github.com/GabrielMalone/latin
     branch: main
-    dockerfilePath: frontend/Dockerfile # Assuming your frontend Dockerfile is in the frontend directory
+    dockerfilePath: frontend/Dockerfile
     buildCommand: docker-compose build frontend
     startCommand: docker-compose up frontend
     envVars:
@@ -13,12 +13,12 @@ services:
         value: your_value
 
   - type: web
-    name: whitakers-server
+    name: backend-service
     env: docker
     plan: free
     repo: https://github.com/GabrielMalone/latin
     branch: main
-    dockerfilePath: backend/Dockerfile # Assuming your backend Dockerfile is in the backend directory
+    dockerfilePath: backend/Dockerfile
     buildCommand: docker-compose build backend
     startCommand: docker-compose up backend
     envVars:
