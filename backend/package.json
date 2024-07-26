@@ -1,17 +1,14 @@
 {
-  "name": "wordsapp",
+  "name": "latin-backend",
   "version": "1.0.0",
+  "description": "Backend service for Latin app",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "npm install"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.19.2"
+    "express": "^4.17.1",
+    "cors": "^2.8.5"
   }
 }
