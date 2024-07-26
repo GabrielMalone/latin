@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>A Latin Reading Tool</title>
+    <script src="index.js" type="module"></script>
+</head>
+  <body>
+    <div id="logo"></div><h1 id="logo">G00BiLator</h1></div>
+      <div id="mainContainer">
+        <div id="latinTextAndSourceContainer">
+          <div id="latinText"></div>
+          <div id="savedWordsArea" class="movable" >
+            <div id="savedWordsHere" contenteditable="true" spellcheck="false"></div>
+            <div id="bottomText">Double click a word to add its entry here</div>
+          </div>
+          <div id="notesContainer" class="movable">
+            <textarea id="enterText" name="enterText" rows="30" cols="40" spellcheck="false"></textarea>
+          </div>
+          <div id="sourceMaterialArea" class="movable">
+            <textarea id="sourceArea" name="sourceArea" rows="30" cols="40" spellcheck="false"></textarea>
+          </div>
+          <div id="lookupAreaContainer">
+            <div id="lookUpWord"></div>
+            <div id="assistanceArea">
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
