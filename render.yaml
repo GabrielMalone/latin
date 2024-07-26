@@ -6,11 +6,11 @@ services:
     repo: https://github.com/GabrielMalone/latin
     branch: main
     dockerfilePath: frontend/Dockerfile
-    buildCommand: docker-compose build frontend
-    startCommand: docker-compose up frontend
-    envVars:
-      - key: ENV_VARIABLE_NAME
-        value: your_value
+    buildCommand: |
+      ls -al
+      ls -al frontend
+      docker build -t frontend -f frontend/Dockerfile .
+    startCommand: docker run -p 8080:8080 frontend
 
   - type: web
     name: backend-service
@@ -19,8 +19,8 @@ services:
     repo: https://github.com/GabrielMalone/latin
     branch: main
     dockerfilePath: backend/Dockerfile
-    buildCommand: docker-compose build backend
-    startCommand: docker-compose up backend
-    envVars:
-      - key: ENV_VARIABLE_NAME
-        value: your_value
+    buildCommand: |
+      ls -al
+      ls -al backend
+      docker build -t backend -f backend/Dockerfile .
+    startCommand: docker run -p 8000:8000 backend
