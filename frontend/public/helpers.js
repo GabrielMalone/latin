@@ -77,7 +77,7 @@ export const cleanword = (word) => {
 export const getDefinition = async (word) => {
     word = word.toLowerCase();
     try {
-        const response = await fetch(`http://localhost:8000/translate?word=${encodeURIComponent(word)}`, {
+        const response = await fetch(`https://latin-r3z3.onrender.com/translate?word=${encodeURIComponent(word)}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'

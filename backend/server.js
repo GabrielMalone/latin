@@ -9,7 +9,8 @@ const port = process.env.PORT || 8000;
 // Use CORS middleware
 app.use(cors({
     origin: ['*', 'http://localhost:5501', 'http://127.0.0.1:5501','http://localhost:3000',
-    'https://latinreaderapp-frontend.onrender.com'],
+    'https://latinreaderapp-frontend.onrender.com',
+'https://latin-r3z3.onrender.com','https://latin-1.onrender.com'],
     methods: 'GET,POST,PUT,DELETE',
     allowedHeaders: 'Content-Type'
 }));
