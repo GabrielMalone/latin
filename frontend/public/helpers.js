@@ -98,21 +98,13 @@ export const getDefinition = async (word) => {
 //  MOUSE EVENTS BELOW ---------------------------------------------------------------
 
 // Listen for any change in the mainTExtArea
+
 // Select the target node
 const targetNode = document.getElementById('latinText');
 // Options for the observer (which mutations to observe)
 const config = { attributes: true, childList: true, subtree: true };
 // Create a callback function to execute when mutations are observed
-const callback = function(mutationsList, observer) {
-    for(const mutation of mutationsList) {
-        if (targetNode.innerText===""){
-            console.log('im empyty!!');
-            targetNode.innerText =`Input a word/s or paste in source material`;
-        }
-    }
-};
-
-
+const callback = function(mutationsList, observer) {};
 // Create an instance of MutationObserver and pass the callback function
 const observer = new MutationObserver(callback);
 

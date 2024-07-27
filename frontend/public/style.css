@@ -104,7 +104,7 @@ pre {
     width: 300px;
     left: 700px;
     resize: vertical;
-    overflow: auto; 
+    overflow: auto;
     border-radius: 3px;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
@@ -169,26 +169,13 @@ pre {
     font-size: 10px;
 }
 
-
 .horizontal-line {
-    width: 700px; /* Adjust width as needed */
+    width: 640px; /* Adjust width as needed */
     height: 1px; /* Adjust thickness as needed */
     background-color: #68686ba1; /* Change color as needed */
     margin: 20px 0; /* Adjust margin to fit your design */
 }
 
-.vertical-line {
-    width: 1px; /* Adjust thickness as needed */
-    height: 100%; /* Adjust height as needed */
-    background-color: #68686b; /* Change color as needed */
-    margin: 0 20px; /* Adjust margin to fit your design */
-}
-
-
-
-/* #middle.horizontal-line {
-    position: absolute;
-} */
 
 .z-index-bottom {
     z-index: 0;
