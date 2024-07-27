@@ -21,7 +21,7 @@ const colorCodeDefinition = (translation) => {
             return `<span style="color: #59b3eb;">${line}</span>`; // blueish color
         } else {
             // Default style for other lines
-            return `<span style="color: #FEFDED;">${line}</span>`; // off-white color
+            return `<span style="color: #fefdeda8;">${line}</span>`; // off-white color
         }
     });
     return styledLines;
@@ -107,13 +107,14 @@ const callback = function(mutationsList, observer) {
     for(const mutation of mutationsList) {
         if (targetNode.innerText===""){
             console.log('im empyty!!');
-            targetNode.innerText =`Input a word(s) or paste in source material           -->`;
+            targetNode.innerText =`Input a word/s or paste in source material`;
         }
     }
 };
+
+
 // Create an instance of MutationObserver and pass the callback function
 const observer = new MutationObserver(callback);
-
 
 /**
  * All events related to a highlighted word go here
@@ -127,10 +128,8 @@ export const mouseOverEvents = (wordDiv, word) => {
         generalHighlighter(wordDiv);                                           
         word = cleanword(word);
 
-      
         getDefinition(word);
         
-
         keyDownVerb(wordDiv); 
         keyDownSubject(wordDiv);
         keyDownAcc(wordDiv);
@@ -364,10 +363,10 @@ export const cardShuffleAbility = () => {
     const notesContainer = document.querySelector("#notesContainer");
     const sourceMaterialArea = document.querySelector("#sourceMaterialArea");
     const savedWordsArea = document.querySelector("#savedWordsArea");
-    const notesTextColorActive="#EEEEEE";
-    const notesTextColorPassive = "#EEEEEE";
-    const sourceTextColorActive = "#EEEEEE";
-    const sourceTextColorPassive = "#EEEEEE";
+    const notesTextColorActive="#b7b7b7";
+    const notesTextColorPassive = "#9a9a9a";
+    const sourceTextColorActive = "#d1d1d1";
+    const sourceTextColorPassive = "#68686b";
     // const vocabNotesColorActive;
     // const vocabNotesColorPassive;
 
