@@ -24,19 +24,13 @@ pre {
 }
 #logo{
     position: absolute;
-    left: 985px;
-    top: 93px;
+    left: 970px;
+    top: 75px;
     transform: rotate(90deg);
     color:#68686ba6;
     font-size: small;
 }
-#mainContainer{
-    top: 20px;
-    left: 20px;
-    position:absolute;
-    white-space: nowrap;
-    display: inline-block;
-}
+
 #latinTextAndSourceContainer{
     top: 30px;
     position:absolute;
@@ -110,7 +104,7 @@ pre {
     width: 300px;
     left: 700px;
     resize: vertical;
-    overflow: auto;
+    overflow: auto; 
     border-radius: 3px;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
@@ -175,6 +169,27 @@ pre {
     font-size: 10px;
 }
 
+
+.horizontal-line {
+    width: 700px; /* Adjust width as needed */
+    height: 1px; /* Adjust thickness as needed */
+    background-color: #68686ba1; /* Change color as needed */
+    margin: 20px 0; /* Adjust margin to fit your design */
+}
+
+.vertical-line {
+    width: 1px; /* Adjust thickness as needed */
+    height: 100%; /* Adjust height as needed */
+    background-color: #68686b; /* Change color as needed */
+    margin: 0 20px; /* Adjust margin to fit your design */
+}
+
+
+
+/* #middle.horizontal-line {
+    position: absolute;
+} */
+
 .z-index-bottom {
     z-index: 0;
 }
@@ -184,6 +199,8 @@ pre {
 .z-index-top {
     z-index: 2;
 }
+
+
 
 .word {
     color:#f6f6f6db;
@@ -236,11 +253,16 @@ pre {
     vertical-align: top;
 }
 #assistanceArea {
-    margin-top: 35px;
-    margin-left: 40px;
+    margin-top: 15px;
+    margin-left: 70px;
     color:#FEFDED;
     font-family:'Courier New', Courier, monospace;
     font-size: 10px;
     max-width: 600px;
     display: inline-block;
+}
+#top.horizontal-line {
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 60px;
 }
