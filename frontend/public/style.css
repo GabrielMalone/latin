@@ -1,5 +1,7 @@
 body {
     background-color:#060c0c;
+    background-image: url('background.png');
+    background-repeat: no-repeat;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color:rgb(138, 137, 137);
 }
