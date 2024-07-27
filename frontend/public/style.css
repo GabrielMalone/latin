@@ -24,11 +24,11 @@ pre {
 }
 #logo{
     position: absolute;
-    left: 970px;
+    left: 985px;
     top: 75px;
     transform: rotate(90deg);
-    color:#68686ba6;
-    font-size: small;
+    color:#68686b62;
+    font-size: 8px;
 }
 
 #latinTextAndSourceContainer{
@@ -70,7 +70,7 @@ pre {
 
 }
 #notesContainer{
-    background-color: #080e0e;
+    background-color: #080e0eea;
     border: #3f3f3e;
     border-style: solid;
     border-width: 1px;
@@ -96,7 +96,7 @@ pre {
     border-style: solid;
     border-width: 1px;
     z-index: 3;
-    background-color:#0a1111;
+    background-color:#0c0f0f;
     position: absolute;
     min-height: 50px;
     max-height: 450px;
@@ -104,7 +104,7 @@ pre {
     width: 300px;
     left: 700px;
     resize: vertical;
-    overflow: auto;
+    overflow: auto; 
     border-radius: 3px;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
@@ -133,7 +133,7 @@ pre {
     border: none;
     font-size: 12px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color:#b7b7b7;
+    color:#b7b7b7ac;
     width: 90%;
     margin-left: 22px;
     margin-top: 20px;

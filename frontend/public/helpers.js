@@ -304,7 +304,7 @@ export const sourceAreaCreate = () => {
         if (sourceArea.value === ""){
             sourceArea.value = "Enter a word or source material...";
         }
-        sourceArea.style.color = "#FFFFFF";
+        sourceArea.style.color = "#b7b7b7ac";
     });
     sourceArea.addEventListener('click', ()=> {
         if (sourceArea.value === "Enter a word or source material...")
@@ -357,27 +357,28 @@ export const cardShuffleAbility = () => {
     const sourceMaterialArea = document.querySelector("#sourceMaterialArea");
     const savedWordsArea = document.querySelector("#savedWordsArea");
     const bottomText = document.querySelector("#bottomText");
-    const notesTextColorActive="#b7b7b7";
-    const notesTextColorPassive = "#b7b7b7";
-    const sourceTextColorActive = "#b7b7b7";
+    const notesTextColorActive = "#b7b7b7";
+    const notesTextColorPassive = "#b7b7b7ac";
+   
     const sourceTextColorPassive = "#68686b";
-    // const vocabNotesColorActive;
-    // const vocabNotesColorPassive;
 
     //set default position
     sourceMaterialArea.classList = 'z-index-top';
 
     notesContainer.addEventListener('click', ()=> {
         notesContainer.style.zIndex = '3';
+        notesContainer.style.backgroundColor = '#080e0eea';
         sourceArea.style.color = sourceTextColorPassive;
         enterText.style.color = notesTextColorActive;
 
     });
     notesContainer.addEventListener('mouseleave', ()=> {
         enterText.style.color = notesTextColorPassive;
+        notesContainer.style.backgroundColor = '#080e0eea';
     });
     notesContainer.addEventListener('mouseenter', ()=> {
         enterText.style.color = notesTextColorActive;
+        notesContainer.style.backgroundColor = '#080e0eea';
     });
     sourceMaterialArea.addEventListener('click', ()=> {
         sourceArea.style.color = sourceTextColorActive;
@@ -386,23 +387,24 @@ export const cardShuffleAbility = () => {
     sourceMaterialArea.addEventListener('mouseleave', ()=> {
         sourceArea.style.color = sourceTextColorPassive;
     });
+
     savedWordsArea.addEventListener('click', () => {
         console.log('you clicked here!');
-        savedWordsArea.style.backgroundColor = '#21242a';
+        savedWordsArea.style.backgroundColor = '#0f1313';
         bottomText.innerHTML = "";
         savedWordsArea.style.zIndex = '3';
         notesContainer.style.zIndex = '2';
     });
     savedWordsArea.addEventListener('mouseleave', ()=> {
         enterText.style.color = notesTextColorPassive;
-        savedWordsArea.style.backgroundColor = '#0a1111';
+        savedWordsArea.style.backgroundColor = '#0c0f0f';
         if (savedWordsArea.innerText === ""){
             bottomText.innerHTML=`Double click a word to add its entry here`
         }
     });
     savedWordsArea.addEventListener('mouseenter', ()=> {
         enterText.style.color = notesTextColorPassive;
-        savedWordsArea.style.backgroundColor = '#21242a';
+        savedWordsArea.style.backgroundColor = '#0f1313';
     });
 }
   
@@ -442,4 +444,6 @@ export const createLatinTextArea = async () => {
         });
         mainContainer.appendChild(lineContainer);                           // append each line to the main container
     });
+    // starting value for sourceMaterialBox after page loads
+    sourceArea.value = "Enter a word or source material...";
 }

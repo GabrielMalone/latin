@@ -7,7 +7,6 @@ latinTextArea.addEventListener('mouseleave', () => {
     document.querySelector(".word.highlight")?.classList.remove('highlight');
 })
 
-
 notesAreaCreate();
 sourceAreaCreate();
 cardShuffleAbility();
