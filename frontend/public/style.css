@@ -52,7 +52,7 @@ pre {
     overflow: auto;
     box-sizing: border-box;
     max-width: 90%;
-    background-color:#31363F;
+    background-color:#31363f2c;
     position: absolute;
     top: 10px;
     width: 300px;
@@ -63,7 +63,7 @@ pre {
     box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;  */
-    border-radius: 0px;
+    border-radius: 3px;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
     -moz-user-select: none; /* mozilla browsers */
@@ -73,12 +73,15 @@ pre {
 
 }
 #notesContainer{
-    background-color: #2a2e36;
+    background-color: #080e0e;
     position: absolute;
-    top: 100px;
+    top: 175px;
     width: 300px;
-    height: 540px;
     left: 700px;
+    resize: vertical;
+    max-height: 540px;
+    min-height: 50px;
+    height: 540px;
     /* -moz-box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
     -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
     box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
@@ -94,12 +97,16 @@ pre {
 
 }
 #savedWordsArea{
-    background-color:#21242a;
+    z-index: 3;
+    background-color:#0a1111;
     position: absolute;
-    top: 160px;
+    min-height: 50px;
+    max-height: 450px;
+    top: 115px;
     width: 300px;
-    height: 530px;
     left: 700px;
+    resize: vertical;
+    overflow: auto; /* Allows scrollbars only if needed */
     /* -moz-box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
     -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
     box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
@@ -133,7 +140,7 @@ pre {
     border: none;
     font-size: 12px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color:#9a9a9a;
+    color:#b7b7b7;
     width: 90%;
     margin-left: 22px;
     margin-top: 20px;
@@ -141,7 +148,6 @@ pre {
     height: 510px;
 }
 #savedWordsHere {
-    resize: none;
     border: none;
     font-size: 9px;
     font-family: 'Courier New', Courier, monospace;
@@ -150,8 +156,7 @@ pre {
     margin-left: 23px;
     margin-top: 10px;
     outline: none;
-    height: 500px;
-    overflow: auto; /* Allows scrollbars only if needed */
+    height: auto;
     overflow-wrap: break-word; /* Ensures long words break and wrap */
     word-wrap: break-word; /* For compatibility with older browsers */
     white-space: normal; /* Ensures text wraps normally */
@@ -162,14 +167,13 @@ pre {
     vertical-align: middle;
     color:#eeeeeea5;
     width: 250px;
-    top: 490px;
-    left: 35px;
+    top: 10px;
+    left: 10px;
     height: 30px;
     margin-left: 15px;
     margin-top: 10px;
     outline: none;
     font-size: 10px;
-    z-index: 2;
 }
 
 /* .movable {
@@ -234,7 +238,7 @@ pre {
 }
 #lookUpWord {
     margin-top: 40px;
-    margin-left: 65px;
+    margin-left: 68px;
     color:#C8ACD6;
     font-size:q 25px;
     max-width: 400px;
