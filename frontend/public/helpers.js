@@ -83,7 +83,7 @@ export const cleanword = (word) => {
 export const getDefinition = async (word) => {
     word = word.toLowerCase();
     try {
-        const response = await fetch(localFetch, {
+        const response = await fetch(deployedFetch, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
