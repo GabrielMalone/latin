@@ -1,7 +1,5 @@
 
 
-const localFetch = `http://localhost:8000/translate?word=${encodeURIComponent(word)}`;
-const deployedFetch = `https://latin-r3z3.onrender.com/translate?word=${encodeURIComponent(word)}`;
 const vocabListArray = []; // keep track of the words in the vocablist area
 const startingNotesValue = `Enter notes/Translation...` // starting value for the notes area
 const sourAreaDefaultValue = 'Enter a word or source material...';
@@ -9,14 +7,14 @@ const startingLatinValue = `In nova fert animus mutatas dicere formas
 corpora; di, coeptis (nam vos mutastis et illas)
 adspirate meis primaque ab origine mundi
 ad mea perpetuum deducite tempora carmen!
-Ante mare et terras et quod tegit omnia caelum `; // starting passage for the website 
+Ante mare et terras et quod tegit omnia caelum `; // starting passage for the website
 
 
 // FORMATTING RELATED METHODS BELOW -----------------------------------------
 /**
  * This takes the output from whitaker's and color codes the line with the morphological forms a different color than the rest of the lines
- * @param {*} translation 
- * @returns 
+ * @param {*} translation
+ * @returns
  */
 const colorCodeDefinition = (translation) => {
     // Split the translation into lines
@@ -62,8 +60,8 @@ const proseLineBreaks = (sourceArea) => {
 }
 /**
  * Keep only a-z chars
- * @param {*} word 
- * @returns 
+ * @param {*} word
+ * @returns
  */
 export const cleanword = (word) => {
     let cleanword = "";
@@ -78,10 +76,12 @@ export const cleanword = (word) => {
 // DEFINITION RELATED METHODS BELOW -----------------------------------------
 /**
  * Talk to backend, get word def in Latin from whitaker's compiled app
- * @param {*} word 
+ * @param {*} word
  */
 export const getDefinition = async (word) => {
     word = word.toLowerCase();
+    const localFetch = `http://localhost:8000/translate?word=${encodeURIComponent(word)}`;
+    const deployedFetch = `https://latin-r3z3.onrender.com/translate?word=${encodeURIComponent(word)}`;
     try {
         const response = await fetch(deployedFetch, {
             method: 'GET',
@@ -116,19 +116,19 @@ const observer = new MutationObserver(callback);
 
 /**
  * All events related to a highlighted word go here
- * @param {*} wordDiv 
- * @param {*} word 
+ * @param {*} wordDiv
+ * @param {*} word
  */
 export const mouseOverEvents = (wordDiv, word) => {
 
-    wordDiv.setAttribute('tabindex', '0');  
-    wordDiv.addEventListener('mouseover', () => { 
-        generalHighlighter(wordDiv);                                           
+    wordDiv.setAttribute('tabindex', '0');
+    wordDiv.addEventListener('mouseover', () => {
+        generalHighlighter(wordDiv);
         word = cleanword(word);
 
         getDefinition(word);
-        
-        keyDownVerb(wordDiv); 
+
+        keyDownVerb(wordDiv);
         keyDownSubject(wordDiv);
         keyDownAcc(wordDiv);
         keyDownSpace(wordDiv);
@@ -136,7 +136,7 @@ export const mouseOverEvents = (wordDiv, word) => {
         clickWordReset(wordDiv);
         doubleClickWord(wordDiv);
 
-        wordDiv.focus();     
+        wordDiv.focus();
     });
 }
 
@@ -162,96 +162,96 @@ export const generalHighlighter = (wordDiv) => {
     if (highlightedWord) {
         highlightedWord.classList.remove('highlight');
     }
-    wordDiv.classList.add('highlight'); 
+    wordDiv.classList.add('highlight');
 }
 
 /**
  * key events for highlighting subjects
- * @param {*} wordDiv 
+ * @param {*} wordDiv
  */
 export const keyDownSubject = (wordDiv) => {
-    wordDiv.addEventListener('keydown', (event) => { 
+    wordDiv.addEventListener('keydown', (event) => {
         if (event.key === 's'){
             subjectHighlighter(wordDiv);
         }
-    });  
+    });
 }
 /**
  * highlight subjects
- * @param {*} wordDiv 
+ * @param {*} wordDiv
  */
 export const subjectHighlighter = (wordDiv) => {
-    wordDiv.classList.add('subject'); 
+    wordDiv.classList.add('subject');
 }
 /**
  * highlights verbs with V keystroke
- * @param {*} wordDiv 
+ * @param {*} wordDiv
  */
 export const keyDownVerb = (wordDiv) => {
-    wordDiv.addEventListener('keydown', (event) => { 
+    wordDiv.addEventListener('keydown', (event) => {
         if (event.key === 'v'){
             verbHighlighter(wordDiv);
         }
-    });  
+    });
 }
 /**
  * highlight a verb
- * @param {*} wordDiv 
+ * @param {*} wordDiv
  */
 export const verbHighlighter = (wordDiv) => {
     //const highlightedWord = document.querySelector('.word.verb');
-    wordDiv.classList.add('verb'); 
+    wordDiv.classList.add('verb');
 }
 /**
  * highlights verbs with V keystroke
- * @param {*} wordDiv 
+ * @param {*} wordDiv
  */
 export const keyDownAcc = (wordDiv) => {
-    wordDiv.addEventListener('keydown', (event) => { 
+    wordDiv.addEventListener('keydown', (event) => {
         if (event.key === 'a'){
             accHighlighter(wordDiv);
         }
-    });  
+    });
 }
 /**
  * highlight a verb
- * @param {*} wordDiv 
+ * @param {*} wordDiv
  */
 export const accHighlighter = (wordDiv) => {
     // const highlightedWord = document.querySelector('.word.accusative');
     // if (highlightedWord) {
     //     highlightedWord.classList.remove('accusative');
     // }
-    wordDiv.classList.add('accusative'); 
+    wordDiv.classList.add('accusative');
 }
 /**
  * highlights verbs with V keystroke
- * @param {*} wordDiv 
+ * @param {*} wordDiv
  */
 export const keyDownPrep = (wordDiv) => {
-    wordDiv.addEventListener('keydown', (event) => { 
+    wordDiv.addEventListener('keydown', (event) => {
         if (event.key === 'p'){
             prepHighlighter(wordDiv);
         }
-    });  
+    });
 }
 /**
  * highlight a verb
- * @param {*} wordDiv 
+ * @param {*} wordDiv
  */
 export const prepHighlighter = (wordDiv) => {
     // const highlightedWord = document.querySelector('.word.accusative');
     // if (highlightedWord) {
     //     highlightedWord.classList.remove('accusative');
     // }
-    wordDiv.classList.add('preposition'); 
+    wordDiv.classList.add('preposition');
 }
 /**
  * clears the current marked up words
- * @param {*} wordDiv 
+ * @param {*} wordDiv
  */
 export const keyDownSpace = (wordDiv) => {
-    wordDiv.addEventListener('keydown', (event) => { 
+    wordDiv.addEventListener('keydown', (event) => {
         if (event.code === 'Space'){
             // clear all highlights
             const markedUpWords = document.querySelectorAll(".word");
@@ -259,11 +259,11 @@ export const keyDownSpace = (wordDiv) => {
                 word.className = 'word';
             });
         }
-    });  
+    });
 }
 /**
  * clicking a word resets any markups
- * @param {*} wordDiv 
+ * @param {*} wordDiv
  */
 export const clickWordReset = (wordDiv) => {
     wordDiv.addEventListener('click', () => {
@@ -288,7 +288,7 @@ export const notesAreaCreate = () => {
     enterText.addEventListener('mouseleave', ()=> {
         if (enterText.value === ""){
             enterText.value = startingNotesValue;
-        }     
+        }
     });
     enterText.addEventListener('dblclick', () => {
         if (enterText.value === startingNotesValue|| enterText.value === startingNotesValue){
@@ -302,7 +302,7 @@ export const notesAreaCreate = () => {
  */
 export const sourceAreaCreate = () => {
     const sourceArea = document.querySelector("#sourceArea");
-    const mainContainer = document.getElementById('latinText'); 
+    const mainContainer = document.getElementById('latinText');
     // default page load text
     sourceArea.value = startingLatinValue;
 
@@ -314,12 +314,12 @@ export const sourceAreaCreate = () => {
     });
     sourceArea.addEventListener('click', ()=> {
         if (sourceArea.value === sourAreaDefaultValue)
-        sourceArea.value = "";
+            sourceArea.value = "";
     });
     sourceArea.addEventListener('mouseleave', ()=> {
         if (sourceArea.value === ""){
             sourceArea.value = sourAreaDefaultValue;
-        }     
+        }
     });
     sourceArea.addEventListener('keydown', (event) => {
         if (event.code==="Space" || event.key==="Enter" || event.key === "Backspace"){
@@ -335,9 +335,9 @@ export const sourceAreaCreate = () => {
     });
     sourceArea.addEventListener('paste', event => {
         event.preventDefault();
-       
+
         sourceArea.value = event.clipboardData.getData('text');
-     
+
         mainContainer.innerHTML = "";
 
         // if no new-line data, add new line every 35 spaces or so(or the nearest space chracter)
@@ -365,7 +365,7 @@ export const cardShuffleAbility = () => {
     const bottomText = document.querySelector("#bottomText");
     const notesTextColorActive = "#b7b7b7";
     const notesTextColorPassive = "#b7b7b7ac";
-   
+
     const sourceTextColorPassive = "#68686b";
 
     //set default position
@@ -413,7 +413,7 @@ export const cardShuffleAbility = () => {
         savedWordsArea.style.backgroundColor = '#0f1313';
     });
 }
-  
+
 
 //  MOUSE EVENTS ABOVE-----------------------------------------------------------------------
 
@@ -435,7 +435,7 @@ export const createWordDiv = (word) => {
  * create interactable the Latin text area
  */
 export const createLatinTextArea = async () => {
-    let data = document.querySelector("#sourceArea").value; 
+    let data = document.querySelector("#sourceArea").value;
     const mainContainer = document.getElementById('latinText');             // outtermost container of the Latin text
     observer.observe(targetNode, config);
     const lines = data.split("\n");
@@ -443,7 +443,7 @@ export const createLatinTextArea = async () => {
         const lineContainer = document.createElement('div');
         lineContainer.className = 'line-container';
         const words = line.split(' ');                                      // put words into their own divs and into their correct div-line
-        words.forEach(word => {     
+        words.forEach(word => {
             let wordDiv = createWordDiv(word);
             mouseOverEvents(wordDiv, word);
             lineContainer.appendChild(wordDiv);                             // append each word to the current line
