@@ -1,4 +1,7 @@
-import { createLatinTextArea, sourceAreaCreate, cardShuffleAbility, notesAreaCreate } from "./helpers.js";
+import { createLatinTextArea } from "./page_components/mainTextArea.js"; 
+import { notesAreaCreate } from "./page_components/notesArea.js";
+import { sourceAreaCreate } from "./page_components/sourceArea.js";
+import { savedWordsAreaCreate } from "./page_components/savedWordsArea.js";
 
 const latinTextArea = document.getElementById('latinText');
 
@@ -6,11 +9,14 @@ const latinTextArea = document.getElementById('latinText');
 latinTextArea.addEventListener('mouseleave', () => {
     document.querySelector(".word.highlight")?.classList.remove('highlight');
 })
-// add event listeners everywhere on build 
+
+// build the page
 notesAreaCreate();
 sourceAreaCreate();
-cardShuffleAbility();
+savedWordsAreaCreate();
 createLatinTextArea();
+
+// set default value for source material 
 window.addEventListener("load", function() {
     console.log("Page fully loaded");
     this.document.querySelector("#sourceArea").value = "Enter a word or source material...";
