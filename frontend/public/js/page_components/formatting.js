@@ -13,7 +13,13 @@ export const colorCodeDefinition = (translation) => {
     const styledLines = lines.map(line => {
         if (line.includes('[') && line.includes(']')) {
             // Style for lines containing brackets
-            return `<span style="color: ${whitakerOutputColoredLine};">${line}</span>`; // blueish color
+            
+            const firstBracket = line.indexOf('[');
+            const secondBracket = line.indexOf(']') + 1;
+            const stringBefore = line.substring(0,firstBracket);
+            const stringAfter = line.substring(secondBracket);
+
+            return `<span style="color: ${whitakerOutputColoredLine};">${stringBefore}${stringAfter}</span>`; // blueish color
         } else {
             // Default style for other lines
             return `<span style="color: ${whitaerOutputColor};">${line}</span>`; // off-white color

@@ -104,7 +104,7 @@ pre {
     width: 300px;
     left: 700px;
     resize: vertical;
-    overflow: auto; 
+    overflow: auto;
     border-radius: 3px;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
@@ -227,7 +227,7 @@ pre {
 
 #lookupAreaContainer{
     left: 30px;
-    width: 500px;
+    width: 700px;
     vertical-align: bottom;
 }
 #lookUpWord {
@@ -235,7 +235,7 @@ pre {
     margin-left: 68px;
     color:#C8ACD6;
     font-size:q 25px;
-    max-width: 400px;
+    max-width: 700px;
     display: inline-block;
     vertical-align: top;
 }
@@ -245,7 +245,7 @@ pre {
     color:#FEFDED;
     font-family:'Courier New', Courier, monospace;
     font-size: 10px;
-    max-width: 600px;
+    max-width: 700px;
     display: inline-block;
 }
 #top.horizontal-line {
