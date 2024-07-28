@@ -1,17 +1,23 @@
 
 
-
-const vocabListArray = [];
-const startingNotesValue = `Enter notes/Translation...`
+const localFetch = `http://localhost:8000/translate?word=${encodeURIComponent(word)}`;
+const deployedFetch = `https://latin-r3z3.onrender.com/translate?word=${encodeURIComponent(word)}`;
+const vocabListArray = []; // keep track of the words in the vocablist area
+const startingNotesValue = `Enter notes/Translation...` // starting value for the notes area
+const sourAreaDefaultValue = 'Enter a word or source material...';
 const startingLatinValue = `In nova fert animus mutatas dicere formas
 corpora; di, coeptis (nam vos mutastis et illas)
 adspirate meis primaque ab origine mundi
 ad mea perpetuum deducite tempora carmen!
-Ante mare et terras et quod tegit omnia caelum `;
+Ante mare et terras et quod tegit omnia caelum `; // starting passage for the website 
 
 
 // FORMATTING RELATED METHODS BELOW -----------------------------------------
-
+/**
+ * This takes the output from whitaker's and color codes the line with the morphological forms a different color than the rest of the lines
+ * @param {*} translation 
+ * @returns 
+ */
 const colorCodeDefinition = (translation) => {
     // Split the translation into lines
     const lines = translation.split('\n');
@@ -71,13 +77,13 @@ export const cleanword = (word) => {
 
 // DEFINITION RELATED METHODS BELOW -----------------------------------------
 /**
- * Talk to python, get word def in Latin
+ * Talk to backend, get word def in Latin from whitaker's compiled app
  * @param {*} word 
  */
 export const getDefinition = async (word) => {
     word = word.toLowerCase();
     try {
-        const response = await fetch(`https://latin-r3z3.onrender.com/translate?word=${encodeURIComponent(word)}`, {
+        const response = await fetch(localFetch, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -87,9 +93,9 @@ export const getDefinition = async (word) => {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const translation = await response.text();
-        let coloredLines = colorCodeDefinition(translation);
-        lookUpWord.innerHTML = `${word}`;
-        assistanceArea.innerHTML = `<pre>${coloredLines.join('\n')}</pre>`;
+        let coloredLines = colorCodeDefinition(translation);  // colorize the output
+        lookUpWord.innerHTML = `${word}`; // visual aid in look-up area
+        assistanceArea.innerHTML = `<pre>${coloredLines.join('\n')}</pre>`; // place the whitaker's output into its div
     } catch (error) {
         assistanceArea.textContent = `${error.message}`;
     }
@@ -275,17 +281,17 @@ export const notesAreaCreate = () => {
     const enterText = document.querySelector("#enterText");
     enterText.value = startingNotesValue;
     enterText.addEventListener('click', ()=> {
-        if(enterText.value === startingNotesValue || enterText.value === "Enter notes/Translation..."){
+        if(enterText.value === startingNotesValue || enterText.value === startingNotesValue){
             enterText.value = "";
         }
     });
     enterText.addEventListener('mouseleave', ()=> {
         if (enterText.value === ""){
-            enterText.value = "Enter notes/Translation...";
+            enterText.value = startingNotesValue;
         }     
     });
     enterText.addEventListener('dblclick', () => {
-        if (enterText.value === "Enter notes/Translation..." || enterText.value === startingNotesValue){
+        if (enterText.value === startingNotesValue|| enterText.value === startingNotesValue){
             enterText.value="";
         }
         enterText.classList = ''
@@ -302,22 +308,21 @@ export const sourceAreaCreate = () => {
 
     sourceArea.addEventListener('mouseenter', ()=> {
         if (sourceArea.value === ""){
-            sourceArea.value = "Enter a word or source material...";
+            sourceArea.value = sourAreaDefaultValue;
         }
         sourceArea.style.color = "#b7b7b7ac";
     });
     sourceArea.addEventListener('click', ()=> {
-        if (sourceArea.value === "Enter a word or source material...")
+        if (sourceArea.value === sourAreaDefaultValue)
         sourceArea.value = "";
     });
     sourceArea.addEventListener('mouseleave', ()=> {
         if (sourceArea.value === ""){
-            sourceArea.value = "Enter a word or source material...";
+            sourceArea.value = sourAreaDefaultValue;
         }     
     });
     sourceArea.addEventListener('keydown', (event) => {
         if (event.code==="Space" || event.key==="Enter" || event.key === "Backspace"){
-            console.log('delete pressed!');
             mainContainer.innerHTML = "";
             createLatinTextArea();
             // always look up the last word typed
@@ -326,7 +331,7 @@ export const sourceAreaCreate = () => {
                 wordArray = [];
             }
             getDefinition(cleanword(wordArray[wordArray.length-1]));
-        } 
+        }
     });
     sourceArea.addEventListener('paste', event => {
         event.preventDefault();
@@ -345,6 +350,7 @@ export const sourceAreaCreate = () => {
             sourceArea.value = newStringData;
         }
         createLatinTextArea();
+        sourceArea.value = sourAreaDefaultValue;
     })
 }
 /**
@@ -444,6 +450,4 @@ export const createLatinTextArea = async () => {
         });
         mainContainer.appendChild(lineContainer);                           // append each line to the main container
     });
-    // starting value for sourceMaterialBox after page loads
-    sourceArea.value = "Enter a word or source material...";
 }
