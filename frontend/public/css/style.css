@@ -121,7 +121,7 @@ pre {
     width: 300px;
     left: 700px;
     resize: vertical;    /* Allow vertical resizing */
-    overflow: hidden; 
+    overflow: auto; 
     border-radius: 3px;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
