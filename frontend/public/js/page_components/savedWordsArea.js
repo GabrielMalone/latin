@@ -5,13 +5,19 @@ export const savedWordsAreaCreate = () => {
     const notesContainer = document.querySelector("#notesContainer");
     const savedWordsArea = document.querySelector("#savedWordsArea");
     const bottomText = document.querySelector("#bottomText");
+    const savedTextcontainer = document.querySelector("#savedWordsHere");
     const notesTextColorPassive = "#b7b7b7ac";
 
     savedWordsArea.addEventListener('click', () => {
         savedWordsArea.style.backgroundColor = '#0f1313';
-        bottomText.innerHTML = "";
         savedWordsArea.style.zIndex = '3';
         notesContainer.style.zIndex = '2';
+    });
+    savedWordsArea.addEventListener('dblclick', () => {
+        if (savedWordsArea.style.height === '50px')
+            savedWordsArea.style.height = '450px';
+        else 
+            savedWordsArea.style.height = '50px';
     });
     savedWordsArea.addEventListener('mouseleave', ()=> {
         enterText.style.color = notesTextColorPassive;
@@ -23,7 +29,9 @@ export const savedWordsAreaCreate = () => {
     savedWordsArea.addEventListener('mouseenter', ()=> {
         enterText.style.color = notesTextColorPassive;
         savedWordsArea.style.backgroundColor = '#0f1313';
+        bottomText.innerHTML = "";
     });
+    
 }
 
 // export const vocabAreaCreate = () => {

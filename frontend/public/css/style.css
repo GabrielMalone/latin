@@ -35,16 +35,23 @@ pre {
     top: 30px;
     position:absolute;
     border: 1px;
+    width: 700px;
 }
 #latinText {
     margin-top: 20px;
     font-size: 25px;
     margin-left: 60px;
     /* border: #3f3f3e;
-    border-style: solid;
-    border-width: 1px; */
+    border-top: 1px solid #3f3f3e;  
+    border-bottom: 1px solid #3f3f3e;  */
     max-height: 500px;
     overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+#latinText::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 #sourceMaterialArea{
@@ -72,7 +79,13 @@ pre {
     -khtml-user-select: none; /* webkit (konqueror) browsers */
     -ms-user-select: none; /* IE10+ */
     /* box-shadow: 2px 2px 5px rgba(19, 19, 19, 0.3); */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
+}
+#sourceMaterialArea::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 #notesContainer{
     background-color: #080e0eea;
@@ -96,27 +109,32 @@ pre {
     /* box-shadow: 2px 2px 5px rgba(19, 19, 19, 0.3); */
 
 }
-#savedWordsArea{
-    border: #3f3f3e;
-    border-style: solid;
-    border-width: 1px;
+#savedWordsArea {
+    border: 1px solid #3f3f3e;
     z-index: 3;
-    background-color:#0c0f0f;
+    background-color: #0c0f0f;
     position: absolute;
-    min-height: 50px;
-    max-height: 450px;
+    min-height: 50px;    /* Minimum height */
+    max-height: 450px;   /* Maximum height */
+    height: 50px;        /* Initial height */
     top: 115px;
     width: 300px;
     left: 700px;
-    resize: vertical;
-    overflow: auto; 
+    resize: vertical;    /* Allow vertical resizing */
+    overflow: hidden; 
     border-radius: 3px;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
     -moz-user-select: none; /* mozilla browsers */
     -khtml-user-select: none; /* webkit (konqueror) browsers */
     -ms-user-select: none; /* IE10+ */
-    /* box-shadow: 2px 2px 5px rgba(19, 19, 19, 0.3); */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#savedWordsArea::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 #sourceArea {
     resize: none;
@@ -131,7 +149,14 @@ pre {
     margin-bottom: 20px;
     outline: none;
     height: 80px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+#sourceArea::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
 #enterText {
     resize: none;
     background-color: rgba(236, 146, 160, 0);
@@ -144,6 +169,12 @@ pre {
     margin-top: 20px;
     outline: none;
     height: 510px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+#enterText::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 #savedWordsHere {
     border: none;
@@ -158,6 +189,12 @@ pre {
     overflow-wrap: break-word; /* Ensures long words break and wrap */
     word-wrap: break-word; /* For compatibility with older browsers */
     white-space: normal; /* Ensures text wraps normally */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+#savedWordsHere::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 #bottomText {
     position: absolute;
