@@ -104,7 +104,7 @@ pre {
     width: 300px;
     left: 700px;
     resize: vertical;
-    overflow: auto;
+    overflow: auto; 
     border-radius: 3px;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
@@ -125,7 +125,7 @@ pre {
     margin-top: 10px;
     margin-bottom: 20px;
     outline: none;
-    height: 120px;
+    height: 80px;
 }
 #enterText {
     resize: none;

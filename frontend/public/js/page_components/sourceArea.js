@@ -1,5 +1,6 @@
 import { createLatinTextArea } from "./mainTextArea.js";
 import { cleanword, proseLineBreaks, checkForNewLineData } from "./formatting.js";
+import { getDefinition } from "./fetchDefinition.js";
 
 export const sourceAreaCreate = () => {
 
