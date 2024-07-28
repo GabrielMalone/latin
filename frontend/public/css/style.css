@@ -5,23 +5,15 @@ body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color:rgb(138, 137, 137);
 }
-pre {
+/* THIS WAS TO KEEP WHITAKERS OUTPUT FROM OVERFLOWING, NOT SURE IF STILL NEED */
+pre {   
     white-space: pre-wrap;       /* css-3 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
-.line-container {
-    user-select: none; /* Prevent text selection */
-    -webkit-user-select: none; /* For Safari */
-    -moz-user-select: none; /* For Firefox */
-    -ms-user-select: none; /* For Internet Explorer and Edge */
-    outline: none; /* Remove any outline */
-    box-shadow: none; /* Remove shadow effects */
-    background-color: transparent; /* Ensure no background highlight */
-    border: none; /* Ensure no border highlight */
-}
+
 #logo{
     position: absolute;
     left: 985px;
@@ -30,7 +22,7 @@ pre {
     color:#68686b62;
     font-size: 8px;
 }
-
+ /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
 #latinTextAndSourceContainer{
     top: 30px;
     position:absolute;
@@ -44,7 +36,7 @@ pre {
     /* border: #3f3f3e;
     border-top: 1px solid #3f3f3e;  
     border-bottom: 1px solid #3f3f3e;  */
-    max-height: 500px;
+    max-height: 400px;
     overflow: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -53,6 +45,31 @@ pre {
     width: 0;
     height: 0;
 }
+#lookupAreaContainer{
+    left: 30px;
+    width: 700px;
+    vertical-align: bottom;
+}
+#lookUpWord {
+    margin-top: 40px;
+    margin-left: 68px;
+    color:#C8ACD6;
+    font-size:q 25px;
+    max-width: 700px;
+    display: inline-block;
+    vertical-align: top;
+}
+#assistanceArea {
+    margin-top: 15px;
+    margin-left: 70px;
+    color:#FEFDED;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 10px;
+    max-width: 700px;
+    display: inline-block;
+}
+
+ /* ----------------------------------------SOURCE MATERIAL BOXES */
 
 #sourceMaterialArea{
     border: #3f3f3e;
@@ -67,72 +84,17 @@ pre {
     width: 300px;
     left: 700px;
     height:100px;
-    /* -moz-box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
-    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
-    box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;  */
     border-radius: 3px;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
     -moz-user-select: none; /* mozilla browsers */
     -khtml-user-select: none; /* webkit (konqueror) browsers */
     -ms-user-select: none; /* IE10+ */
-    /* box-shadow: 2px 2px 5px rgba(19, 19, 19, 0.3); */
     scrollbar-width: none;
     -ms-overflow-style: none;
 
 }
 #sourceMaterialArea::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-#notesContainer{
-    background-color: #080e0eea;
-    border: #3f3f3e;
-    border-style: solid;
-    border-width: 1px;
-    position: absolute;
-    top: 175px;
-    width: 300px;
-    left: 700px;
-    resize: vertical;
-    max-height: 540px;
-    min-height: 50px;
-    height: 540px;
-    border-radius: 3px;
-    user-select: none; /* standard syntax */
-    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
-    -moz-user-select: none; /* mozilla browsers */
-    -khtml-user-select: none; /* webkit (konqueror) browsers */
-    -ms-user-select: none; /* IE10+ */
-    /* box-shadow: 2px 2px 5px rgba(19, 19, 19, 0.3); */
-
-}
-#savedWordsArea {
-    border: 1px solid #3f3f3e;
-    z-index: 3;
-    background-color: #0c0f0f;
-    position: absolute;
-    min-height: 50px;    /* Minimum height */
-    max-height: 450px;   /* Maximum height */
-    height: 50px;        /* Initial height */
-    top: 115px;
-    width: 300px;
-    left: 700px;
-    resize: vertical;    /* Allow vertical resizing */
-    overflow: auto; 
-    border-radius: 3px;
-    user-select: none; /* standard syntax */
-    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
-    -moz-user-select: none; /* mozilla browsers */
-    -khtml-user-select: none; /* webkit (konqueror) browsers */
-    -ms-user-select: none; /* IE10+ */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-#savedWordsArea::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
@@ -156,23 +118,30 @@ pre {
     width: 0;
     height: 0;
 }
-
-#enterText {
-    resize: none;
-    background-color: rgba(236, 146, 160, 0);
-    border: none;
-    font-size: 12px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color:#b7b7b7ac;
-    width: 90%;
-    margin-left: 22px;
-    margin-top: 20px;
-    outline: none;
-    height: 510px;
+/* ------------------------------------------SAVED WORDS BOXES */
+#savedWordsArea {
+    border: 1px solid #3f3f3e;
+    z-index: 3;
+    background-color: #0c0f0f;
+    position: absolute;
+    min-height: 50px;    /* Minimum height */
+    max-height: 450px;   /* Maximum height */
+    height: 50px;        /* Initial height */
+    top: 115px;
+    width: 300px;
+    left: 700px;
+    overflow: auto; 
+    border-radius: 3px;
+    user-select: none; /* standard syntax */
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
-#enterText::-webkit-scrollbar {
+
+#savedWordsArea::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
@@ -181,11 +150,10 @@ pre {
     font-size: 9px;
     font-family: 'Courier New', Courier, monospace;
     color:rgba(252, 252, 252, 0.794);
-    width: 250px;
+    width: 230px;
     margin-left: 23px;
     margin-top: 10px;
     outline: none;
-    height: auto;
     overflow-wrap: break-word; /* Ensures long words break and wrap */
     word-wrap: break-word; /* For compatibility with older browsers */
     white-space: normal; /* Ensures text wraps normally */
@@ -211,25 +179,49 @@ pre {
     font-size: 10px;
 }
 
-.horizontal-line {
-    width: 640px; /* Adjust width as needed */
-    height: 1px; /* Adjust thickness as needed */
-    background-color: #68686ba1; /* Change color as needed */
-    margin: 20px 0; /* Adjust margin to fit your design */
-}
+/* ------------------------------------------NOTES BOXES */
+#notesContainer{
+    background-color: #080e0eea;
+    border: #3f3f3e;
+    border-style: solid;
+    border-width: 1px;
+    position: absolute;
+    top: 175px;
+    width: 300px;
+    left: 700px;
+    resize: vertical;
+    max-height: 540px;
+    min-height: 50px;
+    height: 540px;
+    border-radius: 3px;
+    user-select: none; /* standard syntax */
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+    /* box-shadow: 2px 2px 5px rgba(19, 19, 19, 0.3); */
 
-
-.z-index-bottom {
-    z-index: 0;
 }
-.z-index-middle {
-    z-index: 1;
+#enterText {
+    resize: none;
+    background-color: rgba(236, 146, 160, 0);
+    border: none;
+    font-size: 12px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#b7b7b7ac;
+    width: 90%;
+    margin-left: 22px;
+    margin-top: 20px;
+    outline: none;
+    height: 510px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
-.z-index-top {
-    z-index: 2;
+#enterText::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
-
-
+/* -------------------------LATIN WORD OBJECTS AND THEIR HIGHLIGHTING EFFECTS */
 .word {
     color:#f6f6f6db;
     display:inline;
@@ -265,32 +257,41 @@ pre {
 .word.preposition.highlight {
     color: rgb(80, 5, 49);
 }
+ /* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
+.line-container {
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For Internet Explorer and Edge */
+    outline: none; /* Remove any outline */
+    box-shadow: none; /* Remove shadow effects */
+    background-color: transparent; /* Ensure no background highlight */
+    border: none; /* Ensure no border highlight */
+}
 
-#lookupAreaContainer{
-    left: 30px;
-    width: 700px;
-    vertical-align: bottom;
-}
-#lookUpWord {
-    margin-top: 40px;
-    margin-left: 68px;
-    color:#C8ACD6;
-    font-size:q 25px;
-    max-width: 700px;
-    display: inline-block;
-    vertical-align: top;
-}
-#assistanceArea {
-    margin-top: 15px;
-    margin-left: 70px;
-    color:#FEFDED;
-    font-family:'Courier New', Courier, monospace;
-    font-size: 10px;
-    max-width: 700px;
-    display: inline-block;
+/* ------------------------------------------------OTHER STUFF  */
+
+.horizontal-line {
+    width: 640px; /* Adjust width as needed */
+    height: 1px; /* Adjust thickness as needed */
+    background-color: #68686ba1; /* Change color as needed */
+    margin: 20px 0; /* Adjust margin to fit your design */
 }
 #top.horizontal-line {
     display: inline-block;
     margin-top: 15px;
     margin-left: 60px;
 }
+
+
+.z-index-bottom {
+    z-index: 0;
+}
+.z-index-middle {
+    z-index: 1;
+}
+.z-index-top {
+    z-index: 2;
+}
+
+

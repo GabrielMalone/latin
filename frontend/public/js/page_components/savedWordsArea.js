@@ -12,8 +12,6 @@ export const savedWordsAreaCreate = () => {
         savedWordsArea.style.backgroundColor = '#0f1313';
         savedWordsArea.style.zIndex = '3';
         notesContainer.style.zIndex = '2';
-    });
-    savedWordsArea.addEventListener('dblclick', () => {
         if (savedWordsArea.style.height === '50px')
             savedWordsArea.style.height = '450px';
         else 

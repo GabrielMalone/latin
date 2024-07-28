@@ -12,6 +12,7 @@ export const notesAreaCreate = () => {
 
     const sourceArea = document.querySelector("#sourceArea");
     const enterText = document.querySelector("#enterText");
+    const vocabArea = document.querySelector("#savedWordsArea");
 
     enterText.value = startingNotesValue;
 
@@ -39,6 +40,7 @@ export const notesAreaCreate = () => {
         notesContainer.style.backgroundColor = '#080e0eea';
         sourceArea.style.color = sourceTextColorPassive;
         enterText.style.color = notesTextColorActive;
+        //vocabArea.style.height = "50px";
 
     });
 
