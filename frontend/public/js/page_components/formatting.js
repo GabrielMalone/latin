@@ -1,5 +1,5 @@
 const lineBreakLengthForProseInput = 35;
-const whitakerOutputColoredLine = '#59b3eb'; // currently a light blue color
+const whitakerOutputColoredLine = '#fefded'; // currently a light blue color
 const whitaerOutputColor = `#fefdeda8`; // currently off-white
 
 /**
