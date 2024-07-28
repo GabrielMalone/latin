@@ -40,6 +40,11 @@ pre {
     margin-top: 20px;
     font-size: 25px;
     margin-left: 60px;
+    /* border: #3f3f3e;
+    border-style: solid;
+    border-width: 1px; */
+    max-height: 500px;
+    overflow: scroll;
 }
 
 #sourceMaterialArea{
@@ -186,7 +191,6 @@ pre {
 .z-index-top {
     z-index: 2;
 }
-
 
 
 .word {
