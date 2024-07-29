@@ -16,7 +16,7 @@ pre {
 
 #logo{
     position: absolute;
-    left: 985px;
+    left: 990px;
     top: 75px;
     transform: rotate(90deg);
     color:#68686b62;
@@ -30,6 +30,8 @@ pre {
     width: 700px;
 }
 #latinText {
+    position: relative;
+    z-index: 2;
     margin-top: 20px;
     font-size: 25px;
     margin-left: 60px;
@@ -40,6 +42,8 @@ pre {
     overflow: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    /* box-shadow: inset 0 10px 8px -10px #060c0c,
+                inset 0 -10px 8px -10px #060c0c; */
 }
 #latinText::-webkit-scrollbar {
     width: 0;
@@ -76,7 +80,6 @@ pre {
     border-style: solid;
     border-width: 1px;
     overflow: auto;
-    box-sizing: border-box;
     max-width: 90%;
     background-color:#31363f2c;
     position: absolute;
@@ -92,7 +95,6 @@ pre {
     -ms-user-select: none; /* IE10+ */
     scrollbar-width: none;
     -ms-overflow-style: none;
-
 }
 #sourceMaterialArea::-webkit-scrollbar {
     width: 0;
@@ -127,7 +129,7 @@ pre {
     min-height: 50px;    /* Minimum height */
     max-height: 450px;   /* Maximum height */
     height: 50px;        /* Initial height */
-    top: 115px;
+    top: 118px;
     width: 300px;
     left: 700px;
     overflow: auto; 
@@ -229,36 +231,57 @@ pre {
     width: 100%;
     outline: none;
     position:relative;
+    z-index: 1;
 }
 .word.highlight {
     color: #C8ACD6;
 }
 .word.accusative {
-    color: rgb(237, 32, 199);
+    color: rgb(255, 93, 220);
 }
 .word.accusative.highlight {
-    color: rgb(172, 25, 145);
+    color: rgba(255, 93, 220, 0.331);
 }
 .word.verb {
-    color: rgb(133, 231, 129);
+    color: rgb(233, 249, 86);
 }
 .word.verb.highlight {
-    color: rgb(77, 150, 77);
+    color: rgba(233, 249, 86, 0.454);
 }
 .word.subject {
-    color: rgb(16, 178, 219);
+    color: rgb(98, 221, 255);
 }
 .word.subject.highlight {
-    color: rgb(13, 110, 167);
+    color: rgba(98, 221, 255, 0.442);
 }
 .word.preposition {
-    color: rgb(148, 9, 90);
+    color: rgba(119, 214, 221, 0.475);
 }
 .word.preposition.highlight {
-    color: rgb(80, 5, 49);
+    color: rgba(119, 214, 221, 0.103);
+}
+.word.ablative {
+    color: rgb(215, 117, 43);
+}
+.word.ablative.highlight {
+    color: rgba(241, 158, 94, 0.333);
+}
+.word.dative {
+    color: rgb(96, 214, 83);
+}
+.word.dative.highlight {
+    color: rgba(96, 214, 83, 0.556);
+}
+.word.genitive {
+    color: rgb(214, 83, 83);
+}
+.word.genitive.highlight {
+    color: rgba(214, 83, 83, 0.322);
 }
  /* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
 .line-container {
+    position: relative;
+    z-index: 0;
     user-select: none; /* Prevent text selection */
     -webkit-user-select: none; /* For Safari */
     -moz-user-select: none; /* For Firefox */
