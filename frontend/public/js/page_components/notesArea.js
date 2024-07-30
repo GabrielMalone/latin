@@ -1,6 +1,4 @@
 
-let firstTimeclicking = true;
-
 /**
  * click to begin entering notes
  */
@@ -16,10 +14,9 @@ export const notesAreaCreate = () => {
     enterText.innerHTML = startingNotesValue;
 
     enterText.addEventListener('click', ()=> {
-        if(firstTimeclicking){
+        if(enterText.innerHTML===startingNotesValue){
             enterText.innerHTML = "";
         }
-        firstTimeclicking = false;
     });
     enterText.addEventListener('mouseleave', ()=> {
         if (enterText.innerHTML === ""){
