@@ -18,6 +18,8 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
     const sourceMaterialArea = document.querySelector("#sourceMaterialArea");
     const sourceArea = document.querySelector("#sourceArea");
     const mainContainer = document.getElementById('latinText'); 
+    const inputLabel = document.getElementById('inputLabel');
+
     // default page load text
     sourceArea.value = startingLatinValue;
  
@@ -58,12 +60,19 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
     })
 
      sourceMaterialArea.addEventListener('click', ()=> {
-         sourceArea.style.color = sourceTextColorActive;
-         enterText.style.color = notesTextColorPassive;
          sourceArea.value = ""; 
      });
 
      sourceMaterialArea.addEventListener('mouseleave', ()=> {
-         sourceArea.style.color = sourceTextColorPassive;
-     });
+        sourceArea.style.backgroundColor = "#091313";
+        inputLabel.style.color = '#C8ACD6'
+        sourceArea.style.color = "#415555";
+
+    });
+     sourceMaterialArea.addEventListener('mouseenter', ()=> {
+        sourceArea.style.backgroundColor = "#0b1717";
+        sourceArea.style.color = "#4f6565";
+        inputLabel.style.color = '#e2c3f1'
+    });
+
 }

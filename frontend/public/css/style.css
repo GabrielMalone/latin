@@ -3,7 +3,7 @@ html, body {
     padding: 0;
     box-sizing: border-box;
 }
-
+  
 body {
     background-color:#060c0c;
     background-repeat: no-repeat;
@@ -16,7 +16,7 @@ body {
     height: 80vh;
 }
 /* THIS WAS TO KEEP WHITAKERS OUTPUT FROM OVERFLOWING, NOT SURE IF STILL NEED */
-pre {
+pre {   
     white-space: pre-wrap;
     word-wrap: break-word;
 }
@@ -28,7 +28,7 @@ pre {
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
     overflow: visible;      /* Hides any content that overflows the container */
     display: flex;
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* #logo{
@@ -38,7 +38,7 @@ pre {
     font-size: 8px;
     align-self:flex-start;
 } */
-
+ 
 /* ----------------------------------------SOURCE MATERIAL BOXES */
 
 #sourceContainer{
@@ -55,7 +55,7 @@ pre {
     font-size: 2vw;
 }
 #sourceMaterialArea{
-    border: #3f3f3e;
+    border: #111010;
     border-style: solid;
     border-width: 1px 1px 1px 1px;
     background-color:#00000000;
@@ -84,21 +84,21 @@ pre {
     text-align: left; /* Horizontal centering */
     justify-content: left; /* Center horizontally */
     align-items: center; /* Center vertically */
-    padding-top: .7vw;
+    padding-top: .8vw;
     padding-left: 1.5vw;
-    background: rgba(168, 137, 137, 0);
-    color: #b7b7b7ac;
+    background: #091313;
+    color:#415555;
     border: none;
     width: 100%;
     height: 100%;
-    font-size: 1vw;
+    font-size: clamp(8px, 1vw, 20px);
     font-family: monospace;
     outline: none;
     scrollbar-width: none;
     resize: none;
     -ms-overflow-style: none;
 }
-/* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
+ /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
 #latinTextAndSourceContainer{
     position:relative;
     color: b7b7b7ac;
@@ -132,6 +132,7 @@ pre {
 #lookupAreaContainer{
     height: 50vh;
     width: 100%;
+    overflow: visible;
 }
 #lookUpWord {
     margin-top: 2vh;
@@ -147,13 +148,14 @@ pre {
     color:#FEFDED;
     font-family:'Courier New', Courier, monospace;
     font-size: clamp(8px, 1vw, 15px);
+    overflow: visible;
 }
 
-/* ----------------------------------------INPUT BOXES MAIN CONTAINER */
-#inputContainers {
+ /* ----------------------------------------INPUT BOXES MAIN CONTAINER */
+ #inputContainers {
     position: static;      /* Keeps the element in the normal document flow */
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
-    overflow: hidden;
+    overflow: hidden;     
     display:grid;
     max-height: 100vh;
     width: 30%;
@@ -179,7 +181,7 @@ pre {
     height: 100%;
     min-height: 10%;
     max-height: 70vh;
-
+    
     box-sizing: border-box; /* Ensure padding and border are included in the height calculation */
     overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
 }
@@ -207,7 +209,7 @@ pre {
 }
 /* -------------------------LATIN WORD OBJECTS AND THEIR HIGHLIGHTING EFFECTS */
 .word {
-    color:cornsilk;
+    color:rgba(255, 248, 220, 0.733);
     display:inline;
     margin: .3vw;
     width: 100%;
@@ -259,7 +261,7 @@ pre {
 .word.genitive.highlight {
     color: rgba(214, 83, 83, 0.322);
 }
-/* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
+ /* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
 .line-container {
     position: relative;
     user-select: none; /* Prevent text selection */
