@@ -1,7 +1,7 @@
 import { createLatinTextArea } from "./page_components/mainTextArea.js"; 
 import { notesAreaCreate } from "./page_components/notesArea.js";
 import { sourceAreaCreate } from "./page_components/sourceArea.js";
-// import { savedWordsAreaCreate } from "./page_components/savedWordsArea.js";
+
 
 const latinTextArea = document.getElementById('latinText');
 
@@ -13,11 +13,10 @@ latinTextArea.addEventListener('mouseleave', () => {
 // build the page
 notesAreaCreate();
 sourceAreaCreate();
-// savedWordsAreaCreate();
 createLatinTextArea();
 
 // set default value for source material 
 window.addEventListener("load", function() {
     console.log("Page fully loaded");
-    this.document.querySelector("#sourceArea").value = "Enter a word/s or paste in source material";
+    this.document.querySelector("#sourceArea").innerHTML = "Enter a word/s or paste in source material";
 });
