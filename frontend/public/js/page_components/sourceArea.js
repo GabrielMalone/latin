@@ -28,7 +28,7 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
 
     sourceArea.addEventListener('keydown', (event) => {
         mainContainer.innerHTML = "";
-        let wordArray = sourceArea.value.split("\n");
+        let wordArray = sourceArea.value.split(/\s+/);
         if (sourceArea === ""){
             wordArray = [];
         }
@@ -37,20 +37,6 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
             getDefinition(cleanword(wordArray[wordArray.length-1]));
         }
     });
-//    sourceArea.addEventListener('keyup', (event) => {
-//         mainContainer.innerHTML = "";
-//         if (isPasting) {
-//             isPasting = false;
-//             return; // Ignore keyup events triggered by pasting
-//         }
-//         createLatinTextArea();
-//         // always look up the last word typed
-//         let wordArray = sourceArea.textContent.split(/[\s\n]+/);
-//         if (sourceArea === ""){
-//             wordArray = [];
-//         }
-//         getDefinition(cleanword(wordArray[wordArray.length-1])); 
-//     });
 
     sourceArea.addEventListener('paste', event => {
         // need a way to strip all html data aside form newline data
