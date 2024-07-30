@@ -39,11 +39,9 @@ export const doubleClickWord = (wordDiv) => {
         let hasWord = vocabListArray.some(definition => definition === currentDefinition);
         if (!hasWord) {
             vocabListArray.push(currentDefinition);
-            savedWordsHere.insertAdjacentHTML("afterbegin", `<p><pre>${currentDefinition}</pre></p>`);
+            document.querySelector("#enterText").insertAdjacentHTML("afterbegin", `<p><pre>${currentDefinition}</pre></p>`);
         }
-        document.querySelector("#savedWordsArea").classList = 'z-index-top';
-        document.querySelector("#notesContainer").classList = 'z-index-bottom';
-        document.querySelector("#bottomText").innerHTML = "";
+        //document.querySelector("#enterText").innerHTML = "";
     });
 }
 

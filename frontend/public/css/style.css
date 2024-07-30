@@ -1,93 +1,55 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
 body {
     background-color:#060c0c;
     background-image: url('../images/background.png');
     background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: contain;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color:rgb(138, 137, 137);
+    margin: 5vw;
+    overflow: auto;
+    width: 90vw;
+    height: 70vh;
 }
 /* THIS WAS TO KEEP WHITAKERS OUTPUT FROM OVERFLOWING, NOT SURE IF STILL NEED */
 pre {   
-    white-space: pre-wrap;       /* css-3 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
-#logo{
-    position: absolute;
-    left: 990px;
-    top: 75px;
+#mainContainer {
+    position: static;      /* Keeps the element in the normal document flow */
+    width: 90vw;        /* Sets the maximum width to 80% of its parent */
+    height: 90vh;        /* Sets the maximum width to 80% of its parent */
+    box-sizing: border-box;/* Includes padding and border in the element's total width and height */
+    overflow: visible;      /* Hides any content that overflows the container */
+    display: flex;
+}
+
+/* #logo{
+    position: relative;
     transform: rotate(90deg);
     color:#68686b62;
     font-size: 8px;
-}
- /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
-#latinTextAndSourceContainer{
-    top: 30px;
-    position:absolute;
-    border: 1px;
-    width: 700px;
-}
-#latinText {
-    position: relative;
-    z-index: 2;
-    margin-top: 20px;
-    font-size: 25px;
-    margin-left: 60px;
-    /* border: #3f3f3e;
-    border-top: 1px solid #3f3f3e;  
-    border-bottom: 1px solid #3f3f3e;  */
-    max-height: 400px;
-    overflow: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    /* box-shadow: inset 0 10px 8px -10px #060c0c,
-                inset 0 -10px 8px -10px #060c0c; */
-}
-#latinText::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-#lookupAreaContainer{
-    left: 30px;
-    width: 700px;
-    vertical-align: bottom;
-}
-#lookUpWord {
-    margin-top: 40px;
-    margin-left: 68px;
-    color:#C8ACD6;
-    font-size:q 25px;
-    max-width: 700px;
-    display: inline-block;
-    vertical-align: top;
-}
-#assistanceArea {
-    margin-top: 15px;
-    margin-left: 70px;
-    color:#FEFDED;
-    font-family:'Courier New', Courier, monospace;
-    font-size: 10px;
-    max-width: 700px;
-    display: inline-block;
-}
-
+    align-self:flex-start;
+} */
  /* ----------------------------------------SOURCE MATERIAL BOXES */
-
-#sourceMaterialArea{
+ #sourceMaterialArea{
+    margin-bottom: 3vh;
     border: #3f3f3e;
     border-style: solid;
-    border-width: 1px;
+    border-width: 1px 1px 1px 1px;
     overflow: auto;
-    max-width: 90%;
-    background-color:#31363f2c;
-    position: absolute;
-    top: 10px;
-    width: 300px;
-    left: 700px;
-    height:100px;
-    border-radius: 3px;
+    background-color:#00000000;
+    position: relative;
+    width: 46%;
+    min-width: 40%;
+    border-radius: 10px;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
     -moz-user-select: none; /* mozilla browsers */
@@ -95,45 +57,125 @@ pre {
     -ms-user-select: none; /* IE10+ */
     scrollbar-width: none;
     -ms-overflow-style: none;
+    resize: none;
+    margin-right: .5vw;
 }
 #sourceMaterialArea::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
 #sourceArea {
-    resize: none;
-    background-color: rgba(24, 19, 20, 0);
+    margin-left: 10px;
+    background: rgba(0, 0, 0, 0);
+    color: #b7b7b7ac;
     border: none;
-    font-size: 10px;
-    font-family: 'Courier New', Courier, monospace;
-    color:#68686b;
-    width: 90%;
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    width: 100%;
+    font-size: .75vw;
+    font-family: monospace;
     outline: none;
-    height: 80px;
     scrollbar-width: none;
+    resize: none;
+    padding: 1vw;
     -ms-overflow-style: none;
 }
 #sourceArea::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
-/* ------------------------------------------SAVED WORDS BOXES */
-#savedWordsArea {
-    border: 1px solid #3f3f3e;
-    z-index: 3;
-    background-color: #0c0f0f;
-    position: absolute;
-    min-height: 50px;    /* Minimum height */
-    max-height: 450px;   /* Maximum height */
-    height: 50px;        /* Initial height */
-    top: 118px;
-    width: 300px;
-    left: 700px;
-    overflow: auto; 
-    border-radius: 3px;
+ /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
+#latinTextAndSourceContainer{
+    position:relative;
+    color: b7b7b7ac;
+    border: 1px;
+    width: 70%;
+    height: 100%;
+    display: inline-block;
+    overflow: visible;
+}
+#latinText {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    background: transparent;
+    position: relative;
+    font-size: 2.5vw;
+    border: #3f3f3e;
+    max-height: 30vh;
+    max-width: 65vw;
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* box-shadow: inset 0 10px 8px -10px #060c0c,
+                inset 0 -10px 8px -10px #060c0c; */
+}
+
+#latinText::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+
+#lookupAreaContainer{
+    height: 50vh;
+    width: 100%;
+}
+#lookUpWord {
+    margin-top: 2vh;
+    position: relative;
+    color:#C8ACD6;
+    font-size: 3vh;
+
+}
+#assistanceArea {
+    position: relative;
+    margin-top: 2vh;
+    margin-left: 2vh;
+    color:#FEFDED;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 1.5vh;
+}
+
+ /* ----------------------------------------INPUT BOXES MAIN CONTAINER */
+ #inputContainers {
+    position: static;      /* Keeps the element in the normal document flow */
+    box-sizing: border-box;/* Includes padding and border in the element's total width and height */
+    overflow: hidden;     
+    display:grid;
+    max-height: 100vh;
+    width: 30%;
+}
+/* ------------------------------------------NOTES BOXES */
+#notesContainer {
+    margin-top: 2vh;
+    border: #3f3f3e;
+    border-style: solid;
+    border-width: 1px;
+    padding: 1vw;
+    background-color: transparent;
+    position: relative;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    resize: vertical;
+    width: 100%;
+    min-height: 10%;
+    max-height: 90%;
+    box-sizing: border-box; /* Ensure padding and border are included in the height calculation */
+    overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
+}
+#enterText {
+    overflow: auto;
+    background-color: transparent;
+    font-family: 'Courier New', Courier, monospace;
+    color: #b7b7b7ac;
+    font-size: 1vw;
+    position: relative;
+    width: 95%;
+    height: 95%;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
     -moz-user-select: none; /* mozilla browsers */
@@ -141,97 +183,20 @@ pre {
     -ms-user-select: none; /* IE10+ */
     scrollbar-width: none;
     -ms-overflow-style: none;
-}
-
-#savedWordsArea::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-#savedWordsHere {
-    border: none;
-    font-size: 9px;
-    font-family: 'Courier New', Courier, monospace;
-    color:rgba(252, 252, 252, 0.794);
-    width: 230px;
-    margin-left: 23px;
-    margin-top: 10px;
-    outline: none;
-    overflow-wrap: break-word; /* Ensures long words break and wrap */
-    word-wrap: break-word; /* For compatibility with older browsers */
-    white-space: normal; /* Ensures text wraps normally */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    outline: none; /* Remove focus outline */
 }
 #savedWordsHere::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
-#bottomText {
-    position: absolute;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    vertical-align: middle;
-    color:#eeeeeea5;
-    width: 250px;
-    top: 10px;
-    left: 10px;
-    height: 30px;
-    margin-left: 15px;
-    margin-top: 10px;
-    outline: none;
-    font-size: 10px;
-}
-
-/* ------------------------------------------NOTES BOXES */
-#notesContainer{
-    background-color: #080e0eea;
-    border: #3f3f3e;
-    border-style: solid;
-    border-width: 1px;
-    position: absolute;
-    top: 175px;
-    width: 300px;
-    left: 700px;
-    resize: vertical;
-    max-height: 540px;
-    min-height: 50px;
-    height: 540px;
-    border-radius: 3px;
-    user-select: none; /* standard syntax */
-    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
-    -moz-user-select: none; /* mozilla browsers */
-    -khtml-user-select: none; /* webkit (konqueror) browsers */
-    -ms-user-select: none; /* IE10+ */
-    /* box-shadow: 2px 2px 5px rgba(19, 19, 19, 0.3); */
-
-}
-#enterText {
-    resize: none;
-    background-color: rgba(236, 146, 160, 0);
-    border: none;
-    font-size: 12px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color:#b7b7b7ac;
-    width: 90%;
-    margin-left: 22px;
-    margin-top: 20px;
-    outline: none;
-    height: 510px;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-#enterText::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
 /* -------------------------LATIN WORD OBJECTS AND THEIR HIGHLIGHTING EFFECTS */
 .word {
-    color:#f6f6f6db;
+    color:cornsilk;
     display:inline;
-    margin: 4px;
+    margin: .3vw;
     width: 100%;
     outline: none;
     position:relative;
-    z-index: 1;
 }
 .word.highlight {
     color: #C8ACD6;
@@ -295,18 +260,10 @@ pre {
 /* ------------------------------------------------OTHER STUFF  */
 
 .horizontal-line {
-    width: 640px; /* Adjust width as needed */
+    width: 70%; /* Adjust width as needed */
     height: 1px; /* Adjust thickness as needed */
-    background-color: #68686ba1; /* Change color as needed */
-    margin: 20px 0; /* Adjust margin to fit your design */
+    background-color: #68686b55; /* Change color as needed */
 }
-#top.horizontal-line {
-    display: inline-block;
-    margin-top: 15px;
-    margin-left: 60px;
-}
-
-
 .z-index-bottom {
     z-index: 0;
 }

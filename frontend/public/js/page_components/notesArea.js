@@ -1,57 +1,45 @@
 
+let firstTimeclicking = true;
+
 /**
  * click to begin entering notes
  */
 export const notesAreaCreate = () => {
 
     const notesTextColorActive = "#b7b7b7"; 
-    const startingNotesValue = `Enter notes/Translation...` // starting value for the notes area
-
+    const startingNotesValue = `<p>Enter notes/Translation<p>
+    <p>Double click a word to add its dictionary entry to the top of your notes<p>` // starting value for the notes area
+    const backgroundColor = "#080e0e00";
     const notesTextColorPassive = "#b7b7b7ac";
-    const sourceTextColorPassive = "#68686b";
-
-    const sourceArea = document.querySelector("#sourceArea");
     const enterText = document.querySelector("#enterText");
-    const vocabArea = document.querySelector("#savedWordsArea");
+    const notesArea = document.querySelector("#notesContainer");
 
-    enterText.value = startingNotesValue;
+    enterText.innerHTML = startingNotesValue;
 
     enterText.addEventListener('click', ()=> {
-        if(enterText.value === startingNotesValue || enterText.value === startingNotesValue){
-            enterText.value = "";
+        if(firstTimeclicking){
+            enterText.innerHTML = "";
         }
+        firstTimeclicking = false;
     });
-
     enterText.addEventListener('mouseleave', ()=> {
-        if (enterText.value === ""){
+        if (enterText.innerHTML === ""){
             enterText.value = startingNotesValue;
         }     
     });
-
-    enterText.addEventListener('dblclick', () => {
-        if (enterText.value === startingNotesValue|| enterText.value === startingNotesValue){
-            enterText.value="";
-        }
-        enterText.classList = ''
-    });
-
     notesContainer.addEventListener('click', ()=> {
-        notesContainer.style.zIndex = '3';
-        notesContainer.style.backgroundColor = '#080e0eea';
-        sourceArea.style.color = sourceTextColorPassive;
+        notesContainer.style.backgroundColor = backgroundColor;
         enterText.style.color = notesTextColorActive;
-        //vocabArea.style.height = "50px";
-
     });
 
     notesContainer.addEventListener('mouseleave', ()=> {
         enterText.style.color = notesTextColorPassive;
-        notesContainer.style.backgroundColor = '#080e0eea';
+        notesContainer.style.backgroundColor = backgroundColor;
     });
 
     notesContainer.addEventListener('mouseenter', ()=> {
         enterText.style.color = notesTextColorActive;
-        notesContainer.style.backgroundColor = '#080e0eea';
+        notesContainer.style.backgroundColor = backgroundColor;
     });
 
 }
