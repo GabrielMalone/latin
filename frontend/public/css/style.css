@@ -14,7 +14,7 @@ body {
     margin: 5vw;
     overflow: auto;
     width: 90vw;
-    height: 70vh;
+    height: 80vh;
 }
 /* THIS WAS TO KEEP WHITAKERS OUTPUT FROM OVERFLOWING, NOT SURE IF STILL NEED */
 pre {   
@@ -24,8 +24,8 @@ pre {
 
 #mainContainer {
     position: static;      /* Keeps the element in the normal document flow */
-    width: 90vw;        /* Sets the maximum width to 80% of its parent */
-    height: 90vh;        /* Sets the maximum width to 80% of its parent */
+    width: 100%;        /* Sets the maximum width to 80% of its parent */
+    height: 90%;        /* Sets the maximum width to 80% of its parent */
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
     overflow: visible;      /* Hides any content that overflows the container */
     display: flex;
@@ -124,7 +124,7 @@ pre {
     margin-top: 2vh;
     position: relative;
     color:#C8ACD6;
-    font-size: 3vh;
+    font-size: calc(1vw + 1vh);
 
 }
 #assistanceArea {
@@ -133,8 +133,7 @@ pre {
     margin-left: 2vh;
     color:#FEFDED;
     font-family:'Courier New', Courier, monospace;
-    font-size: 1vw;
-    font-size: 1vh;
+    font-size: clamp(8px, 1vw, 15px);
 }
 
  /* ----------------------------------------INPUT BOXES MAIN CONTAINER */

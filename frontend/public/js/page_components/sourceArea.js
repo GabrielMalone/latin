@@ -86,6 +86,7 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
             sourceArea.value = newStringData;
         }
         createLatinTextArea();
+        sourceArea.classList.remove('fade');
     })
 
      sourceMaterialArea.addEventListener('click', ()=> {
