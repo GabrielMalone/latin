@@ -35,11 +35,16 @@ export const colorCodeDefinition = (translation) => {
  */
 export const checkForNewLineData = (sourceArea) => {
     let newLinePresent = false;
-    for (let i  = 0 ; i  < sourceArea.value.length ; i ++ ){
-        let currentChar = sourceArea.value[i];
-        if (currentChar === "\n"){
-            newLinePresent = true;
-        }
+    const brRegex = /<br\s*\/?>/i; // This regex handles <br>, <br/>, <br /> with case insensitivity
+    // for (let i  = 0 ; i  < sourceArea.value.length ; i ++ ){
+    //     let currentChar = sourceArea.value[i];
+    //     if (currentChar === "\n"){
+    //         newLinePresent = true;
+    //     }
+    // }
+    if (sourceArea.value.includes('\n') || brRegex.test(sourceArea.value)){
+        newLinePresent = true;
+        console.log('new line data present');
     }
     return newLinePresent;
 }
@@ -52,18 +57,26 @@ export const checkForNewLineData = (sourceArea) => {
 export const proseLineBreaks = (sourceArea) => {
     let newStringData = "";
     let index = 0;
-    for (let i  = 0 ; i  < sourceArea.value.length ; i ++ ){
+    let currentLine = "";
+
+    for (let i = 0; i < sourceArea.value.length; i++) {
         let currentChar = sourceArea.value[i];
-        console.log(currentChar);
-        if (currentChar === " " && index >= lineBreakLengthForProseInput){
-            newStringData += "\n";
+        currentLine += currentChar;
+        index++;
+
+        // Check if the current line exceeds the specified length and the current character is a space
+        if (index >= lineBreakLengthForProseInput && currentChar === " ") {
+            newStringData += currentLine.trim() + "\n";
+            currentLine = "";
             index = 0;
-            index ++;
-            continue;
         }
-        newStringData += currentChar;
-        index ++;
     }
+
+    // Add any remaining part of the string
+    if (currentLine.length > 0) {
+        newStringData += currentLine;
+    }
+
     return newStringData;
 }
 

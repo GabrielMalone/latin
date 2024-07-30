@@ -3,15 +3,6 @@ import { cleanword, proseLineBreaks, checkForNewLineData } from "./formatting.js
 import { getDefinition } from "./fetchDefinition.js";
 
 let isPasting = false;
-let hitSpaceKey = new KeyboardEvent('keydown', {
-    key: ' ',
-    code: 'Space',
-    keyCode: 32, // Deprecated, but still needed for some browsers
-    charCode: 32, // Deprecated, but still needed for some browsers
-    which: 32, // Deprecated, but still needed for some browsers
-    bubbles: true, // Whether the event bubbles up through the DOM or not
-    cancelable: true
-});
 
 export const sourceAreaCreate = () => {
 
@@ -43,7 +34,6 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
 
     sourceArea.addEventListener('click', ()=> {
         sourceArea.value = "";
-        hitSpaceKey(); 
     });
 
     sourceArea.addEventListener('mouseleave', ()=> {
@@ -53,27 +43,27 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
     });
 
     sourceArea.addEventListener('keydown', (event) => {
-            mainContainer.innerHTML = "";
-            createLatinTextArea();
-            let wordArray = sourceArea.value.split(/[\s\n]+/);
-            if (sourceArea === ""){
-                wordArray = [];
-            }
-          getDefinition(cleanword(wordArray[wordArray.length-1]));
+        mainContainer.innerHTML = "";
+        createLatinTextArea();
+        let wordArray = sourceArea.value.split(/[\s\n]+/);
+        if (sourceArea === ""){
+            wordArray = [];
+        }
+        getDefinition(cleanword(wordArray[wordArray.length-1]));
     });
    sourceArea.addEventListener('keyup', (event) => {
-            mainContainer.innerHTML = "";
-            if (isPasting) {
-                isPasting = false;
-                return; // Ignore keyup events triggered by pasting
-            }
-            createLatinTextArea();
-            // always look up the last word typed
-            let wordArray = sourceArea.value.split(/[\s\n]+/);
-            if (sourceArea === ""){
-                wordArray = [];
-            }
-          getDefinition(cleanword(wordArray[wordArray.length-1])); 
+        mainContainer.innerHTML = "";
+        if (isPasting) {
+            isPasting = false;
+            return; // Ignore keyup events triggered by pasting
+        }
+        createLatinTextArea();
+        // always look up the last word typed
+        let wordArray = sourceArea.value.split(/[\s\n]+/);
+        if (sourceArea === ""){
+            wordArray = [];
+        }
+        getDefinition(cleanword(wordArray[wordArray.length-1])); 
     });
 
     sourceArea.addEventListener('paste', event => {
@@ -90,10 +80,7 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
             // set the sourcevalue to this new string
             sourceArea.value = newStringData;
         }
-        hitSpaceKey(); // just to make sure the the next function triggers
-        hitSpaceKey();  
         createLatinTextArea();
-        sourceArea.value = sourceAreaDefaultValue;
     })
 
      sourceMaterialArea.addEventListener('click', ()=> {
