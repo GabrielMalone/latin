@@ -6,9 +6,8 @@ html, body {
   
 body {
     background-color:#060c0c;
-    /* background-image: url('../images/background.png'); */
     background-repeat: no-repeat;
-    background-position: bottom right;
+    background-position: bottom;
     background-size: contain;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 5vw;
@@ -52,7 +51,7 @@ pre {
 }
 #inputLabel{
     margin-right: 1vw;
-    color: rgba(250, 235, 215, 0.579);
+    color: #C8ACD6;
     font-size: 2vw;
 }
 #sourceMaterialArea{
@@ -166,7 +165,6 @@ pre {
     border-style: solid;
     border-width: 1px;
     padding: 1vw;
-    background-color: transparent;
     position: relative;
     border-radius: 10px;
     user-select: none;
@@ -181,6 +179,7 @@ pre {
     height: 100%;
     min-height: 10%;
     max-height: 70vh;
+    
     box-sizing: border-box; /* Ensure padding and border are included in the height calculation */
     overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
 }
@@ -199,6 +198,10 @@ pre {
     -ms-user-select: none; /* IE10+ */
     scrollbar-width: none;
     -ms-overflow-style: none;
+    background-image: url('../images/background.png');
+    background-size: cover; /* Adjusts the background image to cover the entire div */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
     outline: none; /* Remove focus outline */
     overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
 }
