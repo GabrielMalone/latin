@@ -6,7 +6,7 @@ html, body {
   
 body {
     background-color:#060c0c;
-    background-image: url('../images/background.png');
+    /* background-image: url('../images/background.png'); */
     background-repeat: no-repeat;
     background-position: bottom right;
     background-size: contain;
@@ -65,7 +65,9 @@ pre {
     height: 0;
 }
 #sourceArea {
-    margin-left: 10px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 5px;
     background: rgba(0, 0, 0, 0);
     color: #b7b7b7ac;
     border: none;
@@ -76,8 +78,9 @@ pre {
     scrollbar-width: none;
     resize: none;
     padding: 1vw;
-    -ms-overflow-style: none;
+    -ms-overflow-style: none;   
 }
+
 #sourceArea::-webkit-scrollbar {
     width: 0;
     height: 0;
@@ -113,7 +116,6 @@ pre {
     height: 0;
 }
 
-
 #lookupAreaContainer{
     height: 50vh;
     width: 100%;
@@ -131,7 +133,8 @@ pre {
     margin-left: 2vh;
     color:#FEFDED;
     font-family:'Courier New', Courier, monospace;
-    font-size: 1.5vh;
+    font-size: 1vw;
+    font-size: 1vh;
 }
 
  /* ----------------------------------------INPUT BOXES MAIN CONTAINER */
@@ -162,13 +165,13 @@ pre {
     -ms-overflow-style: none;
     resize: vertical;
     width: 100%;
+    height: 100%;
     min-height: 10%;
-    max-height: 90%;
+    max-height: 70vh;
     box-sizing: border-box; /* Ensure padding and border are included in the height calculation */
     overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
 }
 #enterText {
-    overflow: auto;
     background-color: transparent;
     font-family: 'Courier New', Courier, monospace;
     color: #b7b7b7ac;
@@ -184,8 +187,9 @@ pre {
     scrollbar-width: none;
     -ms-overflow-style: none;
     outline: none; /* Remove focus outline */
+    overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
 }
-#savedWordsHere::-webkit-scrollbar {
+#enterText::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
@@ -246,7 +250,6 @@ pre {
  /* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
 .line-container {
     position: relative;
-    z-index: 0;
     user-select: none; /* Prevent text selection */
     -webkit-user-select: none; /* For Safari */
     -moz-user-select: none; /* For Firefox */
@@ -260,7 +263,7 @@ pre {
 /* ------------------------------------------------OTHER STUFF  */
 
 .horizontal-line {
-    width: 70%; /* Adjust width as needed */
+    width: 95%; /* Adjust width as needed */
     height: 1px; /* Adjust thickness as needed */
     background-color: #68686b55; /* Change color as needed */
 }
@@ -274,4 +277,12 @@ pre {
     z-index: 2;
 }
 
+.fade {  
+    opacity: 0; /* Start with the text hidden */
+    animation: fade 4s infinite; /* Apply the animation */
+}
+@keyframes fade {
+0%, 100% { opacity: 0; } /* Text hidden at the beginning and end */
+50% { opacity: 1; } /* Text fully visible at the midpoint */
+}
 

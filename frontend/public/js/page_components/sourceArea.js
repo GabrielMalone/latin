@@ -2,9 +2,10 @@ import { createLatinTextArea } from "./mainTextArea.js";
 import { cleanword, proseLineBreaks, checkForNewLineData } from "./formatting.js";
 import { getDefinition } from "./fetchDefinition.js";
 
-let isPasting = false;
 
 export const sourceAreaCreate = () => {
+
+    let isPasting = false;
 
     const sourceAreaDefaultValue = 'Enter a word/s or paste in source material';
 
@@ -21,24 +22,27 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
     const sourceMaterialArea = document.querySelector("#sourceMaterialArea");
     const sourceArea = document.querySelector("#sourceArea");
     const mainContainer = document.getElementById('latinText'); 
-
     // default page load text
     sourceArea.value = startingLatinValue;
+    sourceArea.classList.add('fade');
 
     sourceArea.addEventListener('mouseenter', ()=> {
         if (sourceArea.value === ""){
             sourceArea.value = sourceAreaDefaultValue;
+            sourceArea.classList.add('fade');
         }
         sourceArea.style.color = sourceTextColorActive;
     });
 
     sourceArea.addEventListener('click', ()=> {
         sourceArea.value = "";
+        sourceArea.classList.remove('fade');
     });
 
     sourceArea.addEventListener('mouseleave', ()=> {
         if (sourceArea.value === ""){
             sourceArea.value = sourceAreaDefaultValue;
+            sourceArea.classList.add('fade');
         }     
     });
 
@@ -67,6 +71,7 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
     });
 
     sourceArea.addEventListener('paste', event => {
+        // need a way to strip all html data aside form newline data
         isPasting = true;
         event.preventDefault();
         sourceArea.value = event.clipboardData.getData('text');

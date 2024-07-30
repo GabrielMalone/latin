@@ -7,8 +7,7 @@ let firstTimeclicking = true;
 export const notesAreaCreate = () => {
 
     const notesTextColorActive = "#b7b7b7"; 
-    const startingNotesValue = `<p>notes:<p>
-    ` // starting value for the notes area
+    const startingNotesValue = `notes:` // starting value for the notes area
     const backgroundColor = "#080e0e00";
     const notesTextColorPassive = "#b7b7b7ac";
     const enterText = document.querySelector("#enterText");
