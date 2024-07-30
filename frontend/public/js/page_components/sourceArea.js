@@ -11,9 +11,7 @@ adspirate meis primaque ab origine mundi
 ad mea perpetuum deducite tempora carmen!
 Ante mare et terras et quod tegit omnia caelum `; // starting passage for the website 
 
-    const sourceTextColorPassive = "#68686b";
-    const sourceTextColorActive = "#8a8a8c";
-    const notesTextColorPassive = "#b7b7b7ac";
+    const inputBackgroundColor = "#193434";
 
     const sourceMaterialArea = document.querySelector("#sourceMaterialArea");
     const sourceArea = document.querySelector("#sourceArea");

@@ -39,7 +39,7 @@ export const doubleClickWord = (wordDiv) => {
         let hasWord = vocabListArray.some(definition => definition === currentDefinition);
         if (!hasWord) {
             vocabListArray.push(currentDefinition);
-            document.querySelector("#enterText").insertAdjacentHTML("afterbegin", `<p><pre>${currentDefinition}</pre></p>`);
+            document.querySelector("#enterText").insertAdjacentHTML("afterbegin", `<p><pre>${currentDefinition}</pre></p><div class="notes-horizontal-line"></div>`);
         }
         //document.querySelector("#enterText").innerHTML = "";
     });
