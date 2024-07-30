@@ -24,7 +24,7 @@ pre {
 #mainContainer {
     position: static;      /* Keeps the element in the normal document flow */
     width: 100%;        /* Sets the maximum width to 80% of its parent */
-    height: 90%;        /* Sets the maximum width to 80% of its parent */
+    height: 100%;        /* Sets the maximum width to 80% of its parent */
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
     overflow: visible;      /* Hides any content that overflows the container */
     display: flex;
@@ -187,7 +187,7 @@ pre {
     background-color: transparent;
     font-family: 'Courier New', Courier, monospace;
     color: #b7b7b7ac;
-    font-size: 1vw;
+    font-size: clamp(8px, 1vw, 15px);
     position: relative;
     width: 95%;
     height: 95%;
