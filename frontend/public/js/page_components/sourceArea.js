@@ -19,16 +19,16 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
     const sourceArea = document.querySelector("#sourceArea");
     const mainContainer = document.getElementById('latinText'); 
     // default page load text
-    sourceArea.textContent = startingLatinValue;
+    sourceArea.value = startingLatinValue;
  
 
     sourceArea.addEventListener('click', ()=> {
-        sourceArea.innerText = "";
+        sourceArea.value = "";
     });
 
     sourceArea.addEventListener('keydown', (event) => {
         mainContainer.innerHTML = "";
-        let wordArray = sourceArea.textContent.split(/[\s\n]+/);
+        let wordArray = sourceArea.value.split("\n");
         if (sourceArea === ""){
             wordArray = [];
         }
@@ -56,7 +56,7 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
         // need a way to strip all html data aside form newline data
         isPasting = true;
         event.preventDefault();
-        sourceArea.innerText = event.clipboardData.getData('text');
+        sourceArea.value = event.clipboardData.getData('text');
         mainContainer.innerHTML = "";
         // if no new-line data, add new line every 35 spaces or so(or the nearest space chracter)
         let newLinePresent = checkForNewLineData(sourceArea);
@@ -65,16 +65,16 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
             // index will be resetting for multiple lines so need this in addition to 'i'
             let newStringData = proseLineBreaks(sourceArea);
             // set the sourcevalue to this new string
-            sourceArea.innerHTML = newStringData;
+            sourceArea.value = newStringData;
         }
         createLatinTextArea();
-        sourceArea.textContent = "";
+        sourceArea.value = "";
     })
 
      sourceMaterialArea.addEventListener('click', ()=> {
          sourceArea.style.color = sourceTextColorActive;
          enterText.style.color = notesTextColorPassive;
-         sourceArea.innerHTML = ""; 
+         sourceArea.value = ""; 
      });
 
      sourceMaterialArea.addEventListener('mouseleave', ()=> {

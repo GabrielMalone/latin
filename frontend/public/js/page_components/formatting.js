@@ -1,4 +1,4 @@
-const lineBreakLengthForProseInput = 40;
+const lineBreakLengthForProseInput = 35;
 const whitakerOutputColoredLine = '#fefded'; // currently a light blue color
 const whitaerOutputColor = `#fefdeda8`; // currently off-white
 
@@ -35,18 +35,13 @@ export const colorCodeDefinition = (translation) => {
  */
 export const checkForNewLineData = (sourceArea) => {
     let newLinePresent = false;
-    // const brRegex = /<br\s*\/?>/i; // This regex handles <br>, <br/>, <br /> with case insensitivity
-    // // for (let i  = 0 ; i  < sourceArea.value.length ; i ++ ){
-    // //     let currentChar = sourceArea.value[i];
-    // //     if (currentChar === "\n"){
-    // //         newLinePresent = true;
-    // //     }
-    // // }
-    // if (sourceArea.innerText.includes('\n') || brRegex.test(sourceArea.innerText)){
-    //     newLinePresent = true;
-    //     console.log('new line data present');
-    // }
-    // return newLinePresent;
+    for (let i  = 0 ; i  < sourceArea.value.length ; i ++ ){
+        let currentChar = sourceArea.value[i];
+        if (currentChar === "\n"){
+            newLinePresent = true;
+        }
+    }
+    return newLinePresent;
 }
 
 /**
@@ -57,25 +52,18 @@ export const checkForNewLineData = (sourceArea) => {
 export const proseLineBreaks = (sourceArea) => {
     let newStringData = "";
     let index = 0;
-    let currentLine = "";
-
-    for (let i = 0; i < sourceArea.innerText.length; i++) {
-        let currentChar = sourceArea.innerText[i];
-        currentLine += currentChar;
-        index++;
-        // Check if the current line exceeds the specified length and the current character is a space
-        if (index >= lineBreakLengthForProseInput && currentChar === " ") {
-            newStringData += currentLine.trim() + "\n";
-            currentLine = "";
+    for (let i  = 0 ; i  < sourceArea.value.length ; i ++ ){
+        let currentChar = sourceArea.value[i];
+        console.log(currentChar);
+        if (currentChar === " " && index >= lineBreakLengthForProseInput){
+            newStringData += "\n";
             index = 0;
+            index ++;
+            continue;
         }
+        newStringData += currentChar;
+        index ++;
     }
-
-    // Add any remaining part of the string
-    if (currentLine.length > 0) {
-        newStringData += currentLine;
-    }
-
     return newStringData;
 }
 

@@ -18,5 +18,5 @@ createLatinTextArea();
 // set default value for source material 
 window.addEventListener("load", function() {
     console.log("Page fully loaded");
-    this.document.querySelector("#sourceArea").innerHTML = "Enter a word/s or paste in source material";
+    this.document.querySelector("#sourceArea").value = "Enter a word/s or paste in source material";
 });
