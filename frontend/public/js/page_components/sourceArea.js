@@ -65,9 +65,6 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
         sourceArea.style.backgroundColor = "#0b1717";
         inputLabel.style.color = '#c8acd67a'
         sourceArea.style.color = "#4e5757";
-        if (sourceArea.value === "Enter a word/s or paste in source material"){
-            sourceArea.value = "";
-        }
     });
      sourceMaterialArea.addEventListener('mouseenter', ()=> {
         sourceArea.style.backgroundColor = "#122222";
