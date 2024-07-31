@@ -60,8 +60,8 @@ pre {
     font-size: 2.25vw;
     border: #3f3f3e;
     height: fit-content;
-    min-height: 3vw;
-    max-height: 50vw;
+    min-height: 3vh;
+    max-height: 50vh;
     max-width: 64vw;
     overflow: auto;
     scrollbar-width: none;
