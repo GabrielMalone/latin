@@ -62,10 +62,26 @@ export const proseLineBreaks = (pastedText) => {
  * @returns 
  */
 export const cleanword = (word) => {
+    const macronMap = {
+        'ā': 'a',
+        'ē': 'e',
+        'ī': 'i',
+        'ō': 'o',
+        'ū': 'u',
+        'Ā': 'A',
+        'Ē': 'E',
+        'Ī': 'I',
+        'Ō': 'O',
+        'Ū': 'U'
+    };
     let cleanword = "";
-    for (let i  = 0 ; i < word.length ; i ++){
-        if (word.charAt(i).toLowerCase() >= 'a' && word.charAt(i).toLowerCase() <= 'z'){
-            cleanword += word.charAt(i);
+    for (let i = 0; i < word.length; i++) {
+        let char = word.charAt(i);
+        if (macronMap[char]) {
+            char = macronMap[char];
+        }
+        if (char.toLowerCase() >= 'a' && char.toLowerCase() <= 'z') {
+            cleanword += char;
         }
     }
     return cleanword;
