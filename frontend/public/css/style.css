@@ -25,8 +25,8 @@ pre {
 
 #mainContainer {
     position: static;      /* Keeps the element in the normal document flow */
-    width: 100vw;        /* Sets the maximum width to 80% of its parent */
-    height: 100vw;       /* Sets the maximum width to 80% of its parent */
+    width: 100vw;       
+    height: 60vh;      
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
     overflow: visible;      /* Hides any content that overflows the container */
     display: flex;
@@ -41,21 +41,55 @@ pre {
     align-self:flex-start;
 } */
  
+
+ /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
+#latinTextAndSourceContainer{
+    position:relative;
+    color: b7b7b7ac;
+    border: 1px;
+    width: 65vw;
+    height: 60vh;
+    display: inline-block;
+}
+#latinText {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    padding: .7vw;
+    background: transparent;
+    position: relative;
+    font-size: 2.25vw;
+    border: #3f3f3e;
+    height: fit-content;
+    min-height: 3vw;
+    max-height: 50vw;
+    max-width: 64vw;
+    overflow: auto;
+    scrollbar-width: none;
+    overscroll-behavior: contain;
+    -ms-overflow-style: none;
+    resize: vertical;
+}
+
+#latinText::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
 /* ----------------------------------------SOURCE MATERIAL BOXES */
 
 #sourceContainer{
     display: flex;
     align-items: center;
-    max-height: 7vh;
-    min-height: 3vh;
+    max-height: 20vw;
+    min-height: 3vw;
     padding: 1vw;
+    margin-left: 1.5vw;
     overflow: hidden;
 }
 #inputLabel{
-    margin-left: -1vw;
-    margin-right: .5vw;
     color: rgba(250, 235, 215, 0.294);
-    font-size: 2vw;
+    font-size: 1.25vw;
+    height: 10;
+    margin-right: 1vw;
 }
 #sourceMaterialArea{
     border:  #0c0c0b;
@@ -63,7 +97,7 @@ pre {
     border-width: 1px 1px 1px 1px;
     background-color: transparent;
     position: relative;
-    width: 35vw;
+    width: 40vw;
     height: 2.5vw;
     min-height: 2vw;
     border-radius: 10px;
@@ -86,13 +120,13 @@ pre {
     text-align: left; /* Horizontal centering */
     justify-content: left; /* Center horizontally */
     align-items: center; /* Center vertically */
-    padding-top: .8vw;
+    padding-top: .7vw;
     padding-left: 1.5vw;
     background: #0b1717;
     color:#4e575700;
     border: none;
-    width: 100vw;
-    height: 100vw;
+    width: 40vw;
+    height: 2.5vw;
     font-size: clamp(8px, 1vw, 20px);
     font-family: monospace;
     outline: none;
@@ -100,47 +134,17 @@ pre {
     resize: none;
     -ms-overflow-style: none;
 }
- /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
-#latinTextAndSourceContainer{
-    position:relative;
-    color: b7b7b7ac;
-    border: 1px;
-    width: 70vw;
-    height: 100vw;
-    display: inline-block;
-}
-#latinText {
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    background: transparent;
-    position: relative;
-    font-size: 2.25vw;
-    border: #3f3f3e;
-    max-height: 40vh;
-    max-width: 65vw;
-    overflow:scroll;
-    scrollbar-width: none;
-    overscroll-behavior: contain;
-    -ms-overflow-style: none;
-    /* box-shadow: inset 0 10px 8px -10px #060c0c,
-                inset 0 -10px 8px -10px #060c0c; */
-}
-
-#latinText::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
 
 #lookupAreaContainer{
-    height: 50vh;
-    width: 100%;
+    margin-left: 1vw;
+    padding: 1vw;
     overflow: visible;
 }
 #lookUpWord {
-    margin-top: 2vh;
+    margin-top: 2vw;
     position: relative;
     color:#C8ACD6;
-    font-size: calc(1vw + 1vh);
+    font-size: clamp(20px, 2vw, 25px);
 
 }
 #assistanceArea {
@@ -157,10 +161,12 @@ pre {
  #inputContainers {
     position: static;      /* Keeps the element in the normal document flow */
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
-    overflow: visible;     
+    overflow-y: visible;     
     display:grid;
-    max-height: 100vh;
-    width: 50%;
+    height: 20vw;
+    max-height: 95vh;
+    min-height: 5vw;
+    width: 35vw;
 }
 /* ------------------------------------------NOTES BOXES */
 #notesContainer {
@@ -179,9 +185,9 @@ pre {
     scrollbar-width: none;
     -ms-overflow-style: none;
     resize: vertical;
-    width: 100%;
-    height: 70%;
-    min-height: 10%;
+    height: fit-content;
+    max-height: 95vh;
+    min-height: 40vw;
     box-sizing: border-box; /* Ensure padding and border are included in the height calculation */
     overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
 }
@@ -287,7 +293,6 @@ pre {
     width: 100%; /* Adjust width as needed */
     margin-top: -1vw;
     margin-bottom: .5vw;
-    margin-left: 1vw;
     height: 1px; /* Adjust thickness as needed */
     background-color: antiquewhite; /* Change color as needed */
 }

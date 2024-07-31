@@ -4,7 +4,6 @@ import { sourceAreaCreate } from "./page_components/sourceArea.js";
 
 
 const latinTextArea = document.getElementById('latinText');
-
 // remove any highlights when mouse leaves the latin passage
 latinTextArea.addEventListener('mouseleave', () => {
     document.querySelector(".word.highlight")?.classList.remove('highlight');

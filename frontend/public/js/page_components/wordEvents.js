@@ -1,14 +1,13 @@
 import { cleanword } from "./formatting.js";
 import { getDefinition } from "./fetchDefinition.js";
-
 const vocabListArray = []; // keep track of the words in the vocablist area
-
+let count = 1;
 /**
  * All events related to a highlighted word go here
  * @param {*} wordDiv 
  * @param {*} word 
  */
-export const mouseOverEvents = (wordDiv, word) => {
+export const mouseOverEvents = (wordDiv, word, count) => {
     wordDiv.setAttribute('tabindex', '0');  
     wordDiv.addEventListener('mouseover', () => { 
         generalHighlighter(wordDiv);                                           
@@ -39,7 +38,8 @@ export const doubleClickWord = (wordDiv) => {
         let hasWord = vocabListArray.some(definition => definition === currentDefinition);
         if (!hasWord) {
             vocabListArray.push(currentDefinition);
-            document.querySelector("#enterText").insertAdjacentHTML("afterbegin", `<p><pre>${currentDefinition}</pre></p><div class="notes-horizontal-line"></div>`);
+            document.querySelector("#enterText").insertAdjacentHTML("beforeend", `<p><pre>${count} - ${currentDefinition}</pre></p><div class="notes-horizontal-line"></div>`);
+            count ++;
         }
         //document.querySelector("#enterText").innerHTML = "";
     });
