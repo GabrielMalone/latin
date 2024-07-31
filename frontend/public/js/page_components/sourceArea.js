@@ -1,5 +1,5 @@
 import { createLatinTextArea } from "./mainTextArea.js";
-import { cleanword, proseLineBreaks, checkForNewLineData } from "./formatting.js";
+import { cleanword, proseLineBreaks} from "./formatting.js";
 import { getDefinition } from "./fetchDefinition.js";
 
 let isPasting = false;
@@ -42,17 +42,13 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
         // need a way to strip all html data aside form newline data
         isPasting = true;
         event.preventDefault();
-        sourceArea.value = event.clipboardData.getData('text');
+        let pastedText = event.clipboardData.getData('text/plain');
         mainContainer.innerHTML = "";
         // if no new-line data, add new line every 35 spaces or so(or the nearest space chracter)
-        let newLinePresent = checkForNewLineData(sourceArea);
-        // if no new line, make new string
-        if (! newLinePresent){
-            // index will be resetting for multiple lines so need this in addition to 'i'
-            let newStringData = proseLineBreaks(sourceArea);
-            // set the sourcevalue to this new string
-            sourceArea.value = newStringData;
-        }
+        // index will be resetting for multiple lines so need this in addition to 'i'
+        let newStringData = proseLineBreaks(pastedText);
+        // set the sourcevalue to this new string
+        sourceArea.value = newStringData;
         createLatinTextArea();
         sourceArea.value = "";
     })
@@ -63,13 +59,13 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
 
      sourceMaterialArea.addEventListener('mouseleave', ()=> {
         sourceArea.style.backgroundColor = "#0b1717";
-        inputLabel.style.color = '#c8acd67a'
+        inputLabel.style.color = 'rgba(250, 235, 215, 0.294)'
         sourceArea.style.color = "#4e5757";
     });
      sourceMaterialArea.addEventListener('mouseenter', ()=> {
         sourceArea.style.backgroundColor = "#122222";
         sourceArea.style.color = "#4f6565";
-        inputLabel.style.color = '#e2c3f1'
+        inputLabel.style.color = 'antiquewhite'
     });
 
 }

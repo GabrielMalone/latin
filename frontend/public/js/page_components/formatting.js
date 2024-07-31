@@ -1,4 +1,4 @@
-const lineBreakLengthForProseInput = 45;
+const lineBreakLengthForProseInput = 50;
 const whitakerOutputColoredLine = '#fefded'; // currently a light blue color
 const whitaerOutputColor = `#fefdeda8`; // currently off-white
 
@@ -29,40 +29,29 @@ export const colorCodeDefinition = (translation) => {
 }
 
 /**
- * This function is if a user pastes in any prose. 
+ * This function will break the prose into line lengths that fit the UI and , hopefully ,  maintian original poetry breaks.
  * @param {*} sourceArea 
  * @returns 
  */
-export const checkForNewLineData = (sourceArea) => {
-    let newLinePresent = false;
-    for (let i  = 0 ; i  < sourceArea.value.length ; i ++ ){
-        let currentChar = sourceArea.value[i];
-        if (currentChar === "\n"){
-            newLinePresent = true;
-        }
-    }
-    return newLinePresent;
-}
-
-/**
- * This function will break the prose into line lengths that fit the UI.
- * @param {*} sourceArea 
- * @returns 
- */
-export const proseLineBreaks = (sourceArea) => {
+export const proseLineBreaks = (pastedText) => {
     let newStringData = "";
+    let count = 0;
     let index = 0;
-    for (let i  = 0 ; i  < sourceArea.value.length ; i ++ ){
-        let currentChar = sourceArea.value[i];
-        console.log(currentChar);
-        if (currentChar === " " && index >= lineBreakLengthForProseInput){
-            newStringData += "\n";
-            index = 0;
-            index ++;
-            continue;
+    while (index < pastedText.length) {
+        let currentChar = pastedText[index];
+        let nextChr = pastedText[index + 1];
+        if (currentChar >= '0' && currentChar <= '9'){
+            // index ++;
+            // continue;
         }
-        newStringData += currentChar;
-        index ++;
+        if ((currentChar.charCodeAt(0) === 32 && nextChr?.charCodeAt(0) !== 32 && count >= lineBreakLengthForProseInput) || (currentChar === '\n')) {
+            newStringData += "\n";
+            count = 0;
+        } else {
+            newStringData += currentChar;
+            count++;
+        }
+        index++;
     }
     return newStringData;
 }
