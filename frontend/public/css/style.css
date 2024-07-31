@@ -53,7 +53,7 @@ pre {
 }
 #inputLabel{
     margin-right: 1vw;
-    color: #C8ACD6;
+    color: #c8acd67a;
     font-size: 2vw;
 }
 #sourceMaterialArea{
@@ -88,7 +88,7 @@ pre {
     align-items: center; /* Center vertically */
     padding-top: .8vw;
     padding-left: 1.5vw;
-    background: #091313;
+    background: #0b1717;
     color:#4e575700;
     border: none;
     width: 100%;
@@ -183,7 +183,6 @@ pre {
     height: 100%;
     min-height: 10%;
     max-height: 70vh;
-    
     box-sizing: border-box; /* Ensure padding and border are included in the height calculation */
     overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
 }
@@ -195,6 +194,8 @@ pre {
     position: relative;
     width: 95%;
     height: 95%;
+    margin-top: .5vw;
+    margin-left: 1vw;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
     -moz-user-select: none; /* mozilla browsers */
