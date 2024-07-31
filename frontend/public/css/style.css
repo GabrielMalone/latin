@@ -5,7 +5,7 @@ html, body {
     transform: scale(0.95); /* Scale the page to 80% */
     transform-origin: top left; /* Ensure the scaling starts from the top left corner */
 }
-
+  
 body {
     background-color:#060c0c;
     background-repeat: no-repeat;
@@ -18,15 +18,15 @@ body {
     height: 80vh;
 }
 /* THIS WAS TO KEEP WHITAKERS OUTPUT FROM OVERFLOWING, NOT SURE IF STILL NEED */
-pre {
+pre {   
     white-space: pre-wrap;
     word-wrap: break-word;
 }
 
 #mainContainer {
     position: static;      /* Keeps the element in the normal document flow */
-    width: 100%;        /* Sets the maximum width to 80% of its parent */
-    height: 100%;        /* Sets the maximum width to 80% of its parent */
+    width: 100vw;        /* Sets the maximum width to 80% of its parent */
+    height: 100vw;       /* Sets the maximum width to 80% of its parent */
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
     overflow: visible;      /* Hides any content that overflows the container */
     display: flex;
@@ -40,19 +40,20 @@ pre {
     font-size: 8px;
     align-self:flex-start;
 } */
-
+ 
 /* ----------------------------------------SOURCE MATERIAL BOXES */
 
 #sourceContainer{
     display: flex;
     align-items: center;
-    width: 100%;
     max-height: 7vh;
     min-height: 3vh;
     padding: 1vw;
+    overflow: hidden;
 }
 #inputLabel{
-    margin-right: 1vw;
+    margin-left: -1vw;
+    margin-right: .5vw;
     color: #c8acd67a;
     font-size: 2vw;
 }
@@ -62,10 +63,9 @@ pre {
     border-width: 1px 1px 1px 1px;
     background-color: transparent;
     position: relative;
-    width: 46%;
+    width: 35vw;
     height: 2.5vw;
     min-height: 2vw;
-    min-width: 40%;
     border-radius: 10px;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
@@ -91,8 +91,8 @@ pre {
     background: #0b1717;
     color:#4e575700;
     border: none;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vw;
     font-size: clamp(8px, 1vw, 20px);
     font-family: monospace;
     outline: none;
@@ -100,13 +100,13 @@ pre {
     resize: none;
     -ms-overflow-style: none;
 }
-/* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
+ /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
 #latinTextAndSourceContainer{
     position:relative;
     color: b7b7b7ac;
     border: 1px;
-    width: 70%;
-    height: 100%;
+    width: 70vw;
+    height: 100vw;
     display: inline-block;
 }
 #latinText {
@@ -153,11 +153,11 @@ pre {
     overflow: visible;
 }
 
-/* ----------------------------------------INPUT BOXES MAIN CONTAINER */
-#inputContainers {
+ /* ----------------------------------------INPUT BOXES MAIN CONTAINER */
+ #inputContainers {
     position: static;      /* Keeps the element in the normal document flow */
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
-    overflow: visible;
+    overflow: visible;     
     display:grid;
     max-height: 100vh;
     width: 50%;
@@ -263,7 +263,7 @@ pre {
 .word.genitive.highlight {
     color: rgba(214, 83, 83, 0.322);
 }
-/* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
+ /* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
 .line-container {
     position: relative;
     user-select: none; /* Prevent text selection */
