@@ -5,7 +5,7 @@ html, body {
     transform: scale(0.95); /* Scale the page to 80% */
     transform-origin: top left; /* Ensure the scaling starts from the top left corner */
 }
-  
+
 body {
     background-color:#060c0c;
     background-repeat: no-repeat;
@@ -18,15 +18,15 @@ body {
     height: 80vh;
 }
 /* THIS WAS TO KEEP WHITAKERS OUTPUT FROM OVERFLOWING, NOT SURE IF STILL NEED */
-pre {   
+pre {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
 
 #mainContainer {
     position: static;      /* Keeps the element in the normal document flow */
-    width: 100vw;       
-    height: 60vh;      
+    width: 100vw;
+    height: 60vh;
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
     overflow: visible;      /* Hides any content that overflows the container */
     display: flex;
@@ -40,9 +40,9 @@ pre {
     font-size: 8px;
     align-self:flex-start;
 } */
- 
 
- /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
+
+/* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
 #latinTextAndSourceContainer{
     position:relative;
     color: b7b7b7ac;
@@ -144,7 +144,7 @@ pre {
     margin-top: 2vw;
     position: relative;
     color:#C8ACD6;
-    font-size: clamp(20px, 2vw, 25px);
+    font-size: 2.5vw;
 
 }
 #assistanceArea {
@@ -157,11 +157,11 @@ pre {
     overflow: visible;
 }
 
- /* ----------------------------------------INPUT BOXES MAIN CONTAINER */
- #inputContainers {
+/* ----------------------------------------INPUT BOXES MAIN CONTAINER */
+#inputContainers {
     position: static;      /* Keeps the element in the normal document flow */
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
-    overflow-y: visible;     
+    overflow-y: visible;
     display:grid;
     height: 20vw;
     max-height: 95vh;
@@ -269,7 +269,7 @@ pre {
 .word.genitive.highlight {
     color: rgba(214, 83, 83, 0.322);
 }
- /* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
+/* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
 .line-container {
     position: relative;
     user-select: none; /* Prevent text selection */
