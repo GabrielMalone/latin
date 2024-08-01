@@ -2,7 +2,7 @@
     --background-color: #060c0c;
     --font-size-large: 1.5rem;
     --padding: 10px;
-  }
+}
 
 html, body {
     margin: 0;
@@ -11,7 +11,7 @@ html, body {
     transform: scale(0.95); /* Scale the page to 80% */
     transform-origin: top left; /* Ensure the scaling starts from the top left corner */
 }
-  
+
 body {
     background-color:#060c0c;
     background-repeat: no-repeat;
@@ -24,7 +24,7 @@ body {
     height: 80vh;
 }
 /* THIS WAS TO KEEP WHITAKERS OUTPUT FROM OVERFLOWING, NOT SURE IF STILL NEED */
-pre {   
+pre {
     white-space: pre-wrap;
     word-wrap: break-word;
     margin: 0;
@@ -33,14 +33,14 @@ pre {
 }
 
 span {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 #mainContainer {
     position: static;      /* Keeps the element in the normal document flow */
-    width: 100vw;       
-    height: 60vh;      
+    width: 100vw;
+    height: 60vh;
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
     overflow: visible;      /* Hides any content that overflows the container */
     display: flex;
@@ -53,9 +53,9 @@ span {
     font-size: 8px;
     align-self:flex-start;
 } */
- 
 
- /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
+
+/* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
 #latinTextAndSourceContainer{
     position:relative;
     color: transparent;
@@ -72,20 +72,24 @@ span {
     position: relative;
     font-size: 2.25vw;
     border: #3f3f3e;
-    height: 14vw;
     min-height: 3vw;
-    max-height: 50vw;
+    height: fit-content;
+    max-height: 70vh;
     max-width: 64vw;
     overflow: auto;
     scrollbar-width: none;
     overscroll-behavior: contain;
     -ms-overflow-style: none;
     resize: vertical;
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS and hide scrollbar */
 }
 
 #latinText::-webkit-scrollbar {
-    width: 0;
-    height: 0;
+    width: .5vw; /* Set a thin scrollbar width to preserve the resize handle */
+}
+
+#latinText::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Make the scrollbar thumb invisible */
 }
 /* ----------------------------------------SOURCE MATERIAL BOXES */
 
@@ -161,11 +165,11 @@ span {
     overflow: visible;
 }
 
- /* ----------------------------------------INPUT BOXES MAIN CONTAINER */
- #inputContainers {
+/* ----------------------------------------INPUT BOXES MAIN CONTAINER */
+#inputContainers {
     position: static;      /* Keeps the element in the normal document flow */
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
-    overflow-y: visible;     
+    overflow-y: visible;
     display:grid;
     height: 20vw;
     max-height: 95vh;
@@ -174,7 +178,8 @@ span {
 }
 /* ------------------------------------------NOTES BOXES */
 #notesContainer {
-    margin-top: 2vh;
+    z-index: 0;
+    margin-top: 5vw;
     border: 1px solid #3f3f3e;
     position: relative;
     border-radius: 10px;
@@ -183,19 +188,30 @@ span {
     -moz-user-select: none;
     -khtml-user-select: none;
     -ms-user-select: none;
-    scrollbar-width: none;
+    scrollbar-width: none; /* Show the scrollbar track but hide the thumb */
     -ms-overflow-style: none;
     resize: vertical;
     height: fit-content;
-    height: 45vw;
+    height: 70vh;
     max-height: 95vh;
     min-height: 5vw;
     box-sizing: border-box; /* Ensure padding and border are included in the height calculation */
     overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS and hide scrollbar */
 }
+
+#notesContainer::-webkit-scrollbar {
+    width: 8px; /* Set a thin scrollbar width to preserve the resize handle */
+}
+
+#notesContainer::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Make the scrollbar thumb invisible */
+}
+
 #enterText {
+    z-index: 1;
     background-color: transparent;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color:rgba(250, 235, 215, 0.518);
     font-size: 1.25vw;
     position: relative;
@@ -268,7 +284,7 @@ span {
 .word.genitive.highlight {
     color: rgba(214, 83, 83, 0.322);
 }
- /* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
+/* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
 .line-container {
     position: relative;
     user-select: none; /* Prevent text selection */
@@ -284,13 +300,13 @@ span {
 /* ------------------------------------------------OTHER STUFF  */
 
 .horizontal-line {
-    width: 95%; 
-    height: 1px; 
-    background-color: #3f3f3e; 
+    width: 95%;
+    height: 1px;
+    background-color: #3f3f3e;
 }
 .notes-horizontal-line {
-    width: 100%; 
-    height: 1px; 
+    width: 100%;
+    height: 1px;
     background-color: rgba(250, 235, 215, 0.463);
 }
 .z-index-bottom {
