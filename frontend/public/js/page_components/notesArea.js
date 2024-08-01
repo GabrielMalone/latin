@@ -5,8 +5,7 @@
 export const notesAreaCreate = () => {
 
     const notesTextColorActive = "antiquewhite"; 
-    const startingNotesValue = `notes:<div class="notes-horizontal-line"></div>
-    ` // starting value for the notes area
+    const startingNotesValue = ` ` // starting value for the notes area
     const backgroundColor = "#080e0e00";
     const notesTextColorPassive = "rgba(250, 235, 215, 0.518)";
     const enterText = document.querySelector("#enterText");

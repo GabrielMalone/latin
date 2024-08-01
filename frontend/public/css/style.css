@@ -1,3 +1,9 @@
+:root {
+    --background-color: #060c0c;
+    --font-size-large: 1.5rem;
+    --padding: 10px;
+  }
+
 html, body {
     margin: 0;
     padding: 0;
@@ -89,15 +95,7 @@ span {
     max-height: 20vw;
     min-height: 3vw;
     padding: 1vw;
-    margin-left: 1.5vw;
     overflow: hidden;
-}
-#inputLabel{
-    color: rgba(250, 235, 215, 0.294);
-    font-size: 1.25vw;
-    height: 1.5vw;
-    margin-right: 1vw;
-    margin-left: 4.5vw;
 }
 #sourceMaterialArea{
     border: 1px solid #0c0c0b;
@@ -288,7 +286,7 @@ span {
 .horizontal-line {
     width: 95%; 
     height: 1px; 
-    background-color: #68686b55; 
+    background-color: #3f3f3e; 
 }
 .notes-horizontal-line {
     width: 100%; 
