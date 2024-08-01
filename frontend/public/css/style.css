@@ -5,7 +5,7 @@ html, body {
     transform: scale(0.95); /* Scale the page to 80% */
     transform-origin: top left; /* Ensure the scaling starts from the top left corner */
 }
-  
+
 body {
     background-color:#060c0c;
     background-repeat: no-repeat;
@@ -18,7 +18,7 @@ body {
     height: 80vh;
 }
 /* THIS WAS TO KEEP WHITAKERS OUTPUT FROM OVERFLOWING, NOT SURE IF STILL NEED */
-pre {   
+pre {
     white-space: pre-wrap;
     word-wrap: break-word;
     margin: 0;
@@ -27,14 +27,14 @@ pre {
 }
 
 span {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 #mainContainer {
     position: static;      /* Keeps the element in the normal document flow */
-    width: 100vw;       
-    height: 60vh;      
+    width: 100vw;
+    height: 60vh;
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
     overflow: visible;      /* Hides any content that overflows the container */
     display: flex;
@@ -47,9 +47,9 @@ span {
     font-size: 8px;
     align-self:flex-start;
 } */
- 
 
- /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
+
+/* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
 #latinTextAndSourceContainer{
     position:relative;
     color: transparent;
@@ -66,9 +66,9 @@ span {
     position: relative;
     font-size: 2.25vw;
     border: #3f3f3e;
-    height: fit-content;
-    min-height: 3vh;
-    max-height: 50vh;
+    height: 14vw;
+    min-height: 3vw;
+    max-height: 50vw;
     max-width: 64vw;
     overflow: auto;
     scrollbar-width: none;
@@ -96,7 +96,8 @@ span {
     color: rgba(250, 235, 215, 0.294);
     font-size: 1.25vw;
     height: 1.5vw;
-    margin-right: 1vw;
+    margin-right: 3vw;
+    margin-left: 1vw;
 }
 #sourceMaterialArea{
     border: 1px solid #0c0c0b;
@@ -146,10 +147,10 @@ span {
     overflow: visible;
 }
 #lookUpWord {
-    margin-top: 2vw;
+    margin-top: 0vw;
     position: relative;
     color:#C8ACD6;
-    font-size: 2.5vw;
+    font-size: 2vw;
 
 }
 #assistanceArea {
@@ -158,15 +159,15 @@ span {
     margin-left: 2vh;
     color:#FEFDED;
     font-family:'Courier New', Courier, monospace;
-    font-size: clamp(8px, 1vw, 15px);
+    font-size: clamp(.5em, 1.1vw, 2em);
     overflow: visible;
 }
 
- /* ----------------------------------------INPUT BOXES MAIN CONTAINER */
- #inputContainers {
+/* ----------------------------------------INPUT BOXES MAIN CONTAINER */
+#inputContainers {
     position: static;      /* Keeps the element in the normal document flow */
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
-    overflow-y: visible;     
+    overflow-y: visible;
     display:grid;
     height: 20vw;
     max-height: 95vh;
@@ -188,6 +189,7 @@ span {
     -ms-overflow-style: none;
     resize: vertical;
     height: fit-content;
+    height: 45vw;
     max-height: 95vh;
     min-height: 5vw;
     box-sizing: border-box; /* Ensure padding and border are included in the height calculation */
@@ -196,11 +198,9 @@ span {
 #enterText {
     background-color: transparent;
     font-family: 'Courier New', Courier, monospace;
-    color:rgba(0, 255, 255, 0.498);
-    font-size: clamp(8px, 1vw, 15px);
+    color:rgba(250, 235, 215, 0.518);
+    font-size: 1.25vw;
     position: relative;
-    width: 95%;
-    height: 95%;
     margin: 1vw;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
@@ -270,7 +270,7 @@ span {
 .word.genitive.highlight {
     color: rgba(214, 83, 83, 0.322);
 }
- /* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
+/* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
 .line-container {
     position: relative;
     user-select: none; /* Prevent text selection */
@@ -286,16 +286,16 @@ span {
 /* ------------------------------------------------OTHER STUFF  */
 
 .horizontal-line {
-    width: 95%; 
-    height: 1px; 
-    background-color: #68686b55; 
+    width: 95%;
+    height: 1px;
+    background-color: #68686b55;
 }
 .notes-horizontal-line {
-    width: 100%; 
+    width: 100%;
     margin-top: .25vw;
     margin-bottom: .25vw;
-    height: 1px; 
-    background-color: rgba(0, 255, 255, 0.44);
+    height: 1px;
+    background-color: #c8acd670;
 }
 .z-index-bottom {
     z-index: 0;
