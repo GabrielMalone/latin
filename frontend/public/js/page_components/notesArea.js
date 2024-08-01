@@ -7,7 +7,7 @@ export const notesAreaCreate = () => {
     const notesTextColorActive = "aqua"; 
     const startingNotesValue = `notes:` // starting value for the notes area
     const backgroundColor = "#080e0e00";
-    const notesTextColorPassive = "aqua";
+    const notesTextColorPassive = "rgba(0, 255, 255, 0.498)";
     const enterText = document.querySelector("#enterText");
     const notesArea = document.querySelector("#notesContainer");
 

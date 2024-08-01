@@ -38,7 +38,6 @@ span {
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
     overflow: visible;      /* Hides any content that overflows the container */
     display: flex;
-    overflow: visible;
 }
 
 /* #logo{
@@ -53,7 +52,7 @@ span {
  /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
 #latinTextAndSourceContainer{
     position:relative;
-    color: b7b7b7ac;
+    color: transparent;
     border: 1px;
     width: 65vw;
     height: 60vh;
@@ -96,13 +95,11 @@ span {
 #inputLabel{
     color: rgba(250, 235, 215, 0.294);
     font-size: 1.25vw;
-    height: 10;
+    height: 1.5vw;
     margin-right: 1vw;
 }
 #sourceMaterialArea{
-    border:  #0c0c0b;
-    border-style: solid;
-    border-width: 1px 1px 1px 1px;
+    border: 1px solid #0c0c0b;
     background-color: transparent;
     position: relative;
     width: 40vw;
@@ -179,9 +176,7 @@ span {
 /* ------------------------------------------NOTES BOXES */
 #notesContainer {
     margin-top: 2vh;
-    border: #3f3f3e;
-    border-style: solid;
-    border-width: 1px;
+    border: 1px solid #3f3f3e;
     padding: 1vw;
     position: relative;
     border-radius: 10px;
@@ -202,7 +197,7 @@ span {
 #enterText {
     background-color: transparent;
     font-family: 'Courier New', Courier, monospace;
-    color:aqua;
+    color:rgba(0, 255, 255, 0.498);
     font-size: clamp(8px, 1vw, 15px);
     position: relative;
     width: 95%;
@@ -299,10 +294,10 @@ span {
 }
 .notes-horizontal-line {
     width: 100%; 
-    margin-top: -1vw;
-    margin-bottom: .5vw;
+    margin-top: 0vw;
+    margin-bottom: 0vw;
     height: 1px; 
-    background-color: aqua;
+    background-color: rgba(0, 255, 255, 0.44);
 }
 .z-index-bottom {
     z-index: 0;
@@ -312,7 +307,4 @@ span {
 }
 .z-index-top {
     z-index: 2;
-}
-.definitionEntry{
-  color: deeppink;
 }

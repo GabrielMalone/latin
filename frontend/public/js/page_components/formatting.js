@@ -46,7 +46,6 @@ export const stripDefinitionData = (currentDefinition) => {
           const shouldInclude = (includesColor || noCapitalLetters) && doesNotContainAsterisk && isNotEmpty;
           return shouldInclude;
       })
-      .map(line => line.replace('<pre>', '<pre class="definitionEntry">'));
     return notesDefinition.join('\n');
 }
 
