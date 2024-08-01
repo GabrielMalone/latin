@@ -37,17 +37,38 @@ export const colorCodeDefinition = (translation) => {
  */
 export const stripDefinitionData = (currentDefinition) => {
     const lines = currentDefinition.split('\n');
-    const notesDefinition = lines
-      .filter(line => {
-          const includesColor = line.includes(`<span style="color: #fefded;">`);
-          const noCapitalLetters = !/[A-Z]/.test(line);
-          const doesNotContainAsterisk = !line.includes('*');
-          const isNotEmpty = line.trim() !== ''; 
-          const shouldInclude = (includesColor || noCapitalLetters) && doesNotContainAsterisk && isNotEmpty;
-          return shouldInclude;
-      })
+    const notesDefinition = [];
+    let foundFirstColorLine = false;  // Flag to check if the first color line has been found
+
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        const includesColor = line.includes(`<span style="color: #fefded;">`);
+        const noCapitalLetters = !/[A-Z]/.test(line);
+        const doesNotContainAsterisk = !line.includes('*');
+        const isNotEmpty = line.trim() !== '';
+        
+        // Set the flag when the first color line is found
+        if (includesColor && !foundFirstColorLine) {
+            foundFirstColorLine = true;
+        }
+
+        // Only start including lines after finding the first color line
+        if (foundFirstColorLine) {
+            const shouldInclude = (includesColor || noCapitalLetters) && doesNotContainAsterisk && isNotEmpty;
+
+            if (shouldInclude) {
+                notesDefinition.push(line);
+
+                // Include the next line if the current line contains the specific color and is not the last line
+                if (includesColor && i + 1 < lines.length) {
+                    notesDefinition.push(lines[i + 1]);
+                }
+            }
+        }
+    }
+
     return notesDefinition.join('\n');
-}
+};
 
 /**
  * This function will break the prose into line lengths that fit the UI and , hopefully ,  maintian original poetry breaks.

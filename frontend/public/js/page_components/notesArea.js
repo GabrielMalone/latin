@@ -4,12 +4,12 @@
  */
 export const notesAreaCreate = () => {
 
-    const notesTextColorActive = "aqua"; 
-    const startingNotesValue = `notes:` // starting value for the notes area
+    const notesTextColorActive = "antiquewhite"; 
+    const startingNotesValue = `notes:<div class="notes-horizontal-line"></div>
+    ` // starting value for the notes area
     const backgroundColor = "#080e0e00";
-    const notesTextColorPassive = "rgba(0, 255, 255, 0.498)";
+    const notesTextColorPassive = "rgba(250, 235, 215, 0.518)";
     const enterText = document.querySelector("#enterText");
-    const notesArea = document.querySelector("#notesContainer");
 
     enterText.innerHTML = startingNotesValue;
 
