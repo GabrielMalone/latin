@@ -8,8 +8,7 @@ const port = process.env.PORT || 8000;
 
 // Use CORS middleware
 app.use(cors({
-    origin: ['*', 'http://localhost:5501', 'http://127.0.0.1:5501','http://localhost:3000',
-'https://latin-r3z3.onrender.com','https://latin-1.onrender.com','https://latinreader.app', 'https://www.latinreader.app'],
+    origin: ['*', 'http://localhost:5501', 'http://127.0.0.1:5501'],
     methods: 'GET,POST,PUT,DELETE',
     allowedHeaders: 'Content-Type'
 }));
@@ -27,38 +26,47 @@ app.use((req, res, next) => {
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Translation route
+// route handler
 app.get('/translate', (req, res) => {
-    const word = req.query.word; // Handle query parameters here
+    const word = req.query.word;  // get the word from the query 
     console.log('Received word for translation:', word);
-
+    // define the translate fucntion
     const translate = (word) => {
-        return new Promise((resolve, reject) => {
-            const spawner = spawn('/app/words', [word]);
+    return new Promise((resolve, reject) => {
+        const spawner = spawn('/app/words', [word]);
 
-            let result = '';
-            let error = '';
+        let result = '';
+        let error = '';
 
-            spawner.stdout.on('data', (data) => {
-                result += data.toString();
-                console.log('Received stdout data:', data.toString());
-            });
+        // Send "enter" when "MORE" prompt is detected
+        const handleMorePrompt = (data) => {
+            const output = data.toString();
+            result += output;
+            console.log('Received stdout data:', output);
 
-            spawner.stderr.on('data', (data) => {
-                error += data.toString();
-            });
+            // Check if the output ends with the "MORE" prompt
+            if (output.includes('MORE - hit RETURN/ENTER to continue')) {
+                // Send the enter key press
+                spawner.stdin.write('\n');
+            }
+        };
 
-            spawner.on('close', (code) => {
-                if (code === 0) {
-                    resolve(result);
-                } else {
-                    reject(error);
-                }
-            });
+        spawner.stdout.on('data', handleMorePrompt);
+
+        spawner.stderr.on('data', (data) => {
+            error += data.toString();
         });
-    };
 
+        spawner.on('close', (code) => {
+            if (code === 0) {
+                resolve(result);
+            } else {
+                reject(error);
+            }
+        });
+    });
+};
+    // call the translate function
     translate(word)
         .then(result => {
             res.setHeader('Content-Type', 'text/plain');
@@ -69,7 +77,7 @@ app.get('/translate', (req, res) => {
             res.status(500).send(error);
         });
 });
-
+// start the server
 app.listen(port, '0.0.0.0', () => {
     console.log(`Server is listening on port ${port}`);
 });
