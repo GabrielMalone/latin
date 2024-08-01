@@ -177,7 +177,6 @@ span {
 #notesContainer {
     margin-top: 2vh;
     border: 1px solid #3f3f3e;
-    padding: 1vw;
     position: relative;
     border-radius: 10px;
     user-select: none;
@@ -190,7 +189,7 @@ span {
     resize: vertical;
     height: fit-content;
     max-height: 95vh;
-    min-height: 40vw;
+    min-height: 5vw;
     box-sizing: border-box; /* Ensure padding and border are included in the height calculation */
     overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
 }
@@ -202,8 +201,7 @@ span {
     position: relative;
     width: 95%;
     height: 95%;
-    margin-top: .5vw;
-    margin-left: 1vw;
+    margin: 1vw;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
     -moz-user-select: none; /* mozilla browsers */
@@ -294,8 +292,8 @@ span {
 }
 .notes-horizontal-line {
     width: 100%; 
-    margin-top: 0vw;
-    margin-bottom: 0vw;
+    margin-top: .25vw;
+    margin-bottom: .25vw;
     height: 1px; 
     background-color: rgba(0, 255, 255, 0.44);
 }

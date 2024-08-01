@@ -40,10 +40,9 @@ export const doubleClickWord = (wordDiv) => {
             vocabListArray.push(currentDefinition);
             let notesDefinition = stripDefinitionData(currentDefinition);
             // strip data here.
-            document.querySelector("#enterText").insertAdjacentHTML("beforeend", `<p><pre>${count} _ ${notesDefinition}</pre></p><div class="notes-horizontal-line"></div>`);
+            document.querySelector("#enterText").insertAdjacentHTML("beforeend", `${count} _ ${notesDefinition}<div class="notes-horizontal-line"></div>`);
             count ++;
         }
-        //document.querySelector("#enterText").innerHTML = "";
     });
 }
 
