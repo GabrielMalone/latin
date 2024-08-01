@@ -199,7 +199,7 @@ span {
     background-color: transparent;
     font-family: 'Courier New', Courier, monospace;
     color:rgba(250, 235, 215, 0.518);
-    font-size: .75vw;
+    font-size: 1vw;
     position: relative;
     margin: 1vw;
     user-select: none; /* standard syntax */
