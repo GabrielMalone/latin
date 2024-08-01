@@ -5,7 +5,7 @@ html, body {
     transform: scale(0.95); /* Scale the page to 80% */
     transform-origin: top left; /* Ensure the scaling starts from the top left corner */
 }
-
+  
 body {
     background-color:#060c0c;
     background-repeat: no-repeat;
@@ -18,15 +18,23 @@ body {
     height: 80vh;
 }
 /* THIS WAS TO KEEP WHITAKERS OUTPUT FROM OVERFLOWING, NOT SURE IF STILL NEED */
-pre {
+pre {   
     white-space: pre-wrap;
     word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    line-height: 1; /* Optional, adjust as needed */
+}
+
+span {
+  margin: 0;
+  padding: 0;
 }
 
 #mainContainer {
     position: static;      /* Keeps the element in the normal document flow */
-    width: 100vw;
-    height: 60vh;
+    width: 100vw;       
+    height: 60vh;      
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
     overflow: visible;      /* Hides any content that overflows the container */
     display: flex;
@@ -40,9 +48,9 @@ pre {
     font-size: 8px;
     align-self:flex-start;
 } */
+ 
 
-
-/* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
+ /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
 #latinTextAndSourceContainer{
     position:relative;
     color: b7b7b7ac;
@@ -157,11 +165,11 @@ pre {
     overflow: visible;
 }
 
-/* ----------------------------------------INPUT BOXES MAIN CONTAINER */
-#inputContainers {
+ /* ----------------------------------------INPUT BOXES MAIN CONTAINER */
+ #inputContainers {
     position: static;      /* Keeps the element in the normal document flow */
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
-    overflow-y: visible;
+    overflow-y: visible;     
     display:grid;
     height: 20vw;
     max-height: 95vh;
@@ -194,7 +202,7 @@ pre {
 #enterText {
     background-color: transparent;
     font-family: 'Courier New', Courier, monospace;
-    color: #b7b7b7ac;
+    color:aqua;
     font-size: clamp(8px, 1vw, 15px);
     position: relative;
     width: 95%;
@@ -269,7 +277,7 @@ pre {
 .word.genitive.highlight {
     color: rgba(214, 83, 83, 0.322);
 }
-/* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
+ /* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
 .line-container {
     position: relative;
     user-select: none; /* Prevent text selection */
@@ -285,16 +293,16 @@ pre {
 /* ------------------------------------------------OTHER STUFF  */
 
 .horizontal-line {
-    width: 95%; /* Adjust width as needed */
-    height: 1px; /* Adjust thickness as needed */
-    background-color: #68686b55; /* Change color as needed */
+    width: 95%; 
+    height: 1px; 
+    background-color: #68686b55; 
 }
 .notes-horizontal-line {
-    width: 100%; /* Adjust width as needed */
+    width: 100%; 
     margin-top: -1vw;
     margin-bottom: .5vw;
-    height: 1px; /* Adjust thickness as needed */
-    background-color: antiquewhite; /* Change color as needed */
+    height: 1px; 
+    background-color: aqua;
 }
 .z-index-bottom {
     z-index: 0;
@@ -304,4 +312,7 @@ pre {
 }
 .z-index-top {
     z-index: 2;
+}
+.definitionEntry{
+  color: deeppink;
 }

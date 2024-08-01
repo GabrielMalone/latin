@@ -22,10 +22,32 @@ export const colorCodeDefinition = (translation) => {
             return `<span style="color: ${whitakerOutputColoredLine};">${stringBefore}${stringAfter}</span>`; // blueish color
         } else {
             // Default style for other lines
-            return `<span style="color: ${whitaerOutputColor};">${line}</span>`; // off-white color
+            if (!line.includes('*')){
+                return `<span style="color: ${whitaerOutputColor};">${line}</span>`; // off-white color
+            }
         }
     });
     return styledLines;
+}
+
+/**
+ * takes out specific morphological info for putting defintions into notes area
+ * @param {*} currentDefinition 
+ * @returns 
+ */
+export const stripDefinitionData = (currentDefinition) => {
+    const lines = currentDefinition.split('\n');
+    const notesDefinition = lines
+      .filter(line => {
+          const includesColor = line.includes(`<span style="color: #fefded;">`);
+          const noCapitalLetters = !/[A-Z]/.test(line);
+          const doesNotContainAsterisk = !line.includes('*');
+          const isNotEmpty = line.trim() !== ''; 
+          const shouldInclude = (includesColor || noCapitalLetters) && doesNotContainAsterisk && isNotEmpty;
+          return shouldInclude;
+      })
+      .map(line => line.replace('<pre>', '<pre class="definitionEntry">'));
+    return notesDefinition.join('\n');
 }
 
 /**

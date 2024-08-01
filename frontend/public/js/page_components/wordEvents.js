@@ -1,4 +1,4 @@
-import { cleanword } from "./formatting.js";
+import { cleanword, stripDefinitionData } from "./formatting.js";
 import { getDefinition } from "./fetchDefinition.js";
 const vocabListArray = []; // keep track of the words in the vocablist area
 let count = 1;
@@ -38,7 +38,9 @@ export const doubleClickWord = (wordDiv) => {
         let hasWord = vocabListArray.some(definition => definition === currentDefinition);
         if (!hasWord) {
             vocabListArray.push(currentDefinition);
-            document.querySelector("#enterText").insertAdjacentHTML("beforeend", `<p><pre>${count} - ${currentDefinition}</pre></p><div class="notes-horizontal-line"></div>`);
+            let notesDefinition = stripDefinitionData(currentDefinition);
+            // strip data here.
+            document.querySelector("#enterText").insertAdjacentHTML("beforeend", `<p><pre>${count} _ ${notesDefinition}</pre></p><div class="notes-horizontal-line"></div>`);
             count ++;
         }
         //document.querySelector("#enterText").innerHTML = "";
