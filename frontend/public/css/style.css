@@ -2,7 +2,7 @@
     --background-color: #060c0c;
     --font-size-large: 1.5rem;
     --padding: 10px;
-  }
+}
 
 html, body {
     margin: 0;
@@ -11,7 +11,7 @@ html, body {
     transform: scale(0.95); /* Scale the page to 80% */
     transform-origin: top left; /* Ensure the scaling starts from the top left corner */
 }
-  
+
 body {
     background-color:#060c0c;
     background-repeat: no-repeat;
@@ -24,7 +24,7 @@ body {
     height: 80vh;
 }
 /* THIS WAS TO KEEP WHITAKERS OUTPUT FROM OVERFLOWING, NOT SURE IF STILL NEED */
-pre {   
+pre {
     white-space: pre-wrap;
     word-wrap: break-word;
     margin: 0;
@@ -33,14 +33,14 @@ pre {
 }
 
 span {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 #mainContainer {
     position: static;      /* Keeps the element in the normal document flow */
-    width: 100vw;       
-    height: 60vh;      
+    width: 100vw;
+    height: 60vh;
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
     overflow: visible;      /* Hides any content that overflows the container */
     display: flex;
@@ -53,44 +53,8 @@ span {
     font-size: 8px;
     align-self:flex-start;
 } */
- 
 
- /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
-#latinTextAndSourceContainer{
-    position:relative;
-    color: transparent;
-    border: 1px;
-    width: 65vw;
-    height: 60vh;
-    display: inline-block;
-}
-#latinText {
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    padding: .7vw;
-    background: transparent;
-    position: relative;
-    font-size: 2.25vw;
-    border: #3f3f3e;
-    min-height: 3vw;
-    height: fit-content;
-    max-height: 70vh;
-    max-width: 64vw;
-    overflow: auto;
-    scrollbar-width: none;
-    overscroll-behavior: contain;
-    -ms-overflow-style: none;
-    resize: vertical;
-    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS and hide scrollbar */
-}
 
-#latinText::-webkit-scrollbar {
-    width: .5vw; /* Set a thin scrollbar width to preserve the resize handle */
-}
-
-#latinText::-webkit-scrollbar-thumb {
-    background-color: transparent; /* Make the scrollbar thumb invisible */
-}
 /* ----------------------------------------SOURCE MATERIAL BOXES */
 
 #sourceContainer{
@@ -165,11 +129,11 @@ span {
     overflow: visible;
 }
 
- /* ----------------------------------------INPUT BOXES MAIN CONTAINER */
- #inputContainers {
+/* ----------------------------------------INPUT BOXES MAIN CONTAINER */
+#inputContainers {
     position: static;      /* Keeps the element in the normal document flow */
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
-    overflow-y: visible;     
+    overflow-y: visible;
     display:grid;
     height: 20vw;
     max-height: 95vh;
@@ -216,6 +180,8 @@ span {
     font-size: 1.25vw;
     position: relative;
     margin: 1vw;
+    width: 90%;
+    height: 95%;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
     -moz-user-select: none; /* mozilla browsers */
@@ -230,7 +196,55 @@ span {
     width: 0;
     height: 0;
 }
-/* -------------------------LATIN WORD OBJECTS AND THEIR HIGHLIGHTING EFFECTS */
+
+/* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
+#latinTextAndSourceContainer{
+    position:relative;
+    color: transparent;
+    border: 1px;
+    width: 65vw;
+    height: 60vh;
+    display: inline-block;
+}
+#latinText {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    padding: .7vw;
+    background: transparent;
+    position: relative;
+    font-size: 2.25vw;
+    border: #3f3f3e;
+    min-height: 3vw;
+    height: fit-content;
+    max-height: 70vh;
+    max-width: 64vw;
+    overflow: auto;
+    scrollbar-width: none;
+    overscroll-behavior: contain;
+    -ms-overflow-style: none;
+    resize: vertical;
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS and hide scrollbar */
+}
+
+#latinText::-webkit-scrollbar {
+    width: .5vw; /* Set a thin scrollbar width to preserve the resize handle */
+}
+
+#latinText::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Make the scrollbar thumb invisible */
+}
+/* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
+.line-container {
+    position: relative;
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For Internet Explorer and Edge */
+    outline: none; /* Remove any outline */
+    box-shadow: none; /* Remove shadow effects */
+    background-color: transparent; /* Ensure no background highlight */
+    border: none; /* Ensure no border highlight */
+}
 .word {
     color:rgba(255, 248, 220, 0.733);
     display:inline;
@@ -239,6 +253,8 @@ span {
     outline: none;
     position:relative;
 }
+/* -------------------------LATIN WORD OBJECTS AND THEIR HIGHLIGHTING EFFECTS */
+
 .word.highlight {
     color: #C8ACD6;
 }
@@ -284,31 +300,17 @@ span {
 .word.genitive.highlight {
     color: rgba(214, 83, 83, 0.322);
 }
- /* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
-.line-container {
-    position: relative;
-    user-select: none; /* Prevent text selection */
-    -webkit-user-select: none; /* For Safari */
-    -moz-user-select: none; /* For Firefox */
-    -ms-user-select: none; /* For Internet Explorer and Edge */
-    outline: none; /* Remove any outline */
-    box-shadow: none; /* Remove shadow effects */
-    background-color: transparent; /* Ensure no background highlight */
-    border: none; /* Ensure no border highlight */
-}
 
 /* ------------------------------------------------OTHER STUFF  */
 
 .horizontal-line {
-    width: 95%; 
-    height: 1px; 
-    background-color: #3f3f3e; 
+    width: 95%;
+    height: 1px;
+    background-color: #3f3f3e;
 }
 .notes-horizontal-line {
-    width: 100%; 
+    width: 100%;
     height: 1px;
-    margin-top: .25vw; 
-    margin-bottom: .25vw;
     background-color: rgba(250, 235, 215, 0.463);
 }
 .z-index-bottom {
