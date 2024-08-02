@@ -2,6 +2,10 @@ import { cleanword, stripDefinitionData } from "./formatting.js";
 import { getDefinition } from "./fetchDefinition.js";
 const vocabListArray = []; // keep track of the words in the vocablist area
 let count = 1;
+// const verbs_marked = [];
+// const subjects_marked = [];
+
+
 /**
  * All events related to a highlighted word go here
  * @param {*} wordDiv 
@@ -9,11 +13,17 @@ let count = 1;
  */
 export const mouseOverEvents = (wordDiv, word, count) => {
     wordDiv.setAttribute('tabindex', '0');  
-    wordDiv.addEventListener('mouseover', () => { 
-        generalHighlighter(wordDiv);                                           
-        word = cleanword(word);
-        getDefinition(word);
-        keyDownVerb(wordDiv); 
+    
+    // Check if event listeners have been set up to avoid duplicates
+    if (!wordDiv.classList.contains('event-setup')) {
+        wordDiv.addEventListener('mouseover', () => { 
+            generalHighlighter(wordDiv);                                        
+            word = cleanword(word);
+            getDefinition(word);
+            setTimeout(() => wordDiv.focus(), 0); // Ensure focus is set
+        });
+        doubleClickWord(wordDiv);
+        keyDownVerb(wordDiv);
         keyDownSubject(wordDiv);
         keyDownAcc(wordDiv);
         keyDownSpace(wordDiv);
@@ -22,10 +32,12 @@ export const mouseOverEvents = (wordDiv, word, count) => {
         keyDownDat(wordDiv);
         keyDownGen(wordDiv);
         clickWordReset(wordDiv);
-        doubleClickWord(wordDiv);
-        wordDiv.focus();     
-    });
+        // Mark that events are set up to avoid re-adding them
+        wordDiv.classList.add('event-setup');
+    }
 }
+
+
 
 /**
  * double clicking a word adds the word to the vocabulary list , if not already present. 
@@ -46,7 +58,11 @@ export const doubleClickWord = (wordDiv) => {
     });
 }
 
-// ----- FUNCTIONS FOR MARKING UP WORDS ------ // 
+
+
+
+
+// ----- KEY EVENTS METHODS -------------------------------------------- // 
 
 /**
  * highlight a word with any mouseover
@@ -67,6 +83,7 @@ export const keyDownSubject = (wordDiv) => {
     wordDiv.addEventListener('keydown', (event) => { 
         if (event.key === 's'){
             subjectHighlighter(wordDiv);
+            // addNominativeSupercript(wordDiv);
         }
     });  
 }
@@ -86,8 +103,10 @@ export const subjectHighlighter = (wordDiv) => {
  */
 export const keyDownVerb = (wordDiv) => {
     wordDiv.addEventListener('keydown', (event) => { 
+        event.preventDefault();
         if (event.key === 'v'){
             verbHighlighter(wordDiv);
+            // addVerbSupercript(wordDiv);
         }
     });  
 }
@@ -213,11 +232,18 @@ export const genHighlighter = (wordDiv) => {
 export const keyDownSpace = (wordDiv) => {
     wordDiv.addEventListener('keydown', (event) => { 
         if (event.code === 'Space'){
+            event.preventDefault();
             // clear all highlights
             const markedUpWords = document.querySelectorAll(".word");
+            const superscriptedWords = document.querySelectorAll(".superscript");
             markedUpWords.forEach(word => {
                 word.className = 'word';
             });
+            superscriptedWords.forEach(word => {
+                word.remove();
+            });
+            verbs_marked.length = 0;
+            subjects_marked.length = 0;
         }
     });  
 }
@@ -231,3 +257,26 @@ export const clickWordReset = (wordDiv) => {
         wordDiv.className = 'word';
     });
 }
+
+// ---------- SUPERSCRIPT METHODS ------------------------------------------//
+
+
+// const addVerbSupercript = (wordDiv) => {
+//     if (! wordDiv.querySelector('.superscript')){
+//         wordDiv.classList.add('superscripted');
+//         wordDiv.insertAdjacentHTML('afterbegin', `<div class="superscript">verb ${verbs_marked.length}</div>`)
+//     }
+//     else {
+//         wordDiv.removeChild(wordDiv.querySelector('.superscript'));
+//     }
+// }
+
+// const addNominativeSupercript = (wordDiv) => {
+//     if (! wordDiv.querySelector('.superscript')){
+//         wordDiv.classList.add('superscripted');
+//         wordDiv.insertAdjacentHTML('afterbegin', `<div class="superscript">nom</div>`);
+//     }
+//     else {
+//         wordDiv.removeChild(wordDiv.querySelector('.superscript'));
+//     }
+// }

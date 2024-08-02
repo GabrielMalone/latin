@@ -1,6 +1,4 @@
 import {mouseOverEvents} from "./wordEvents.js"
-
-
 /**
  * create the div container for each word
  */
@@ -10,9 +8,6 @@ const createWordDiv = (word) => {
     wordDiv.textContent = word;
     return wordDiv;
 }
-
-
-
 /**
  * create interactable Latin text area
  */
