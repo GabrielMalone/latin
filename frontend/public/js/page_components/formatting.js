@@ -1,130 +1,136 @@
 const lineBreakLengthForProseInput = 50;
-const whitakerOutputColoredLine = '#fefded'; // currently a light blue color
+const whitakerOutputColoredLine = "#fefded"; // currently a light blue color
 const whitaerOutputColor = `#fefdeda8`; // currently off-white
 
 /**
  * This takes the output from whitaker's and color codes the line with the morphological forms a different color than the rest of the lines
- * @param {*} translation 
- * @returns 
+ * @param {*} translation
+ * @returns
  */
 export const colorCodeDefinition = (translation) => {
-    // Split the translation into lines
-    const lines = translation.split('\n');
-    const styledLines = lines.map(line => {
-        if (line.includes('[') && line.includes(']')) {
-            // Style for lines containing brackets
-            
-            const firstBracket = line.indexOf('[');
-            const secondBracket = line.indexOf(']') + 1;
-            const stringBefore = line.substring(0,firstBracket);
-            const stringAfter = line.substring(secondBracket);
+  // Split the translation into lines
+  const lines = translation.split("\n");
+  const styledLines = lines.map((line) => {
+    if (line.includes("[") && line.includes("]")) {
+      // Style for lines containing brackets
 
-            return `<span style="color: ${whitakerOutputColoredLine};">${stringBefore}${stringAfter}</span>`; // blueish color
-        } else {
-            // Default style for other lines
-            if (!line.includes('*')){
-                return `<span style="color: ${whitaerOutputColor};">${line}</span>`; // off-white color
-            }
-        }
-    });
-    return styledLines;
-}
+      const firstBracket = line.indexOf("[");
+      const secondBracket = line.indexOf("]") + 1;
+      const stringBefore = line.substring(0, firstBracket);
+      const stringAfter = line.substring(secondBracket);
+
+      return `<span style="color: ${whitakerOutputColoredLine};">${stringBefore}${stringAfter}</span>`; // blueish color
+    } else {
+      // Default style for other lines
+      if (!line.includes("*")) {
+        return `<span style="color: ${whitaerOutputColor};">${line}</span>`; // off-white color
+      }
+    }
+  });
+  return styledLines;
+};
 
 /**
  * takes out specific morphological info for putting defintions into notes area
- * @param {*} currentDefinition 
- * @returns 
+ * @param {*} currentDefinition
+ * @returns
  */
 export const stripDefinitionData = (currentDefinition) => {
-    const lines = currentDefinition.split('\n');
-    const notesDefinition = [];
-    let foundFirstColorLine = false;  // Flag to check if the first color line has been found
+  const lines = currentDefinition.split("\n");
+  const notesDefinition = [];
+  let foundFirstColorLine = false; // Flag to check if the first color line has been found
 
-    for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-        const includesColor = line.includes(`<span style="color: #fefded;">`);
-        const noCapitalLetters = !/[A-Z]/.test(line);
-        const doesNotContainAsterisk = !line.includes('*');
-        const isNotEmpty = line.trim() !== '';
-        
-        // Set the flag when the first color line is found
-        if (includesColor && !foundFirstColorLine) {
-            foundFirstColorLine = true;
-        }
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const includesColor = line.includes(`<span style="color: #fefded;">`);
+    const noCapitalLetters = !/[A-Z]/.test(line);
+    const doesNotContainAsterisk = !line.includes("*");
+    const isNotEmpty = line.trim() !== "";
 
-        // Only start including lines after finding the first color line
-        if (foundFirstColorLine) {
-            const shouldInclude = (includesColor || noCapitalLetters) && doesNotContainAsterisk && isNotEmpty;
-
-            if (shouldInclude) {
-                notesDefinition.push(line);
-
-                // Include the next line if the current line contains the specific color and is not the last line
-                if (includesColor && i + 1 < lines.length) {
-                    notesDefinition.push(lines[i + 1]);
-                }
-            }
-        }
+    // Set the flag when the first color line is found
+    if (includesColor && !foundFirstColorLine) {
+      foundFirstColorLine = true;
     }
 
-    return notesDefinition.join('\n');
+    // Only start including lines after finding the first color line
+    if (foundFirstColorLine) {
+      const shouldInclude =
+        (includesColor || noCapitalLetters) &&
+        doesNotContainAsterisk &&
+        isNotEmpty;
+
+      if (shouldInclude) {
+        notesDefinition.push(line);
+
+        // Include the next line if the current line contains the specific color and is not the last line
+        if (includesColor && i + 1 < lines.length) {
+          notesDefinition.push(lines[i + 1]);
+        }
+      }
+    }
+  }
+
+  return notesDefinition.join("\n");
 };
 
 /**
  * This function will break the prose into line lengths that fit the UI and , hopefully ,  maintian original poetry breaks.
- * @param {*} sourceArea 
- * @returns 
+ * @param {*} sourceArea
+ * @returns
  */
 export const proseLineBreaks = (pastedText) => {
-    let newStringData = "";
-    let count = 0;
-    let index = 0;
-    while (index < pastedText.length) {
-        let currentChar = pastedText[index];
-        let nextChr = pastedText[index + 1];
-        if (currentChar >= '0' && currentChar <= '9'){
-            // index ++;
-            // continue;
-        }
-        if ((currentChar.charCodeAt(0) === 32 && nextChr?.charCodeAt(0) !== 32 && count >= lineBreakLengthForProseInput) || (currentChar === '\n')) {
-            newStringData += "\n";
-            count = 0;
-        } else {
-            newStringData += currentChar;
-            count++;
-        }
-        index++;
+  let newStringData = "";
+  let count = 0;
+  let index = 0;
+  while (index < pastedText.length) {
+    let currentChar = pastedText[index];
+    let nextChr = pastedText[index + 1];
+    if (currentChar >= "0" && currentChar <= "9") {
     }
-    return newStringData;
-}
+    if (
+      (currentChar.charCodeAt(0) === 32 &&
+        nextChr?.charCodeAt(0) !== 32 &&
+        count >= lineBreakLengthForProseInput) ||
+      currentChar === "\n"
+    ) {
+      newStringData += "\n";
+      count = 0;
+    } else {
+      newStringData += currentChar;
+      count++;
+    }
+    index++;
+  }
+  return newStringData;
+};
 
 /**
- * Keep only a-z chars before sending a word to whitaker's. will need to update this to handle macrons. 
- * @param {*} word 
- * @returns 
+ * Keep only a-z chars before sending a word to whitaker's. will need to update this to handle macrons.
+ * @param {*} word
+ * @returns
  */
 export const cleanword = (word) => {
-    const macronMap = {
-        'ā': 'a',
-        'ē': 'e',
-        'ī': 'i',
-        'ō': 'o',
-        'ū': 'u',
-        'Ā': 'A',
-        'Ē': 'E',
-        'Ī': 'I',
-        'Ō': 'O',
-        'Ū': 'U'
-    };
-    let cleanword = "";
-    for (let i = 0; i < word.length; i++) {
-        let char = word.charAt(i);
-        if (macronMap[char]) {
-            char = macronMap[char];
-        }
-        if (char.toLowerCase() >= 'a' && char.toLowerCase() <= 'z') {
-            cleanword += char;
-        }
+  const macronMap = {
+    ā: "a",
+    ē: "e",
+    ī: "i",
+    ō: "o",
+    ū: "u",
+    Ā: "A",
+    Ē: "E",
+    Ī: "I",
+    Ō: "O",
+    Ū: "U",
+  };
+  let cleanword = "";
+  for (let i = 0; i < word.length; i++) {
+    let char = word.charAt(i);
+    if (macronMap[char]) {
+      char = macronMap[char];
     }
-    return cleanword;
-}
+    if (char.toLowerCase() >= "a" && char.toLowerCase() <= "z") {
+      cleanword += char;
+    }
+  }
+  return cleanword;
+};

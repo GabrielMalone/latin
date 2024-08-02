@@ -58,18 +58,16 @@ span {
 /* ----------------------------------------SOURCE MATERIAL BOXES */
 
 #sourceContainer{
-    display: flex;
-    align-items: center;
-    max-height: 20vw;
-    min-height: 3vw;
+    display:inline-flex;
+    width: 90vw;
     padding: 1vw;
-    overflow: hidden;
+    height: fit-content;
 }
 #sourceMaterialArea{
     border: 1px solid #0c0c0b;
     background-color: transparent;
     position: relative;
-    width: 40vw;
+    width:fit-content;
     height: 2.5vw;
     min-height: 2vw;
     border-radius: 10px;
@@ -207,6 +205,7 @@ span {
     display: inline-block;
 }
 #latinText {
+    z-index: 1;
     margin-top: 1vh;
     margin-bottom: 1vh;
     padding: .7vw;
@@ -253,6 +252,31 @@ span {
     outline: none;
     position:relative;
 }
+
+/*CANVAS AREA*/
+
+
+#canvas{
+
+    margin: -3vw;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Prevent interaction with SVG */
+}
+.line{
+    margin: 0 auto;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent interaction with SVG */
+  
+}
+
+
 /* -------------------------LATIN WORD OBJECTS AND THEIR HIGHLIGHTING EFFECTS */
 
 .word.highlight {
@@ -302,11 +326,29 @@ span {
 }
 
 /* ------------------------------------------------OTHER STUFF  */
-
+.vertical-line {
+    position: relative;
+    width: 1px;
+    height: 2.5vw;
+    background-color: #3f3f3e;
+}
+#left-of-input{
+    position: absolute;
+    margin-top: -1vw;
+    margin-left: -1vw;
+    margin-right: 1vw;
+    height: 4.6vw;
+}
+#right-of-input{
+    margin-left: 1vw;
+}
 .horizontal-line {
     width: 95%;
     height: 1px;
     background-color: #3f3f3e;
+}
+#top{
+    width: 100vw;
 }
 .notes-horizontal-line {
     width: 100%;
