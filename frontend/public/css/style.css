@@ -140,7 +140,8 @@ span {
     min-height: 5vw;
     width: 35vw;
 }
-/* ------------------------------------------NOTES BOXES */
+/* -------------------------------------------------------NOTES BOXES */
+/* outter container */
 #notesContainer {
     z-index: 0;
     margin-top: 5vw;
@@ -171,7 +172,7 @@ span {
 #notesContainer::-webkit-scrollbar-thumb {
     background-color: transparent; /* Make the scrollbar thumb invisible */
 }
-
+/* inner container where text is placed*/
 #enterText {
     z-index: 1;
     background-color: transparent;
@@ -179,7 +180,7 @@ span {
     color:rgba(250, 235, 215, 0.518);
     font-size: 1.25vw;
     position: relative;
-    margin: 1vw;
+    margin: 1.1vw;
     width: 90%;
     height: 95%;
     user-select: none; /* standard syntax */
