@@ -62,7 +62,7 @@ span {
     border-top: 1px solid #6c6c6a;
     display:inline-flex;
     width: 88vw;
-
+   
     height: fit-content;
 }
 #sourceMaterialArea{
@@ -225,10 +225,6 @@ textarea::placeholder {
     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS and hide scrollbar */
 }
 
-#latinText::-webkit-scrollbar {
-    width: 0; /* Hides scrollbar */
-    height: 0; /* Hides scrollbar */
-}
 #latinText::after {
     z-index: 1;
     content: '';
@@ -336,12 +332,6 @@ textarea::placeholder {
 }
 
 /* ------------------------------------------------OTHER STUFF  */
-.vertical-line {
-    position: relative;
-    width: 1px;
-    height: 2.5vw;
-    background-color: #3f3f3e;
-}
 #left-of-input{
     position: absolute;
     margin-top: -1vw;
