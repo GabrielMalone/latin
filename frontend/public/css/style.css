@@ -1,3 +1,5 @@
+
+
 :root {
     --background-color: #060c0c;
     --font-size-large: 1.5rem;
@@ -136,6 +138,8 @@ span {
     width: 35vw;
 }
 /* ------------------------------------------NOTES BOXES */
+
+/* Notes container adjustments */
 #notesContainer {
     z-index: 0;
     margin-top: 5vw;
@@ -143,30 +147,25 @@ span {
     position: relative;
     border-radius: 10px;
     user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -ms-user-select: none;
-    scrollbar-width: none; /* Show the scrollbar track but hide the thumb */
+    scrollbar-width: none;
     -ms-overflow-style: none;
     resize: vertical;
     height: fit-content;
     height: 70vh;
     max-height: 95vh;
     min-height: 5vw;
-    box-sizing: border-box; /* Ensure padding and border are included in the height calculation */
-    overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
-    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS and hide scrollbar */
+    box-sizing: border-box;
+    overflow: hidden; /* Use hidden to ensure no scrollbar appears */
+    -webkit-overflow-scrolling: touch;
 }
 
 #notesContainer::-webkit-scrollbar {
-    width: 8px; /* Set a thin scrollbar width to preserve the resize handle */
+    width: 0; /* Hides scrollbar */
 }
 
 #notesContainer::-webkit-scrollbar-thumb {
-    background-color: transparent; /* Make the scrollbar thumb invisible */
+    background-color: transparent;
 }
-
 #enterText {
     z-index: 1;
     background-color: transparent;
@@ -221,14 +220,19 @@ span {
     resize: vertical;
     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS and hide scrollbar */
 }
-
-#latinText::-webkit-scrollbar {
-    width: .5vw; /* Set a thin scrollbar width to preserve the resize handle */
+#latinText::after {
+    z-index: 1;
+    content: '';
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    cursor: s-resize;
+    background-color: transparent;
 }
 
-#latinText::-webkit-scrollbar-thumb {
-    background-color: transparent; /* Make the scrollbar thumb invisible */
-}
+
 /* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
 .line-container {
     position: relative;
@@ -361,3 +365,7 @@ span {
 .z-index-top {
     z-index: 2;
 }
+
+
+
+
