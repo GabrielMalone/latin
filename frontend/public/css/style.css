@@ -62,7 +62,7 @@ span {
     border-top: 1px solid #6c6c6a;
     display:inline-flex;
     width: 88vw;
-   
+
     height: fit-content;
 }
 #sourceMaterialArea{
@@ -218,12 +218,16 @@ textarea::placeholder {
     height: fit-content;
     max-height: 70vh;
     max-width: 64vw;
-    overflow: auto;
-    scrollbar-width: none;
-    overscroll-behavior: contain;
-    -ms-overflow-style: none;
+    overflow: auto; /* Use hidden to ensure no scrollbar appears */
+    scrollbar-width: none; /* Firefox-specific */
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
     resize: vertical;
     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS and hide scrollbar */
+}
+
+#latinText::-webkit-scrollbar {
+    width: 0; /* Hides scrollbar */
+    height: 0; /* Hides scrollbar */
 }
 #latinText::after {
     z-index: 1;
