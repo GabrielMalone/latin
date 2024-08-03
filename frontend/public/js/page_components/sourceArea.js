@@ -33,9 +33,6 @@ Ante mare et terras et quod tegit omnia caelum `; // starting passage for the we
     if (event.key === "Enter" || event.key === " ") {
       createLatinTextArea();
       getDefinition(cleanword(wordArray[wordArray.length - 1]));
-      if (event.key === "Enter") {
-        sourceArea.value = "";
-      }
     }
   });
 

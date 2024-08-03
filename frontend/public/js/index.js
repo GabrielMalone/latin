@@ -22,7 +22,6 @@ window.addEventListener("load", function () {
   const firstSpace = inputBox.value.indexOf(" ");
   const firstWord = inputBox.value.substring(0, firstSpace);
   getDefinition(firstWord);
-  inputBox.value =
-    "Enter a word/paste source material to replace the passage below";
+  inputBox.value = "";
   textArea.focus();
 });

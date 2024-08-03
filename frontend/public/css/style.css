@@ -62,16 +62,15 @@ span {
     border-top: 1px solid #6c6c6a;
     display:inline-flex;
     width: 88vw;
-    padding: 1vw;
+   
     height: fit-content;
 }
 #sourceMaterialArea{
     background-color: transparent;
     position: relative;
     width:fit-content;
-    height: 2.5vw;
-    min-height: 2vw;
-    border-radius: 10px;
+    height: fit-content;
+    border-radius: 0px;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
     -moz-user-select: none; /* mozilla browsers */
@@ -87,23 +86,27 @@ span {
     height: 0;
 }
 #sourceArea {
+    margin: 1vw;
+    padding-top: 1vw;
     display: flex; /* Flexbox for vertical centering */
-    text-align: left; /* Horizontal centering */
-    justify-content: left; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    padding-top: .7vw;
-    padding-left: 1.5vw;
+    padding-left: 2vw;
+    padding-right: 1vw;
     background: #2f105b;
-    color:#4e575700;
+    border-radius: 5px;
+    color:#481d83;
     border: none;
-    width: 40vw;
-    height: 2.5vw;
-    font-size: clamp(8px, 1vw, 20px);
+    width: 20vw;
+    height: 2vw;
+    font-size: clamp(6px, 1vw, 30px);
     font-family: monospace;
     outline: none;
     scrollbar-width: none;
     resize: none;
     -ms-overflow-style: none;
+}
+textarea::placeholder {
+    color: #d6d3d3;
+    font-style: italic;
 }
 
 #lookupAreaContainer{
