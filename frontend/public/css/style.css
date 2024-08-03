@@ -8,8 +8,6 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transform: scale(0.95); /* Scale the page to 80% */
-    transform-origin: top left; /* Ensure the scaling starts from the top left corner */
 }
 
 body {
@@ -36,10 +34,9 @@ span {
     margin: 0;
     padding: 0;
 }
-
 #mainContainer {
     position: static;      /* Keeps the element in the normal document flow */
-    width: 100vw;
+    width: 90vw;
     height: 60vh;
     box-sizing: border-box;/* Includes padding and border in the element's total width and height */
     overflow: visible;      /* Hides any content that overflows the container */
@@ -273,7 +270,7 @@ span {
     width: 100%;
     height: 100%;
     pointer-events: none; /* Prevent interaction with SVG */
-  
+
 }
 
 
@@ -348,7 +345,7 @@ span {
     background-color: #3f3f3e;
 }
 #top{
-    width: 100vw;
+    width: 90vw;
 }
 .notes-horizontal-line {
     width: 100%;
