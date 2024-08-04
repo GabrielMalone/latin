@@ -34,6 +34,7 @@ export const mouseOverEvents = (wordDiv, word) => {
     keyDownGen(wordDiv);
     joinWord(wordDiv);
     clickWordReset(wordDiv);
+    typeWordReset(wordDiv);
     // Mark that events are set up to avoid re-adding them
     wordDiv.classList.add("event-setup");
   }
@@ -48,18 +49,18 @@ export const doubleClickWord = (wordDiv) => {
     const currentDefinition = assistanceArea.innerHTML;
     // dont add multiples to the vocab list
     let hasWord = vocabListArray.some(
-      (definition) => definition === currentDefinition
+        (definition) => definition === currentDefinition
     );
     if (!hasWord) {
       vocabListArray.push(currentDefinition);
       let notesDefinition = stripDefinitionData(currentDefinition);
       // strip data here.
       document
-        .querySelector("#enterText")
-        .insertAdjacentHTML(
-          "beforeend",
-          `${count} - ${notesDefinition}<div class="notes-horizontal-line"></div>`
-        );
+          .querySelector("#enterText")
+          .insertAdjacentHTML(
+              "beforeend",
+              `${count} - ${notesDefinition}<div class="notes-horizontal-line"></div>`
+          );
       count++;
     }
   });
@@ -304,14 +305,25 @@ export const clickWordReset = (wordDiv) => {
     if (wordDiv.classList.contains("color")) {
       wordDiv.classList.remove("color");
     }
-    // Reset the wordDiv class
-    //wordDiv.className = "word";
     generalHighlighter(wordDiv);
     const allBlinking = document.querySelectorAll(".blinking");
     allBlinking.forEach((blinker) => {
       blinker.className = "word";
     });
     wordDiv.classList.add("blinking");
+  });
+};
+
+/**
+ * clears the current marked up word
+ * @param {*} wordDiv
+ */
+export const typeWordReset = (wordDiv) => {
+  wordDiv.addEventListener("keydown", (event) => {
+    if (event.key === "c") {
+      event.preventDefault();
+      wordDiv.className = "word";
+    }
   });
 };
 
