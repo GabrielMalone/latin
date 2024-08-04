@@ -1,6 +1,6 @@
 :root {
     --background-color: #000000;
-    --background-image: url('/frontend/public/images/background.png');
+    --background-image: url('../images/background.png');
     --font-family-sans: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     --font-family-mono: 'Courier New', Courier, monospace;
     --font-size-large: 1.5rem;
@@ -39,8 +39,8 @@ body {
     background-color: var(--background-color);
     /* background-image: var(--background-image); */
     background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: contain;
+    background-position:bottom;
+    background-size:cover;
     font-family: var(--font-family-sans);
     margin: var(--margin-5vw);
     overflow: visible;
@@ -274,7 +274,7 @@ textarea::placeholder {
     box-shadow: none; /* Remove shadow effects */
     background-color: transparent; /* Ensure no background highlight */
     border: none; /* Ensure no border highlight */
-    overflow: hidden;
+    overflow: visible;
 }
 
 .word {
@@ -284,7 +284,7 @@ textarea::placeholder {
     width: 100%;
     outline: none;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 .word.blinking {
   animation: blink 2s linear infinite; /* Apply the blink animation */
@@ -295,7 +295,7 @@ textarea::placeholder {
     opacity: 1; /* Fully visible */
   }
   50% {
-    opacity: 0; /* Fully transparent */
+    opacity: .25; /* Fully transparent */
   }
 }
 
