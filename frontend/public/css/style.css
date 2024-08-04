@@ -286,6 +286,18 @@ textarea::placeholder {
     position: relative;
     overflow: hidden;
 }
+.word.blinking {
+  animation: blink 2s linear infinite; /* Apply the blink animation */
+  /* Additional styling for the div */
+}
+@keyframes blink {
+  0%, 100% {
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    opacity: 0; /* Fully transparent */
+  }
+}
 
 /*CANVAS AREA*/
 #canvas {
@@ -312,59 +324,59 @@ textarea::placeholder {
     color: var(--color-text-highlight);
 }
 
-.word.accusative {
+.word.color.accusative {
     color: var(--color-word-accusative);
 }
 
-.word.accusative.highlight {
+.word.color.accusative.highlight {
     color: rgba(255, 93, 220, 0.331);
 }
 
-.word.verb {
+.word.color.verb {
     color: var(--color-word-verb);
 }
 
-.word.verb.highlight {
+.word.color.verb.highlight {
     color: rgba(233, 249, 86, 0.454);
 }
 
-.word.subject {
+.word.color.subject {
     color: var(--color-word-subject);
 }
 
-.word.subject.highlight {
+.word.color.subject.highlight {
     color: rgba(98, 221, 255, 0.442);
 }
 
-.word.preposition {
+.word.color.preposition {
     color: var(--color-word-preposition);
 }
 
-.word.preposition.highlight {
+.word.color.preposition.highlight {
     color: rgba(119, 214, 221, 0.103);
 }
 
-.word.ablative {
+.word.color.ablative {
     color: var(--color-word-ablative);
 }
 
-.word.ablative.highlight {
+.word.color.ablative.highlight {
     color: rgba(241, 158, 94, 0.333);
 }
 
-.word.dative {
+.word.color.dative {
     color: var(--color-word-dative);
 }
 
-.word.dative.highlight {
+.word.color.dative.highlight {
     color: rgba(96, 214, 83, 0.556);
 }
 
-.word.genitive {
+.word.color.genitive {
     color: var(--color-word-genitive);
 }
 
-.word.genitive.highlight {
+.word.color.genitive.highlight {
     color: rgba(214, 83, 83, 0.322);
 }
 

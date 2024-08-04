@@ -135,7 +135,8 @@ export const keyDownSubject = (wordDiv) => {
  */
 export const subjectHighlighter = (wordDiv) => {
   wordDiv.classList = "word";
-  wordDiv.classList.add("subject");
+  wordDiv.classList.add("color", "subject");
+  wordDiv.classList.remove("blinking");
 };
 
 /**
@@ -158,7 +159,8 @@ export const keyDownVerb = (wordDiv) => {
  */
 export const verbHighlighter = (wordDiv) => {
   wordDiv.classList = "word";
-  wordDiv.classList.add("verb");
+  wordDiv.classList.add("color", "verb");
+  wordDiv.classList.remove("blinking");
 };
 
 /**
@@ -179,7 +181,8 @@ export const keyDownAcc = (wordDiv) => {
  */
 export const accHighlighter = (wordDiv) => {
   wordDiv.classList = "word";
-  wordDiv.classList.add("accusative");
+  wordDiv.classList.add("color", "accusative");
+  wordDiv.classList.remove("blinking");
 };
 
 /**
@@ -200,7 +203,8 @@ export const keyDownPrep = (wordDiv) => {
  */
 export const prepHighlighter = (wordDiv) => {
   wordDiv.classList = "word";
-  wordDiv.classList.add("preposition");
+  wordDiv.classList.add("color", "preposition");
+  wordDiv.classList.remove("blinking");
 };
 
 /**
@@ -210,7 +214,6 @@ export const prepHighlighter = (wordDiv) => {
 export const keyDownAbl = (wordDiv) => {
   wordDiv.addEventListener("keydown", (event) => {
     if (event.key === "b") {
-      console.log("b hit!");
       ablHighlighter(wordDiv);
     }
   });
@@ -221,8 +224,8 @@ export const keyDownAbl = (wordDiv) => {
  */
 export const ablHighlighter = (wordDiv) => {
   wordDiv.classList = "word";
-  wordDiv.classList.add("ablative");
-  console.log("highlight ablative!");
+  wordDiv.classList.add("color", "ablative");
+  wordDiv.classList.remove("blinking");
 };
 
 /**
@@ -242,7 +245,8 @@ export const keyDownDat = (wordDiv) => {
  */
 export const datHighlighter = (wordDiv) => {
   wordDiv.classList = "word";
-  wordDiv.classList.add("dative");
+  wordDiv.classList.add("color", "dative");
+  wordDiv.classList.remove("blinking");
 };
 
 /**
@@ -262,7 +266,8 @@ export const keyDownGen = (wordDiv) => {
  */
 export const genHighlighter = (wordDiv) => {
   wordDiv.classList = "word";
-  wordDiv.classList.add("genitive");
+  wordDiv.classList.add("color", "genitive");
+  wordDiv.classList.remove("blinking");
 };
 
 /**
@@ -282,8 +287,6 @@ export const keyDownSpace = (wordDiv) => {
       superscriptedWords.forEach((word) => {
         word.remove();
       });
-      verbs_marked.length = 0;
-      subjects_marked.length = 0;
     }
   });
 };
@@ -294,7 +297,21 @@ export const keyDownSpace = (wordDiv) => {
  */
 export const clickWordReset = (wordDiv) => {
   wordDiv.addEventListener("click", () => {
-    wordDiv.className = "word";
+    if (wordDiv.classList.contains("blinking")) {
+      wordDiv.classList.remove("blinking");
+      return;
+    }
+    if (wordDiv.classList.contains("color")) {
+      wordDiv.classList.remove("color");
+    }
+    // Reset the wordDiv class
+    //wordDiv.className = "word";
+    generalHighlighter(wordDiv);
+    const allBlinking = document.querySelectorAll(".blinking");
+    allBlinking.forEach((blinker) => {
+      blinker.className = "word";
+    });
+    wordDiv.classList.add("blinking");
   });
 };
 

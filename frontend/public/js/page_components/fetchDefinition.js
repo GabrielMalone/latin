@@ -41,10 +41,15 @@ export const getLatinText = async () => {
     .then((response) => response.text())
     .then((data) => {
       console.log("Text file contents:", data);
-      let loadedText = data;
+      let loadedText = data.trim();
       let newStringData = formatting.proseLineBreaks(loadedText);
       sourceArea.value = newStringData;
       createLatinTextArea();
+      const inputBox = document.querySelector("#sourceArea");
+      const firstSpace = inputBox.value.indexOf(" ");
+      const firstWord = inputBox.value.substring(0, firstSpace);
+      getDefinition(firstWord);
+      console.log(firstSpace);
       sourceArea.value = "";
     })
     .catch((error) => {
