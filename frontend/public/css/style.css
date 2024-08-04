@@ -1,9 +1,32 @@
-
-
 :root {
-    --background-color: #060c0c;
+    --background-color: #000000;
+    --background-image: url('/frontend/public/images/background.png');
+    --font-family-sans: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --font-family-mono: 'Courier New', Courier, monospace;
     --font-size-large: 1.5rem;
+    --font-size-medium: 1.25vw;
+    --font-size-small: 1vw;
+    --font-size-xsmall: 0.5em;
+    --font-size-latin-text: 2.25vw;
+    --color-text-primary: #FEFDED;
+    --color-text-secondary: #d6d3d3;
+    --color-text-highlight: #C8ACD6;
+    --color-background-primary: #2f105b;
+    --color-background-secondary: #00000093;
+    --color-border: #ff00f276;
+    --color-placeholder: rgba(250, 235, 215, 0.518);
+    --color-word-highlight: rgba(255, 248, 220, 0.733);
+    --color-note-border: rgba(250, 235, 215, 0.463);
+    --color-word-accusative: rgb(255, 93, 220);
+    --color-word-verb: rgb(233, 249, 86);
+    --color-word-subject: rgb(98, 221, 255);
+    --color-word-preposition: rgba(119, 214, 221, 0.475);
+    --color-word-ablative: rgb(215, 117, 43);
+    --color-word-dative: rgb(96, 214, 83);
+    --color-word-genitive: rgb(214, 83, 83);
     --padding: 10px;
+    --margin: 1vw;
+    --margin-5vw: 5vw;
 }
 
 html, body {
@@ -13,17 +36,18 @@ html, body {
 }
 
 body {
-    background-color:#060c0c;
+    background-color: var(--background-color);
+    /* background-image: var(--background-image); */
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: contain;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin: 5vw;
+    font-family: var(--font-family-sans);
+    margin: var(--margin-5vw);
     overflow: auto;
     width: 90vw;
     height: 80vh;
 }
-/* THIS WAS TO KEEP WHITAKERS OUTPUT FROM OVERFLOWING, NOT SURE IF STILL NEED */
+
 pre {
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -36,39 +60,32 @@ span {
     margin: 0;
     padding: 0;
 }
+
 #mainContainer {
-    position: static;      /* Keeps the element in the normal document flow */
+    position: static; /* Keeps the element in the normal document flow */
     width: 90vw;
     height: 60vh;
-    box-sizing: border-box;/* Includes padding and border in the element's total width and height */
-    overflow: visible;      /* Hides any content that overflows the container */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    overflow: visible; /* Hides any content that overflows the container */
     display: flex;
 }
 
-/* #logo{
-    position: relative;
-    transform: rotate(90deg);
-    color:#68686b62;
-    font-size: 8px;
-    align-self:flex-start;
-} */
-
-
 /* ----------------------------------------SOURCE MATERIAL BOXES */
 
-#sourceContainer{
-    border-left: 1px solid #6c6c6a;
-    border-bottom: 1px solid #6c6c6a;
-    border-top: 1px solid #6c6c6a;
-    display:inline-flex;
-    width: 88vw;
-   
+#sourceContainer {
+    z-index: 1;
+    border-left: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border);
+    display: inline-flex;
+    width: 100%;
     height: fit-content;
 }
-#sourceMaterialArea{
+
+#sourceMaterialArea {
     background-color: transparent;
     position: relative;
-    width:fit-content;
+    width: fit-content;
     height: fit-content;
     border-radius: 0px;
     user-select: none; /* standard syntax */
@@ -81,76 +98,81 @@ span {
     resize: none;
     overflow: auto;
 }
+
 #sourceMaterialArea::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
+
 #sourceArea {
-    margin: 1vw;
-    padding-top: 1vw;
+    margin: var(--margin);
+    padding-top: var(--margin);
     display: flex; /* Flexbox for vertical centering */
     padding-left: 2vw;
-    padding-right: 1vw;
-    background: #2f105b;
+    padding-right: var(--margin);
+    background: var(--color-background-primary);
     border-radius: 5px;
-    color:#481d83;
+    color: #481d83;
     border: none;
     width: 20vw;
     height: 2vw;
-    font-size: clamp(6px, 1vw, 30px);
+    font-size: clamp(6px, var(--font-size-small), 30px);
     font-family: monospace;
     outline: none;
     scrollbar-width: none;
     resize: none;
     -ms-overflow-style: none;
+    transition: background-color 0.3s ease;
 }
+
 textarea::placeholder {
-    color: #d6d3d3;
+    color: var(--color-text-secondary);
     font-style: italic;
 }
 
-#lookupAreaContainer{
-    padding: 1vw;
+#lookupAreaContainer {
+    padding: var(--margin);
     overflow: visible;
 }
-#lookUpWord {
-    margin-top: 0vw;
-    position: relative;
-    color:#C8ACD6;
-    font-size: 2vw;
 
+#lookUpWord {
+    margin-top: 0;
+    position: relative;
+    color: var(--color-text-highlight);
+    font-size: 2vw;
 }
+
 #assistanceArea {
     position: relative;
     margin-top: 2vh;
     margin-left: 2vh;
-    color:#FEFDED;
-    font-family:'Courier New', Courier, monospace;
-    font-size: clamp(.5em, 1.1vw, 2em);
+    color: var(--color-text-primary);
+    font-family: var(--font-family-mono);
+    font-size: clamp(var(--font-size-xsmall), 1.1vw, 2em);
     overflow: visible;
 }
 
 /* ----------------------------------------INPUT BOXES MAIN CONTAINER */
 #inputContainers {
-    position: static;      /* Keeps the element in the normal document flow */
-    box-sizing: border-box;/* Includes padding and border in the element's total width and height */
+    position: static; /* Keeps the element in the normal document flow */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
     overflow-y: visible;
-    display:grid;
+    display: grid;
     height: 20vw;
     max-height: 95vh;
     min-height: 5vw;
     width: 35vw;
 }
+
 /* ------------------------------------------NOTES BOXES */
 
-/* Notes container adjustments */
 #notesContainer {
     z-index: 0;
-    margin-top: 0vw;
-    background-color: #0d1338;
-    border: 1px solid #6c6c6a;
+    margin-top: 0;
+    background-color: var(--color-background-secondary);
+    border: 1px solid var(--color-border);
     position: relative;
-    border-radius: 3px;
+    border-radius: 0px;
     user-select: none;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -171,14 +193,15 @@ textarea::placeholder {
 #notesContainer::-webkit-scrollbar-thumb {
     background-color: transparent;
 }
+
 #enterText {
-    z-index: 1;
+    z-index: 0;
     background-color: transparent;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color:rgba(250, 235, 215, 0.518);
-    font-size: 1.25vw;
+    font-family: var(--font-family-sans);
+    color: var(--color-placeholder);
+    font-size: var(--font-size-medium);
     position: relative;
-    margin: 1vw;
+    margin: var(--margin);
     width: 90%;
     height: 95%;
     user-select: none; /* standard syntax */
@@ -191,29 +214,31 @@ textarea::placeholder {
     outline: none; /* Remove focus outline */
     overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
 }
+
 #enterText::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
 
 /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
-#latinTextAndSourceContainer{
-    position:relative;
+#latinTextAndSourceContainer {
+    position: relative;
     color: transparent;
     border: 1px;
     width: 65vw;
     height: 60vh;
     display: inline-block;
 }
+
 #latinText {
     z-index: 1;
     margin-top: 1vh;
     margin-bottom: 1vh;
-    padding: .7vw;
+    padding: 0.7vw;
     background: transparent;
     position: relative;
-    font-size: 2.25vw;
-    border: #3f3f3e;
+    font-size: var(--font-size-latin-text);
+    border: var(--color-border);
     min-height: 3vw;
     height: fit-content;
     max-height: 70vh;
@@ -237,7 +262,6 @@ textarea::placeholder {
     background-color: transparent;
 }
 
-
 /* --------------------------------------LINE CONTAINER THE WORD OBJECTS GO IN */
 .line-container {
     position: relative;
@@ -250,20 +274,18 @@ textarea::placeholder {
     background-color: transparent; /* Ensure no background highlight */
     border: none; /* Ensure no border highlight */
 }
+
 .word {
-    color:rgba(255, 248, 220, 0.733);
-    display:inline;
-    margin: .3vw;
+    color: var(--color-word-highlight);
+    display: inline;
+    margin: 0.3vw;
     width: 100%;
     outline: none;
-    position:relative;
+    position: relative;
 }
 
 /*CANVAS AREA*/
-
-
-#canvas{
-
+#canvas {
     margin: -3vw;
     position: absolute;
     z-index: -1;
@@ -273,98 +295,101 @@ textarea::placeholder {
     left: 0;
     pointer-events: none; /* Prevent interaction with SVG */
 }
-.line{
+
+.line {
     margin: 0 auto;
     z-index: -1;
     width: 100%;
     height: 100%;
     pointer-events: none; /* Prevent interaction with SVG */
-
 }
-
 
 /* -------------------------LATIN WORD OBJECTS AND THEIR HIGHLIGHTING EFFECTS */
-
 .word.highlight {
-    color: #C8ACD6;
+    color: var(--color-text-highlight);
 }
+
 .word.accusative {
-    color: rgb(255, 93, 220);
+    color: var(--color-word-accusative);
 }
+
 .word.accusative.highlight {
     color: rgba(255, 93, 220, 0.331);
 }
+
 .word.verb {
-    color: rgb(233, 249, 86);
+    color: var(--color-word-verb);
 }
+
 .word.verb.highlight {
     color: rgba(233, 249, 86, 0.454);
 }
+
 .word.subject {
-    color: rgb(98, 221, 255);
+    color: var(--color-word-subject);
 }
+
 .word.subject.highlight {
     color: rgba(98, 221, 255, 0.442);
 }
+
 .word.preposition {
-    color: rgba(119, 214, 221, 0.475);
+    color: var(--color-word-preposition);
 }
+
 .word.preposition.highlight {
     color: rgba(119, 214, 221, 0.103);
 }
+
 .word.ablative {
-    color: rgb(215, 117, 43);
+    color: var(--color-word-ablative);
 }
+
 .word.ablative.highlight {
     color: rgba(241, 158, 94, 0.333);
 }
+
 .word.dative {
-    color: rgb(96, 214, 83);
+    color: var(--color-word-dative);
 }
+
 .word.dative.highlight {
     color: rgba(96, 214, 83, 0.556);
 }
+
 .word.genitive {
-    color: rgb(214, 83, 83);
+    color: var(--color-word-genitive);
 }
+
 .word.genitive.highlight {
     color: rgba(214, 83, 83, 0.322);
 }
 
 /* ------------------------------------------------OTHER STUFF  */
-#left-of-input{
+#left-of-input {
     position: absolute;
     margin-top: -1vw;
     margin-left: -1vw;
     margin-right: 1vw;
     height: 4.7vw;
 }
-#right-of-input{
+
+#right-of-input {
     margin-left: 1vw;
 }
+
 .horizontal-line {
     width: 100%;
     height: 1px;
-    background-color: #6c6c6a;
+    background-color: var(--color-border);
 }
-#top{
+
+#top {
     width: 90vw;
 }
+
 .notes-horizontal-line {
     width: 100%;
     height: 1px;
-    background-color: rgba(250, 235, 215, 0.463);
+    background-color: var(--color-note-border);
 }
-.z-index-bottom {
-    z-index: 0;
-}
-.z-index-middle {
-    z-index: 1;
-}
-.z-index-top {
-    z-index: 2;
-}
-
-
-
-
