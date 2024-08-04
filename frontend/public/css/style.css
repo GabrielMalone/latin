@@ -43,7 +43,7 @@ body {
     background-size: contain;
     font-family: var(--font-family-sans);
     margin: var(--margin-5vw);
-    overflow: auto;
+    overflow: visible;
     width: 90vw;
     height: 80vh;
 }
@@ -179,8 +179,8 @@ textarea::placeholder {
     resize: vertical;
     height: fit-content;
     height: 70vh;
-    max-height: 95vh;
-    min-height: 5vw;
+    max-height: 75vh;
+    min-height: 40vh;
     box-sizing: border-box;
     overflow: hidden; /* Use hidden to ensure no scrollbar appears */
     -webkit-overflow-scrolling: touch;
@@ -226,8 +226,9 @@ textarea::placeholder {
     color: transparent;
     border: 1px;
     width: 65vw;
-    height: 60vh;
+    height: 75vh;
     display: inline-block;
+    overflow:visible;
 }
 
 #latinText {
@@ -240,8 +241,8 @@ textarea::placeholder {
     font-size: var(--font-size-latin-text);
     border: var(--color-border);
     min-height: 3vw;
-    height: fit-content;
-    max-height: 70vh;
+    height: 20vh;
+    max-height: 50vh;
     max-width: 64vw;
     overflow: auto; /* Use hidden to ensure no scrollbar appears */
     scrollbar-width: none; /* Firefox-specific */
@@ -273,6 +274,7 @@ textarea::placeholder {
     box-shadow: none; /* Remove shadow effects */
     background-color: transparent; /* Ensure no background highlight */
     border: none; /* Ensure no border highlight */
+    overflow: hidden;
 }
 
 .word {
@@ -282,6 +284,7 @@ textarea::placeholder {
     width: 100%;
     outline: none;
     position: relative;
+    overflow: hidden;
 }
 
 /*CANVAS AREA*/
@@ -366,17 +369,7 @@ textarea::placeholder {
 }
 
 /* ------------------------------------------------OTHER STUFF  */
-#left-of-input {
-    position: absolute;
-    margin-top: -1vw;
-    margin-left: -1vw;
-    margin-right: 1vw;
-    height: 4.7vw;
-}
 
-#right-of-input {
-    margin-left: 1vw;
-}
 
 .horizontal-line {
     width: 100%;
@@ -384,9 +377,6 @@ textarea::placeholder {
     background-color: var(--color-border);
 }
 
-#top {
-    width: 90vw;
-}
 
 .notes-horizontal-line {
     width: 100%;

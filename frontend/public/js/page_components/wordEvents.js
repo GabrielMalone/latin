@@ -15,11 +15,13 @@ export const mouseOverEvents = (wordDiv, word) => {
 
   // Check if event listeners have been set up to avoid duplicates
   if (!wordDiv.classList.contains("event-setup")) {
-    wordDiv.addEventListener("mouseover", () => {
+    wordDiv.addEventListener("mouseover", (event) => {
+      event.preventDefault();
+
       generalHighlighter(wordDiv);
       word = cleanword(word);
       getDefinition(word);
-      setTimeout(() => wordDiv.focus(), 0); // Ensure focus is set
+      // setTimeout(() => wordDiv.focus(), 0); // Ensure focus is set
     });
     doubleClickWord(wordDiv);
     keyDownVerb(wordDiv);

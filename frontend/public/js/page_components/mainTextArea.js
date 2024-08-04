@@ -12,7 +12,7 @@ const createWordDiv = (word) => {
  * create interactable Latin text area
  */
 export const createLatinTextArea = async () => {
-  let data = document.querySelector("#sourceArea").value;
+  let data = await document.querySelector("#sourceArea").value;
   const mainContainer = document.getElementById("latinText");
   // outtermost container of the Latin text
   const lines = data.split("\n");
