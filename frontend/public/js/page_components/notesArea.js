@@ -54,21 +54,22 @@ export const notesAreaCreate = async () => {
 
 const createMenu = () => {
   // Fetch the list of files from the server
-  fetch("http://localhost:8000/initnotes")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data); // Process the file list
-      data.forEach((item) => {
-        let menuDiv = createMenuDivs(item);
-        textsMenu.appendChild(menuDiv);
-      });
-    })
-    .catch((error) => console.error("Error fetching files:", error));
+  //https://latin-r3z3.onrender.com/
+  fetch("https://latin-r3z3.onrender.com/initnotes")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data); // Process the file list
+        data.forEach((item) => {
+          let menuDiv = createMenuDivs(item);
+          textsMenu.appendChild(menuDiv);
+        });
+      })
+      .catch((error) => console.error("Error fetching files:", error));
 };
 
 const createMenuDivs = (data) => {
@@ -90,22 +91,23 @@ const menuClick = (menuDiv) => {
 };
 
 const createWorksList = (author) => {
-  fetch(`http://localhost:8000/initnotes?author=${author}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data); // Process the file list
-      workSelect.innerHTML = ""; // Clear previous works
-      data.forEach((item) => {
-        let subMenuDiv = createSubMenuDivs(item);
-        workSelect.appendChild(subMenuDiv);
-      });
-    })
-    .catch((error) => console.error("Error fetching files:", error));
+  //https://latin-r3z3.onrender.com/
+  fetch(`https://latin-r3z3.onrender.com/initnotes?author=${author}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data); // Process the file list
+        workSelect.innerHTML = ""; // Clear previous works
+        data.forEach((item) => {
+          let subMenuDiv = createSubMenuDivs(item);
+          workSelect.appendChild(subMenuDiv);
+        });
+      })
+      .catch((error) => console.error("Error fetching files:", error));
 };
 
 const createSubMenuDivs = (data) => {
