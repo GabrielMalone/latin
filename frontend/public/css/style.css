@@ -269,7 +269,7 @@ textarea::placeholder {
     text-align: left;
     font-size: 2vw;
     color: var(--color-word-highlight);
-    font-family: var(--font-family-sans);  
+    font-family: var(--font-family-sans);
 }
 #authorName{
     position: relative;
@@ -279,7 +279,7 @@ textarea::placeholder {
     font-size: 2vw;
     color: var(--color-word-highlight);
     font-family: var(--font-family-sans);
-    background-color: #000000;  
+    background-color: #000000;
 }
 .work{
     position: static;
@@ -366,16 +366,16 @@ textarea::placeholder {
     overflow: visible;
 }
 .word.blinking {
-  animation: blink 2s linear infinite; /* Apply the blink animation */
-  /* Additional styling for the div */
+    animation: blink 2s linear infinite; /* Apply the blink animation */
+    /* Additional styling for the div */
 }
 @keyframes blink {
-  0%, 100% {
-    opacity: 1; /* Fully visible */
-  }
-  50% {
-    opacity: .25; /* Fully transparent */
-  }
+    0%, 100% {
+        opacity: 1; /* Fully visible */
+    }
+    50% {
+        opacity: .25; /* Fully transparent */
+    }
 }
 
 /*CANVAS AREA*/
