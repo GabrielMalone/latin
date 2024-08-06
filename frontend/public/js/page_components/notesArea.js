@@ -1,4 +1,8 @@
-import { getLatinText } from "./fetchDefinition.js";
+import {
+  getLatinText,
+  createMenu,
+  createWorksList,
+} from "./fetchDefinition.js";
 
 const notesTextColorActive = "antiquewhite";
 const startingNotesValue = ``; // starting value for the notes area
@@ -55,25 +59,7 @@ export const notesAreaCreate = async () => {
   staticMenu = textsMenu.cloneNode(true);
 };
 
-const createMenu = async () => {
-  try {
-    // Fetch the list of files from the server
-    const response = await fetch("https://latin-r3z3.onrender.com/initnotes");
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    console.log(data); // Process the file list
-    data.forEach((item) => {
-      let menuDiv = createMenuDivs(item);
-      textsMenu.appendChild(menuDiv);
-    });
-  } catch (error) {
-    console.error("Error fetching files:", error);
-  }
-};
-
-const createMenuDivs = (data) => {
+export const createMenuDivs = (data) => {
   const menuDiv = document.createElement("div");
   menuDiv.className = "author";
   menuDiv.textContent = data;
@@ -90,26 +76,7 @@ const menuClick = (menuDiv) => {
   });
 };
 
-const createWorksList = (author) => {
-  fetch(`https://latin-r3z3.onrender.com/initnotes?author=${author}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data); // Process the file list
-        workSelect.innerHTML = ""; // Clear previous works
-        data.forEach((item) => {
-          let subMenuDiv = createSubMenuDivs(item);
-          workSelect.appendChild(subMenuDiv);
-        });
-      })
-      .catch((error) => console.error("Error fetching files:", error));
-};
-
-const createSubMenuDivs = (data) => {
+export const createSubMenuDivs = (data) => {
   // Trim whitespace and replace .txt (case-insensitive)
   const cleanedData = data.trim().replace(/\.txt$/i, "");
   const subMenuDiv = document.createElement("div");

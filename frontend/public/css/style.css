@@ -26,6 +26,7 @@
     --color-word-genitive: rgb(214, 83, 83);
     --color-author:#683aa9;
     --color-inputBox: #481d83;
+    --color-text-inputBox:var(--color-inputBox);
     --margin: 1vw;
     --margin-5vw: 5vw;
 }
@@ -126,8 +127,8 @@ span {
     transition: background-color 0.3s ease;
 }
 
-textarea::placeholder {
-    color: var(--color-text-secondary);
+#sourceArea::placeholder {
+    color: var(--color-text-inputBox);
     font-style: italic;
 }
 
@@ -159,7 +160,7 @@ textarea::placeholder {
 /* ------------------------------------------NOTES BOXES */
 
 #notesContainer {
-    display:block;
+    display:inline-block;
     z-index: 0;
     margin-top: 0;
     background-color: var(--color-background-secondary);
@@ -188,15 +189,14 @@ textarea::placeholder {
 
 #enterText {
     z-index: 0;
-    display:list-item;
+    display:block;
     padding: 1vw;
-    padding-right: 1vw;
     background-color: transparent;
     font-family: var(--font-family-sans);
     color: var(--color-placeholder);
     font-size: var(--font-size-small);
     position: relative;
-    width: 95%;
+    width: 90%;
     height: 95%;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
@@ -241,7 +241,6 @@ textarea::placeholder {
 
 
 #textsMenu {
-    padding: 1vw;
     padding-bottom: 1vw;
     z-index: 1;
     width: 100%;
@@ -288,7 +287,7 @@ textarea::placeholder {
     background: black;
     margin: 1vw;
     text-align: left;
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-medium);
     color: var(--color-word-highlight);
     font-family: var(--font-family-sans);
 }
