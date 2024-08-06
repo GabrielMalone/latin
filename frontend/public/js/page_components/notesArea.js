@@ -92,21 +92,21 @@ const menuClick = (menuDiv) => {
 
 const createWorksList = (author) => {
   fetch(`https://latin-r3z3.onrender.com/initnotes?author=${author}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data); // Process the file list
-      workSelect.innerHTML = ""; // Clear previous works
-      data.forEach((item) => {
-        let subMenuDiv = createSubMenuDivs(item);
-        workSelect.appendChild(subMenuDiv);
-      });
-    })
-    .catch((error) => console.error("Error fetching files:", error));
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data); // Process the file list
+        workSelect.innerHTML = ""; // Clear previous works
+        data.forEach((item) => {
+          let subMenuDiv = createSubMenuDivs(item);
+          workSelect.appendChild(subMenuDiv);
+        });
+      })
+      .catch((error) => console.error("Error fetching files:", error));
 };
 
 const createSubMenuDivs = (data) => {
