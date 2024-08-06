@@ -15,7 +15,7 @@ const textsMenu = document.querySelector("#textsMenu");
 let staticMenu; // Placeholder for static menu clone
 
 const notesContainer = document.querySelector("#notesContainer");
-let currentAuthor = "";
+let currentAuthor = "Ammianus";
 let firstMouseOver = true;
 
 /**

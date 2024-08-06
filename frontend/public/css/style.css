@@ -275,7 +275,6 @@ span {
 #authorName{
     position: relative;
     height:3.25vw;
-    margin: 1vw;
     text-align: left;
     font-size: 2vw;
     color: var(--color-word-highlight);
