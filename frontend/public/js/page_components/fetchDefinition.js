@@ -44,7 +44,7 @@ export const getLatinText = async (author, title) => {
         )}&title=${encodeURIComponent("Liber XIV")}`;
         firstload = false;
     } else {
-        fetchURL = `${localFetch}?author=${encodeURIComponent(
+        fetchURL = `${deployedFetch}?author=${encodeURIComponent(
             author
         )}&title=${encodeURIComponent(title)}`;
     }
