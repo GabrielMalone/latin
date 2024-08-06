@@ -49,18 +49,18 @@ export const doubleClickWord = (wordDiv) => {
     const currentDefinition = assistanceArea.innerHTML;
     // dont add multiples to the vocab list
     let hasWord = vocabListArray.some(
-        (definition) => definition === currentDefinition
+      (definition) => definition === currentDefinition
     );
     if (!hasWord) {
       vocabListArray.push(currentDefinition);
       let notesDefinition = stripDefinitionData(currentDefinition);
       // strip data here.
       document
-          .querySelector("#enterText")
-          .insertAdjacentHTML(
-              "beforeend",
-              `${count} - ${notesDefinition}<div class="notes-horizontal-line"></div>`
-          );
+        .querySelector("#enterText")
+        .insertAdjacentHTML(
+          "beforeend",
+          `${count} - ${notesDefinition}<div class="notes-horizontal-line"></div>`
+        );
       count++;
     }
   });

@@ -14,6 +14,7 @@ const createWordDiv = (word) => {
 export const createLatinTextArea = async () => {
   let data = await document.querySelector("#sourceArea").value;
   const mainContainer = document.getElementById("latinText");
+  mainContainer.innerHTML = "";
   // outtermost container of the Latin text
   const lines = data.split("\n");
   lines.forEach((line) => {

@@ -24,7 +24,8 @@
     --color-word-ablative: rgb(215, 117, 43);
     --color-word-dative: rgb(96, 214, 83);
     --color-word-genitive: rgb(214, 83, 83);
-    --padding: 10px;
+    --color-author:#683aa9;
+    --color-inputBox: #481d83;
     --margin: 1vw;
     --margin-5vw: 5vw;
 }
@@ -112,7 +113,7 @@ span {
     padding-right: var(--margin);
     background: var(--color-background-primary);
     border-radius: 5px;
-    color: #481d83;
+    color: var(--color-inputBox);
     border: none;
     width: 20vw;
     height: 2vw;
@@ -137,6 +138,7 @@ textarea::placeholder {
 
 #lookUpWord {
     margin-top: 0;
+    margin-bottom: 1vw;
     position: relative;
     color: var(--color-text-highlight);
     font-size: 2vw;
@@ -148,25 +150,16 @@ textarea::placeholder {
     margin-left: 2vh;
     color: var(--color-text-primary);
     font-family: var(--font-family-mono);
-    font-size: clamp(var(--font-size-xsmall), 1.1vw, 2em);
+    font-size: 1vw;
     overflow: visible;
 }
 
-/* ----------------------------------------INPUT BOXES MAIN CONTAINER */
-#inputContainers {
-    position: static; /* Keeps the element in the normal document flow */
-    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
-    overflow-y: visible;
-    display: grid;
-    height: 20vw;
-    max-height: 95vh;
-    min-height: 5vw;
-    width: 35vw;
-}
+
 
 /* ------------------------------------------NOTES BOXES */
 
 #notesContainer {
+    display:block;
     z-index: 0;
     margin-top: 0;
     background-color: var(--color-background-secondary);
@@ -176,14 +169,13 @@ textarea::placeholder {
     user-select: none;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    resize: vertical;
-    height: fit-content;
-    height: 70vh;
-    max-height: 75vh;
-    min-height: 40vh;
+    min-height: 3vw;
+    height: 85vh;
+    width: 25%;
     box-sizing: border-box;
     overflow: hidden; /* Use hidden to ensure no scrollbar appears */
     -webkit-overflow-scrolling: touch;
+    resize: vertical;
 }
 
 #notesContainer::-webkit-scrollbar {
@@ -196,13 +188,15 @@ textarea::placeholder {
 
 #enterText {
     z-index: 0;
+    display:list-item;
+    padding: 1vw;
+    padding-right: 1vw;
     background-color: transparent;
     font-family: var(--font-family-sans);
     color: var(--color-placeholder);
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-small);
     position: relative;
-    margin: var(--margin);
-    width: 90%;
+    width: 95%;
     height: 95%;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
@@ -212,13 +206,97 @@ textarea::placeholder {
     scrollbar-width: none;
     -ms-overflow-style: none;
     outline: none; /* Remove focus outline */
-    overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
-}
+    overflow-x: auto; /* Ensure a scrollbar appears if content exceeds max-height */
+    word-wrap: break-word;
 
+}
 #enterText::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
+
+#workSelect{
+    position:relative;
+    z-index: 2;
+    width: 100%;
+    height: 0%;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--background-color);
+    display:list-item;
+    user-select: none; /* standard syntax */
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    outline: none; /* Remove focus outline */
+    overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
+    transition: height 0.5s ease; /* Smooth transition of height */
+}
+#workSelect::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+
+#textsMenu {
+    z-index: 1;
+    width: 100%;
+    height: 20%;
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+    background-color: var(--background-color);
+    color: var(--color-word-highlight);
+    display:list-item;
+    user-select: none; /* standard syntax */
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    outline: none; /* Remove focus outline */
+    overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
+    transition: height 0.5s ease; /* Smooth transition of height */
+}
+#textsMenu::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+.author{
+    margin: 1vw;
+    text-align: left;
+    font-size: 2vw;
+    color: var(--color-word-highlight);
+    font-family: var(--font-family-sans);  
+}
+#authorName{
+    position: relative;
+    height:3.25vw;
+    margin: 1vw;
+    text-align: left;
+    font-size: 2vw;
+    color: var(--color-word-highlight);
+    font-family: var(--font-family-sans);
+    background-color: #000000;  
+}
+.work{
+    position: static;
+    background: black;
+    margin: 1vw;
+    text-align: left;
+    font-size: var(--font-size-small);
+    color: var(--color-word-highlight);
+    font-family: var(--font-family-sans);
+}
+/* #windowButton{
+    border: 1px solid var(--color-border);
+    position:absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #FFFFFF;
+} */
 
 /* -------------------------------MAIN TEXT AND DEFINITION OUTPUT BOXES */
 #latinTextAndSourceContainer {
@@ -235,6 +313,7 @@ textarea::placeholder {
     z-index: 1;
     margin-top: 1vh;
     margin-bottom: 1vh;
+    margin-right: .75vw;
     padding: 0.7vw;
     background: transparent;
     position: relative;
@@ -243,7 +322,7 @@ textarea::placeholder {
     min-height: 3vw;
     height: 20vh;
     max-height: 50vh;
-    max-width: 64vw;
+    width: 62vw;
     overflow: auto; /* Use hidden to ensure no scrollbar appears */
     scrollbar-width: none; /* Firefox-specific */
     -ms-overflow-style: none; /* Internet Explorer and Edge */
@@ -391,7 +470,7 @@ textarea::placeholder {
 
 
 .notes-horizontal-line {
-    width: 100%;
+    width: 95%;
     height: 1px;
     background-color: var(--color-note-border);
 }

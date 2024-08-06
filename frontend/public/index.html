@@ -8,35 +8,35 @@
     <script src="./js/index.js" type="module"></script>
 </head>
 <body>
+    <div id="logo">Goobilator</div>
     <div id="mainContainer">
-      <!-- word input, dropdown menu, latin text, whitakers output -->
+        <!-- word input, dropdown menu, latin text, whitakers output -->
         <div id="latinTextAndSourceContainer">
             <div id="sourceContainer">
-              <div id="sourceMaterialArea" class="movable">
-                    <textarea id="sourceArea" name="sourceArea" rows="1" cols="1" spellcheck="false" placeholder="Enter a word or paste text">
-                    </textarea>
-              </div>
+                <div id="sourceMaterialArea" class="movable">
+                    <textarea id="sourceArea" name="sourceArea" rows="1" cols="1" spellcheck="false" placeholder="Enter a word or paste text"></textarea>
+                </div>
             </div>
             <!-- connecting words with lines -->
             <div id="canvas">
-              <svg class="line">
-                <line id="svgLine" x1="0" y1="0" x2="0" y2="0" stroke="yellow" stroke-width="1" />
-              </svg>
-          </div>
-            <div id="latinText">
+                <svg class="line">
+                    <line id="svgLine" x1="0" y1="0" x2="0" y2="0" stroke="yellow" stroke-width="1" />
+                </svg>
             </div>
+            <div id="latinText"></div>
             <div class="horizontal-line"></div>
             <div id="lookupAreaContainer">
-              <div id="lookUpWord"></div>
-              <div id="assistanceArea"></div>
+                <div id="lookUpWord"></div>
+                <div id="assistanceArea"></div>
             </div>
         </div>
         <!-- notes area, saved words area -->
         <div id="inputContainers">
             <div id="notesContainer" class="movable">
-                <div id="enterText" spellcheck="false" contenteditable="true" tabindex="0"></div>
+                <div id="workSelect" tabindex="0"></div>
+                <div id="textsMenu" tabindex="0"></div>
+                <div id="enterText" tabindex="0" contenteditable="true" spellcheck="false"></div>
             </div>
-          </div>
         </div>
     </div>
 </body>

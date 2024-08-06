@@ -1,10 +1,6 @@
-import { createLatinTextArea } from "./page_components/mainTextArea.js";
 import { notesAreaCreate } from "./page_components/notesArea.js";
 import { sourceAreaCreate } from "./page_components/sourceArea.js";
-import {
-  getDefinition,
-  getLatinText,
-} from "./page_components/fetchDefinition.js";
+import { getLatinText } from "./page_components/fetchDefinition.js";
 
 const latinTextArea = document.getElementById("latinText");
 // remove any highlights when mouse leaves the latin passage
