@@ -140,7 +140,7 @@ const reattachEventListeners = () => {
 const authorNameMouseOverHighlight = (div) => {
   div.addEventListener("mouseover", (event) => {
     div.style.color = "#000000";
-    div.style.backgroundColor = "#ff00f276";
+    div.style.backgroundColor = "#f29af5";
   });
   div.addEventListener("mouseleave", (event) => {
     div.style.color = "rgba(255, 248, 220, 0.733)";
@@ -151,7 +151,7 @@ const authorNameMouseOverHighlight = (div) => {
 const titleNameMouseOverHighlight = (div) => {
   div.addEventListener("mouseover", (event) => {
     div.style.color = "#000000";
-    div.style.backgroundColor = "#ff00f276";
+    div.style.backgroundColor = "#f29af5";
   });
   div.addEventListener("mouseleave", (event) => {
     div.style.color = "rgba(255, 248, 220, 0.733)";

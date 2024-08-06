@@ -27,10 +27,11 @@
     --color-author:#683aa9;
     --color-inputBox: #481d83;
     --color-text-inputBox:var(--color-inputBox);
+    --color-word-author:rgba(255, 248, 220, 0.733);
+    --color-word-title:rgba(255, 248, 220, 0.733);
     --margin: 1vw;
     --margin-5vw: 5vw;
 }
-
 html, body {
     margin: 0;
     padding: 0;
@@ -266,10 +267,11 @@ span {
     height: 0;
 }
 .author{
+    border-radius: 3px;
     margin: 1vw;
     text-align: left;
     font-size: 2vw;
-    color: var(--color-word-highlight);
+    color: var(--color-word-author);
     font-family: var(--font-family-sans);
 }
 #authorName{
@@ -277,17 +279,17 @@ span {
     height:3.25vw;
     text-align: left;
     font-size: 2vw;
-    color: var(--color-word-highlight);
     font-family: var(--font-family-sans);
     background-color: #000000;
 }
 .work{
+    border-radius: 3px;
     position: static;
     background: black;
-    margin: 1vw;
+    margin: 1.5vw;
     text-align: left;
     font-size: var(--font-size-medium);
-    color: var(--color-word-highlight);
+    color: var(--color-word-title);
     font-family: var(--font-family-sans);
 }
 /* #windowButton{
