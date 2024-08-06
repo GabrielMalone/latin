@@ -2,17 +2,17 @@ import { getLatinText } from "./fetchDefinition.js";
 
 const notesTextColorActive = "antiquewhite";
 const startingNotesValue = ``; // starting value for the notes area
-const backgroundColor = "#0000000;"; // Ensure proper format with
+const backgroundColor = "#0000000;"; // Ensure proper format
 const notesTextColorPassive = "#000000;";
 
-const authorName = document.querySelector("#authorName");
 const enterText = document.querySelector("#enterText");
 const workSelect = document.querySelector("#workSelect");
 const textsMenu = document.querySelector("#textsMenu");
-const windowButton = document.querySelector("#windowButton");
-const notesContainer = document.querySelector("#notesContainer"); // Ensure this is defined
+let staticMenu; // Placeholder for static menu clone
+
+const notesContainer = document.querySelector("#notesContainer");
 let currentAuthor = "";
-let currentStateofMenu = "";
+let firstMouseOver = true;
 
 /**
  * click to begin entering notes
@@ -47,29 +47,30 @@ export const notesAreaCreate = async () => {
     notesContainer.style.backgroundColor = backgroundColor;
   });
 
-  createMenu();
+  await createMenu(); // Wait for menu creation to complete
   worksDivSlider();
   authorMouseOver();
+
+  // Clone after population
+  staticMenu = textsMenu.cloneNode(true);
 };
 
-const createMenu = () => {
-  // Fetch the list of files from the server
-  //https://latin-r3z3.onrender.com/
-  fetch("https://latin-r3z3.onrender.com/initnotes")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data); // Process the file list
-        data.forEach((item) => {
-          let menuDiv = createMenuDivs(item);
-          textsMenu.appendChild(menuDiv);
-        });
-      })
-      .catch((error) => console.error("Error fetching files:", error));
+const createMenu = async () => {
+  try {
+    // Fetch the list of files from the server
+    const response = await fetch("https://latin-r3z3.onrender.com/initnotes");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data); // Process the file list
+    data.forEach((item) => {
+      let menuDiv = createMenuDivs(item);
+      textsMenu.appendChild(menuDiv);
+    });
+  } catch (error) {
+    console.error("Error fetching files:", error);
+  }
 };
 
 const createMenuDivs = (data) => {
@@ -82,7 +83,6 @@ const createMenuDivs = (data) => {
 };
 
 const menuClick = (menuDiv) => {
-  currentStateofMenu = workSelect.innerHTML;
   menuDiv.addEventListener("click", () => {
     currentAuthor = menuDiv.textContent;
     createWorksList(currentAuthor);
@@ -91,69 +91,84 @@ const menuClick = (menuDiv) => {
 };
 
 const createWorksList = (author) => {
-  //https://latin-r3z3.onrender.com/
   fetch(`https://latin-r3z3.onrender.com/initnotes?author=${author}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data); // Process the file list
-        workSelect.innerHTML = ""; // Clear previous works
-        data.forEach((item) => {
-          let subMenuDiv = createSubMenuDivs(item);
-          workSelect.appendChild(subMenuDiv);
-        });
-      })
-      .catch((error) => console.error("Error fetching files:", error));
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data); // Process the file list
+      workSelect.innerHTML = ""; // Clear previous works
+      data.forEach((item) => {
+        let subMenuDiv = createSubMenuDivs(item);
+        workSelect.appendChild(subMenuDiv);
+      });
+    })
+    .catch((error) => console.error("Error fetching files:", error));
 };
 
 const createSubMenuDivs = (data) => {
-  // Log the original data for debugging
   // Trim whitespace and replace .txt (case-insensitive)
   const cleanedData = data.trim().replace(/\.txt$/i, "");
-  // Log the cleaned data for debugging
-  // Create the sub-menu div and set its properties
   const subMenuDiv = document.createElement("div");
   subMenuDiv.className = "work";
   subMenuDiv.textContent = cleanedData;
   titleNameMouseOverHighlight(subMenuDiv);
-  // Attach the click event listener
   subMenuClick(subMenuDiv);
   return subMenuDiv;
 };
 
 const subMenuClick = (subMenuDiv) => {
   subMenuDiv.addEventListener("click", () => {
-    // Remove the '.txt' extension from the textContent
     const textWithoutExtension = subMenuDiv.textContent.replace(/\.txt$/, "");
-    // Call getLatinText with the modified text
     getLatinText(currentAuthor, textWithoutExtension);
   });
 };
 
 const worksDivSlider = () => {
   workSelect.addEventListener("mouseleave", () => {
-    // Change mouseexit to mouseleave
     workSelect.style.height = "0%";
   });
 };
 
 const authorMouseOver = () => {
-  textsMenu.addEventListener("mouseover", () => {
-    textsMenu.style.height = "80%"; // Removed the extra semicolon
+  textsMenu.addEventListener("mouseenter", () => {
+    if (firstMouseOver) {
+      textsMenu.style.height = "80%";
+      firstMouseOver = false;
+      return;
+    }
+
+    // Clear existing menu and append cloned nodes
+    textsMenu.innerHTML = ""; // Clear current menu
+    staticMenu.childNodes.forEach((node) => {
+      const clonedNode = node.cloneNode(true);
+      textsMenu.appendChild(clonedNode); // Append cloned nodes
+    });
+
+    reattachEventListeners(); // Reattach event listeners
+    textsMenu.style.height = "80%";
   });
 
   textsMenu.addEventListener("mouseleave", () => {
-    textsMenu.style.height = "20%";
+    textsMenu.style.height = "3.055vw";
+    textsMenu.innerHTML = `<div class="author" id="authorName">${currentAuthor}</div>`;
   });
 };
 
 textsMenu.addEventListener("mouseleave", () => {
-  textsMenu.style.height = "20%";
+  textsMenu.style.height = "3.055vw";
 });
+
+const reattachEventListeners = () => {
+  // Reattach event listeners to the cloned nodes
+  textsMenu.querySelectorAll(".author").forEach((div) => {
+    menuClick(div);
+    authorNameMouseOverHighlight(div);
+  });
+};
 
 const authorNameMouseOverHighlight = (div) => {
   div.addEventListener("mouseover", (event) => {

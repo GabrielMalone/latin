@@ -241,9 +241,11 @@ textarea::placeholder {
 
 
 #textsMenu {
+    padding: 1vw;
+    padding-bottom: 1vw;
     z-index: 1;
     width: 100%;
-    height: 20%;
+    height: 3.055vw;
     border-bottom: 1px solid var(--color-border);
     position: relative;
     background-color: var(--background-color);
