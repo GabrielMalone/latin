@@ -58,7 +58,11 @@ pre {
     margin: 0;
     padding: 0;
     line-height: 1; /* Optional, adjust as needed */
+    font-family:monospace;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
 }
+
 
 span {
     margin: 0;
@@ -156,7 +160,7 @@ span {
     margin-top: 2vh;
     margin-left: 2vh;
     color: var(--color-text-primary);
-    font-family: var(--font-family-mono);
+    font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: 1vw;
     overflow: visible;
 }
