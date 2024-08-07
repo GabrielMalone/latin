@@ -44,6 +44,7 @@ export const getLatinText = async (author, title) => {
       "Ammianus"
     )}&title=${encodeURIComponent("Liber XIV")}`;
     firstload = false;
+    textsMenu.innerHTML = `<div class="author, head" id="authorNameSelected">Authors</div>`;
   } else {
     fetchURL = `${deployedFetch}?author=${encodeURIComponent(
       author
@@ -62,7 +63,6 @@ export const getLatinText = async (author, title) => {
       const firstSpace = inputBox.value.indexOf(" ");
       const firstWord = inputBox.value.substring(0, firstSpace);
       getDefinition(firstWord);
-      console.log(firstSpace);
       sourceArea.value = "";
     })
     .catch((error) => {
@@ -78,7 +78,6 @@ export const createMenu = async () => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    console.log(data); // Process the file list
     data.forEach((item) => {
       let menuDiv = createMenuDivs(item);
       textsMenu.appendChild(menuDiv);
@@ -97,7 +96,6 @@ export const createWorksList = (author) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data); // Process the file list
       workSelect.innerHTML = ""; // Clear previous works
       data.forEach((item) => {
         let subMenuDiv = createSubMenuDivs(item);

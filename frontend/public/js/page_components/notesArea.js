@@ -15,7 +15,7 @@ const textsMenu = document.querySelector("#textsMenu");
 let staticMenu; // Placeholder for static menu clone
 
 const notesContainer = document.querySelector("#notesContainer");
-let currentAuthor = "Ammianus";
+let currentAuthor = "Authors";
 let firstMouseOver = true;
 
 /**
@@ -105,14 +105,24 @@ const authorMouseOver = () => {
     if (firstMouseOver) {
       textsMenu.style.height = "80%";
       firstMouseOver = false;
+      // Iterate over child nodes to find and remove the one with textContent 'Authors'
+      textsMenu.childNodes.forEach((node) => {
+        if (
+          node.nodeType === Node.ELEMENT_NODE &&
+          node.textContent.trim() === "Authors"
+        ) {
+          textsMenu.removeChild(node);
+        }
+      });
       return;
     }
-
     // Clear existing menu and append cloned nodes
     textsMenu.innerHTML = ""; // Clear current menu
     staticMenu.childNodes.forEach((node) => {
-      const clonedNode = node.cloneNode(true);
-      textsMenu.appendChild(clonedNode); // Append cloned nodes
+      if (node.textContent.trim() !== "Authors") {
+        const clonedNode = node.cloneNode(true);
+        textsMenu.appendChild(clonedNode); // Append cloned nodes
+      }
     });
 
     reattachEventListeners(); // Reattach event listeners
@@ -132,8 +142,10 @@ textsMenu.addEventListener("mouseleave", () => {
 const reattachEventListeners = () => {
   // Reattach event listeners to the cloned nodes
   textsMenu.querySelectorAll(".author").forEach((div) => {
-    menuClick(div);
-    authorNameMouseOverHighlight(div);
+    if (div.textContent != "Authors") {
+      menuClick(div);
+      authorNameMouseOverHighlight(div);
+    }
   });
 };
 
