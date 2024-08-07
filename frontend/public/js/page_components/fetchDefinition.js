@@ -78,8 +78,11 @@ export const createMenu = async () => {
     }
     const data = await response.json();
     data.forEach((item) => {
-      let menuDiv = createMenuDivs(item);
-      textsMenu.appendChild(menuDiv);
+      console.log(item);
+      if (!item.includes(".")) {
+        let menuDiv = createMenuDivs(item);
+        textsMenu.appendChild(menuDiv);
+      }
     });
   } catch (error) {
     console.error("Error fetching files:", error);
