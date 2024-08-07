@@ -127,7 +127,9 @@ span {
     resize: none;
     -ms-overflow-style: none;
     transition: background-color 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.308); /* Inner drop shadow */
 }
+
 
 #sourceArea::placeholder {
     color: var(--color-text-inputBox);
@@ -191,6 +193,7 @@ span {
 }
 
 #enterText {
+    z-index: -1;
     display:block;
     padding: 1vw;
     background-color: transparent;
@@ -218,7 +221,7 @@ span {
 
 #workSelect{
     position:relative;
-    z-index: 2;
+    z-index: 1;
     width: 100%;
     height: 0%;
     background-color: #481d83;
@@ -259,6 +262,7 @@ span {
     outline: none; /* Remove focus outline */
     overflow: auto; /* Ensure a scrollbar appears if content exceeds max-height */
     transition: height 0.5s ease; /* Smooth transition of height */
+    box-shadow: 0 4px 6px 20px rgba(0, 0, 0, 0.538);
 }
 #textsMenu::-webkit-scrollbar {
     width: 0;
