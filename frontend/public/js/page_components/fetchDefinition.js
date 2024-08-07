@@ -1,6 +1,6 @@
 import * as formatting from "./formatting.js";
 import { createLatinTextArea } from "./mainTextArea.js";
-import { createMenuDivs, createSubMenuDivs } from "./notesArea.js";
+import { createMenuDivs, createSubMenuDivs } from "./menus.js";
 let firstload = true;
 /**
  * Talk to backend, get word def in Latin from whitaker's compiled app
