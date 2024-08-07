@@ -211,9 +211,6 @@ span {
     overflow-x: auto; /* Ensure a scrollbar appears if content exceeds max-height */
     word-wrap: break-word;
 }
-#enterText:focus {
-    border: 1px solid #cccccc01; /* Optional: Visual cue for focus */
-}
 #enterText::-webkit-scrollbar {
     width: 0;
     height: 0;
