@@ -222,7 +222,7 @@ span {
     width: 100%;
     height: 0%;
     border-bottom: 1px solid var(--color-border);
-    background-color: transparent;
+    background-color: #481d83;
     display:list-item;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
@@ -245,9 +245,9 @@ span {
     z-index: 1;
     height: 4.055vw;
     width: 100%;
-    border-bottom: 1px solid var(--color-border);
+    /* border-bottom: 1px solid var(--color-border); */
     position: static;
-    background-color: transparent;
+    background-color: #2f105b;
     color: var(--color-word-highlight);
     display:list-item;
     user-select: none; /* standard syntax */
