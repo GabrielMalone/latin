@@ -78,8 +78,10 @@ export const createMenu = async () => {
     }
     const data = await response.json();
     data.forEach((item) => {
-      console.log(item);
       if (!item.includes(".")) {
+        if (item.includes("_")) {
+          item = item.split("_").join(" ");
+        }
         let menuDiv = createMenuDivs(item);
         textsMenu.appendChild(menuDiv);
       }
