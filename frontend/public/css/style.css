@@ -1,6 +1,6 @@
 :root {
     --background-color: #000000;
-    --color-border: rgb(49, 49, 49);
+    --color-border: rgba(208, 208, 208, 0.254);
     --background-image: url('../images/background.png');
     --font-family-sans: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     --font-family-mono: 'Courier New', Courier, monospace;
@@ -23,7 +23,7 @@
     --color-word-preposition: rgba(119, 214, 221, 0.475);
     --color-word-ablative: rgb(215, 117, 43);
     --color-word-dative: rgb(96, 214, 83);
-    --color-word-genitive: rgb(214, 48, 48);
+    --color-word-genitive: rgb(253, 106, 106);
     --color-author-selected: rgb(255, 139, 240);
     --color-author:#683aa9;
     --color-inputBox: #481d83;
@@ -165,7 +165,7 @@ span {
     display:inline-block;
     z-index: 0;
     margin-top: 0;
-    background-color: #090211;
+    background-color: #000000;
     border: 1px solid var(--color-border);
     position: relative;
     border-radius: 0px;
@@ -187,7 +187,7 @@ span {
 }
 
 #notesContainer::-webkit-scrollbar-thumb {
-    background-color: transparent;
+    background-color:transparent;
 }
 
 #enterText {
@@ -221,7 +221,6 @@ span {
     z-index: 2;
     width: 100%;
     height: 0%;
-    border-bottom: 1px solid var(--color-border);
     background-color: #481d83;
     display:list-item;
     user-select: none; /* standard syntax */
@@ -241,7 +240,7 @@ span {
 }
 
 #textsMenu {
-    padding-bottom: 1vw;
+    padding-bottom:1em;
     z-index: 1;
     height: 4.055vw;
     width: 100%;
@@ -283,6 +282,7 @@ span {
 #authorNameSelected{
     position: static;
     margin-top: 1.5vw;
+    margin-bottom: 2vw;
     margin-left: 2vw;
     text-align: left;
     font-size: 2vw;
