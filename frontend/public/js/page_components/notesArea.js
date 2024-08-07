@@ -1,7 +1,4 @@
-const notesTextColorActive = "antiquewhite";
-const startingNotesValue = ``; // starting value for the notes area
 const backgroundColor = "#0000000;"; // Ensure proper format
-const notesTextColorPassive = "#000000;";
 
 const enterText = document.querySelector("#enterText");
 const notesContainer = document.querySelector("#notesContainer");
@@ -12,11 +9,7 @@ const notesContainer = document.querySelector("#notesContainer");
 export const notesAreaCreate = async () => {
   enterText.innerHTML = startingNotesValue;
 
-  enterText.addEventListener("click", () => {
-    if (enterText.innerHTML === startingNotesValue) {
-      enterText.innerHTML = ""; // Use value if it's an input/textarea
-    }
-  });
+  enterText.addEventListener("click", () => {});
 
   enterText.addEventListener("mouseleave", () => {
     if (enterText.innerHTML === "") {
@@ -24,18 +17,15 @@ export const notesAreaCreate = async () => {
     }
   });
 
-  notesContainer.addEventListener("click", () => {
-    notesContainer.style.backgroundColor = backgroundColor;
-    enterText.style.color = notesTextColorActive;
-  });
+  notesContainer.addEventListener("click", () => {});
 
   notesContainer.addEventListener("mouseleave", () => {
-    enterText.style.color = notesTextColorPassive;
+    enterText.style.color = "grey";
     notesContainer.style.backgroundColor = backgroundColor;
   });
 
-  notesContainer.addEventListener("mouseenter", () => {
-    enterText.style.color = notesTextColorActive;
+  enterText.addEventListener("mouseenter", () => {
+    enterText.style.color = "antiquewhite";
     notesContainer.style.backgroundColor = backgroundColor;
   });
 };

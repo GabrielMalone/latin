@@ -9,11 +9,11 @@ latinTextArea.addEventListener("mouseleave", () => {
   document.querySelector(".word.highlight")?.classList.remove("highlight");
 });
 // set default value for source material
-window.addEventListener("load", function () {
+window.addEventListener("load", async function () {
   console.log("Page fully loaded");
   notesAreaCreate();
   sourceAreaCreate();
-  getLatinText();
-  createMenus();
+  await getLatinText();
+  await createMenus();
   this.document.querySelector("#enterText").focus();
 });

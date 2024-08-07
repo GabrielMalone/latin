@@ -59,7 +59,7 @@ export const doubleClickWord = (wordDiv) => {
         .querySelector("#enterText")
         .insertAdjacentHTML(
           "beforeend",
-          `${count} - ${notesDefinition}<div class="notes-horizontal-line"></div>`
+          `${count} - ${notesDefinition}<hr class="notes-horizontal-line">`
         );
       count++;
     }

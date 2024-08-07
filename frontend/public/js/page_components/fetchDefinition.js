@@ -54,7 +54,6 @@ export const getLatinText = async (author, title) => {
   fetch(fetchURL)
     .then((response) => response.text())
     .then((data) => {
-      console.log("Text file contents:", data);
       let loadedText = data.trim();
       let newStringData = formatting.proseLineBreaks(loadedText);
       sourceArea.value = newStringData;

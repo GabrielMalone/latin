@@ -24,7 +24,7 @@
     --color-word-ablative: rgb(215, 117, 43);
     --color-word-dative: rgb(96, 214, 83);
     --color-word-genitive: rgb(214, 48, 48);
-    --color-author-selected: rgb(159, 255, 139);
+    --color-author-selected: rgb(255, 139, 240);
     --color-author:#683aa9;
     --color-inputBox: #481d83;
     --color-text-inputBox: rgba(172, 169, 171, 0.308);
@@ -177,7 +177,7 @@ span {
     max-height: 85vh;
     width: 25%;
     box-sizing: border-box;
-    overflow: hidden; /* Use hidden to ensure no scrollbar appears */
+    overflow: auto; /* Use hidden to ensure no scrollbar appears */
     -webkit-overflow-scrolling: touch;
     resize: vertical;
 }
@@ -191,7 +191,6 @@ span {
 }
 
 #enterText {
-    z-index: 0;
     display:block;
     padding: 1vw;
     background-color: transparent;
@@ -200,7 +199,7 @@ span {
     font-size: var(--font-size-small);
     position: relative;
     width: 90%;
-    height: 95%;
+    height: 100%;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
     -moz-user-select: none; /* mozilla browsers */
@@ -211,7 +210,9 @@ span {
     outline: none; /* Remove focus outline */
     overflow-x: auto; /* Ensure a scrollbar appears if content exceeds max-height */
     word-wrap: break-word;
-
+}
+#enterText:focus {
+    border: 1px solid #cccccc01; /* Optional: Visual cue for focus */
 }
 #enterText::-webkit-scrollbar {
     width: 0;
@@ -248,7 +249,7 @@ span {
     height: 4.055vw;
     width: 100%;
     border-bottom: 1px solid var(--color-border);
-    position: relative;
+    position: static;
     background-color: transparent;
     color: var(--color-word-highlight);
     display:list-item;
@@ -276,15 +277,14 @@ span {
     font-family: var(--font-family-sans);
 }
 #authorName{
-    position: relative;
-    
+    position: static;
     text-align: left;
     font-size: 2vw;
     font-family: var(--font-family-sans);
     background-color:transparent;
 }
 #authorNameSelected{
-    position: relative;
+    position: static;
     margin-top: 1.5vw;
     margin-left: 2vw;
     text-align: left;
@@ -485,5 +485,6 @@ span {
 .notes-horizontal-line {
     width: 95%;
     height: 1px;
-    background-color: var(--color-note-border);
+    border: none;
+    background-color: #dec7fa51;
 }
