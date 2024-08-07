@@ -15,7 +15,7 @@
     --color-background-primary: #2f105b;
     --color-background-secondary: #00000093;
     --color-placeholder: rgba(250, 235, 215, 0.518);
-    --color-word-highlight: rgba(255, 248, 220, 0.733);
+    --color-word-highlight: #FEFDED;
     --color-note-border: rgba(250, 235, 215, 0.463);
     --color-word-accusative: rgb(255, 93, 220);
     --color-word-verb: rgb(255, 252, 86);
@@ -24,7 +24,7 @@
     --color-word-ablative: rgb(215, 117, 43);
     --color-word-dative: rgb(96, 214, 83);
     --color-word-genitive: rgb(253, 106, 106);
-    --color-author-selected: rgb(255, 139, 240);
+    --color-author-selected: #FEFDED;
     --color-author:#683aa9;
     --color-inputBox: #481d83;
     --color-text-inputBox: rgba(172, 169, 171, 0.308);
