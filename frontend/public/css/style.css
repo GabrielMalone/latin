@@ -1,6 +1,6 @@
 :root {
     --background-color: #000000;
-    --color-border: rgb(29, 122, 108);
+    --color-border: rgb(49, 49, 49);
     --background-image: url('../images/background.png');
     --font-family-sans: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     --font-family-mono: 'Courier New', Courier, monospace;
@@ -27,7 +27,7 @@
     --color-author-selected: rgb(159, 255, 139);
     --color-author:#683aa9;
     --color-inputBox: #481d83;
-    --color-text-inputBox: rgba(255, 146, 226, 0.308);
+    --color-text-inputBox: rgba(172, 169, 171, 0.308);
     --color-word-author:rgba(255, 248, 220, 0.733);
     --color-word-title:rgba(255, 248, 220, 0.733);
     --margin: 1vw;
