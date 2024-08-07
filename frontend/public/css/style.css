@@ -1,5 +1,6 @@
 :root {
     --background-color: #000000;
+    --color-border: rgb(29, 122, 108);
     --background-image: url('../images/background.png');
     --font-family-sans: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     --font-family-mono: 'Courier New', Courier, monospace;
@@ -13,20 +14,20 @@
     --color-text-highlight: #C8ACD6;
     --color-background-primary: #2f105b;
     --color-background-secondary: #00000093;
-    --color-border: #ff00f276;
     --color-placeholder: rgba(250, 235, 215, 0.518);
     --color-word-highlight: rgba(255, 248, 220, 0.733);
     --color-note-border: rgba(250, 235, 215, 0.463);
     --color-word-accusative: rgb(255, 93, 220);
-    --color-word-verb: rgb(233, 249, 86);
+    --color-word-verb: rgb(255, 252, 86);
     --color-word-subject: rgb(98, 221, 255);
     --color-word-preposition: rgba(119, 214, 221, 0.475);
     --color-word-ablative: rgb(215, 117, 43);
     --color-word-dative: rgb(96, 214, 83);
-    --color-word-genitive: rgb(214, 83, 83);
+    --color-word-genitive: rgb(214, 48, 48);
+    --color-author-selected: rgb(159, 255, 139);
     --color-author:#683aa9;
     --color-inputBox: #481d83;
-    --color-text-inputBox:var(--color-inputBox);
+    --color-text-inputBox: rgba(158, 255, 139, 0.531);
     --color-word-author:rgba(255, 248, 220, 0.733);
     --color-word-title:rgba(255, 248, 220, 0.733);
     --margin: 1vw;
@@ -164,15 +165,16 @@ span {
     display:inline-block;
     z-index: 0;
     margin-top: 0;
-    background-color: var(--color-background-secondary);
+    background-color: transparent;
     border: 1px solid var(--color-border);
     position: relative;
     border-radius: 0px;
     user-select: none;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    min-height: 3vw;
-    height: 85vh;
+    min-height: 20vw;
+    height: 70vh;
+    max-height: 85vh;
     width: 25%;
     box-sizing: border-box;
     overflow: hidden; /* Use hidden to ensure no scrollbar appears */
@@ -222,7 +224,7 @@ span {
     width: 100%;
     height: 0%;
     border-bottom: 1px solid var(--color-border);
-    background-color: var(--background-color);
+    background-color: transparent;
     display:list-item;
     user-select: none; /* standard syntax */
     -webkit-user-select: none; /* webkit (safari, chrome) browsers */
@@ -240,15 +242,14 @@ span {
     height: 0;
 }
 
-
 #textsMenu {
     padding-bottom: 1vw;
     z-index: 1;
+    height: 4.055vw;
     width: 100%;
-    height: 3.055vw;
     border-bottom: 1px solid var(--color-border);
     position: relative;
-    background-color: var(--background-color);
+    background-color: transparent;
     color: var(--color-word-highlight);
     display:list-item;
     user-select: none; /* standard syntax */
@@ -276,16 +277,26 @@ span {
 }
 #authorName{
     position: relative;
-    height:3.25vw;
+    
     text-align: left;
     font-size: 2vw;
     font-family: var(--font-family-sans);
-    background-color: #000000;
+    background-color:transparent;
+}
+#authorNameSelected{
+    position: relative;
+    margin-top: 1.5vw;
+    margin-left: 2vw;
+    text-align: left;
+    font-size: 2vw;
+    font-family: var(--font-family-sans);
+    color: var(--color-author-selected);
+    background-color: transparent;
 }
 .work{
     border-radius: 3px;
     position: static;
-    background: black;
+    background: transparent;
     margin: 1.5vw;
     text-align: left;
     font-size: var(--font-size-medium);
