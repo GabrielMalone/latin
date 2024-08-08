@@ -387,6 +387,10 @@ span {
     position: relative;
     overflow: visible;
 }
+.word.number{
+    color:#fedc56ba;
+    font-size: small;
+}
 .word.blinking {
     animation: blink 2s linear infinite; /* Apply the blink animation */
     /* Additional styling for the div */

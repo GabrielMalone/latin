@@ -6,6 +6,14 @@ const createWordDiv = (word) => {
   const wordDiv = document.createElement("div");
   wordDiv.className = "word";
   wordDiv.textContent = word;
+  if (/\d/.test(wordDiv.textContent)) {
+    wordDiv.classList.add("number");
+  }
+  // Regular expression to match `)` or `]` followed by a character that is not a space
+  const regex = /([\)\]])(?!\s)/g;
+  // Replace matches with the character followed by a space
+  wordDiv.textContent = wordDiv.textContent.replace(regex, "$1 ");
+
   return wordDiv;
 };
 /**
