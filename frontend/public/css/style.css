@@ -120,7 +120,7 @@ span {
     display: flex; /* Flexbox for vertical centering */
     padding-left: 2vw;
     padding-right: var(--margin);
-    background: #272430;
+    background: #1c1c1c;
     border-radius: 5px;
     color: var(--color-inputBox);
     border: none;

@@ -32,7 +32,7 @@ const menuClick = (menuDiv) => {
   menuDiv.addEventListener("click", () => {
     currentAuthor = menuDiv.textContent;
     createWorksList(currentAuthor);
-    workSelect.style.height = "30%";
+    workSelect.style.height = "88%";
   });
 };
 
