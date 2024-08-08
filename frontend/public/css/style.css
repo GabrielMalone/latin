@@ -506,3 +506,15 @@ span {
     border: none;
     background-color: var(--color-border);
 }
+#logo{
+    z-index: 1;
+    left: 85vw;
+    top: 3vw;
+    background-repeat: no-repeat;
+    background-position:bottom;
+    background-size:cover;
+    position:absolute;
+    background-image: url("../images/logo.png");
+    width: 9vw;
+    height: 9vw;
+}
