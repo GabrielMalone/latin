@@ -47,7 +47,7 @@ export const sourceAreaCreate = () => {
     sourceArea.style.color = "#4e5757";
   });
   sourceMaterialArea.addEventListener("mouseenter", () => {
-    sourceArea.style.backgroundColor = "#181819";
+    sourceArea.style.backgroundColor = "#272728";
     sourceArea.style.color = "#FEFDED";
   });
 };
