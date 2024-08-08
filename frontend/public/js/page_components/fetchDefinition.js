@@ -41,10 +41,10 @@ export const getLatinText = async (author, title) => {
   let fetchURL = "";
   if (firstload) {
     fetchURL = `${deployedFetch}?author=${encodeURIComponent(
-      "Ammianus"
-    )}&title=${encodeURIComponent("Liber XIV")}`;
-    firstload = false;
+      "Ovid"
+    )}&title=${encodeURIComponent("ovid.met Liber I")}`;
     textsMenu.innerHTML = `<div class="author, head" id="authorNameSelected">Authors</div>`;
+    firstload = false;
   } else {
     fetchURL = `${deployedFetch}?author=${encodeURIComponent(
       author

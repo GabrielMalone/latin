@@ -187,7 +187,7 @@ span {
     box-sizing: border-box;
     overflow: auto; /* Use hidden to ensure no scrollbar appears */
     -webkit-overflow-scrolling: touch;
-    resize: vertical;
+    resize: none;
 }
 
 #notesContainer::-webkit-scrollbar {
@@ -203,7 +203,6 @@ span {
     display:block;
     padding: 1vw;
     background-color: transparent;
-    font-family: var(--font-family-sans);
     color: var(--color-placeholder);
     font-size: var(--font-size-small);
     position: relative;
@@ -219,6 +218,9 @@ span {
     outline: none; /* Remove focus outline */
     overflow-x: auto; /* Ensure a scrollbar appears if content exceeds max-height */
     word-wrap: break-word;
+    font-family:monospace;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
 }
 #enterText::-webkit-scrollbar {
     width: 0;
