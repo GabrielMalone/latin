@@ -493,6 +493,10 @@ span {
     height: 1px;
     background-color: var(--color-border);
 }
+#assistance-line{
+    margin-left: -1vw;
+    width: 103.2%;
+}
 
 
 .notes-horizontal-line {
