@@ -123,7 +123,7 @@ span {
     background: #1c1c1c;
     border-radius: 5px;
     color: var(--color-inputBox);
-    border: none;
+    border: 1px;
     width: 20vw;
     height: 2vw;
     font-size: clamp(6px, var(--font-size-small), 30px);
@@ -255,7 +255,7 @@ span {
     z-index: 1;
     height: 4.055vw;
     width: 100%;
-    /* border-bottom: 1px solid var(--color-border); */
+    border-bottom: 1px solid var(--color-border);
     position: static;
     background-color: #272729;
     color: var(--color-word-highlight);
