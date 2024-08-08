@@ -63,7 +63,7 @@ const worksDivSlider = () => {
 const authorMouseOver = () => {
   textsMenu.addEventListener("mouseenter", () => {
     if (firstMouseOver) {
-      textsMenu.style.height = "80%";
+      textsMenu.style.height = "100%";
       firstMouseOver = false;
       // Iterate over child nodes to find and remove the one with textContent 'Authors'
       textsMenu.childNodes.forEach((node) => {
@@ -86,7 +86,7 @@ const authorMouseOver = () => {
     });
 
     reattachEventListeners(); // Reattach event listeners
-    textsMenu.style.height = "80%";
+    textsMenu.style.height = "100%";
   });
 
   textsMenu.addEventListener("mouseleave", () => {
