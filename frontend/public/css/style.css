@@ -500,10 +500,9 @@ span {
     width: 103.2%;
 }
 
-
 .notes-horizontal-line {
     width: 95%;
     height: 1px;
     border: none;
-    background-color: #dec7fa51;
+    background-color: var(--color-border);
 }
