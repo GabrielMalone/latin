@@ -43,11 +43,11 @@ export const sourceAreaCreate = () => {
   });
 
   sourceMaterialArea.addEventListener("mouseleave", () => {
-    sourceArea.style.backgroundColor = "#1c1c1c";
+    sourceArea.style.backgroundColor = "#151516";
     sourceArea.style.color = "#4e5757";
   });
   sourceMaterialArea.addEventListener("mouseenter", () => {
-    sourceArea.style.backgroundColor = "#2b2b2b";
+    sourceArea.style.backgroundColor = "#181819";
     sourceArea.style.color = "#FEFDED";
   });
 };
