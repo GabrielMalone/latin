@@ -180,7 +180,7 @@ span {
     user-select: none;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    min-height: 20vw;
+    min-height: 70vh;
     height: 70vh;
     max-height: 85vh;
     width: 25%;
@@ -342,7 +342,7 @@ span {
     min-height: 3vw;
     height: 20vh;
     max-height: 50vh;
-    width: 62vw;
+    width: 63.5vw;
     overflow: auto; /* Use hidden to ensure no scrollbar appears */
     scrollbar-width: none; /* Firefox-specific */
     -ms-overflow-style: none; /* Internet Explorer and Edge */
