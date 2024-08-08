@@ -138,7 +138,7 @@ span {
 
 
 #sourceArea::placeholder {
-    color: var(--color-text-inputBox);
+    color: #717174;
     font-style: italic;
 }
 
