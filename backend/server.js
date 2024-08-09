@@ -3,8 +3,13 @@ const { translate } = require("./translate");
 const cors = require("cors");
 const express = require("express");
 const path = require("path");
+const geoip = require("geoip-lite");
+const rateLimit = require("express-rate-limit");
 const app = express();
 const port = process.env.PORT || 8000;
+
+let visitorCount = 0;
+let visitorLog = [];
 
 // Use CORS middleware
 app.use(
@@ -20,7 +25,6 @@ app.use(
       "https://www.latinreader.app",
       "http://localhost:8000",
     ],
-
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type",
   })
@@ -34,16 +38,52 @@ app.use((req, res, next) => {
   });
   next();
 });
+
+// Visitor tracking middleware
+app.use((req, res, next) => {
+  const ip = req.ip || req.connection.remoteAddress;
+  const geo = geoip.lookup(ip);
+
+  visitorCount += 1;
+
+  const visitorData = {
+    id: visitorCount,
+    ip: ip,
+    location: geo ? `${geo.city}, ${geo.country}` : "Unknown",
+    time: new Date().toISOString(),
+  };
+
+  visitorLog.push(visitorData);
+
+  console.log(`Visitor #${visitorCount}:`, visitorData);
+
+  // Optionally save the visitor log to a file
+  fs.appendFile(
+    path.join(__dirname, "visitor_log.json"),
+    JSON.stringify(visitorData) + "\n",
+    (err) => {
+      if (err) console.error("Error saving visitor log:", err);
+    }
+  );
+
+  next();
+});
+
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
-// route handler
-// get request will execute the translate function below
-// req has the query data (e.g. .../translate?word=natus)
+
+// Route to handle visitor statistics
+app.get("/visitors", (req, res) => {
+  res.json({
+    totalVisitors: visitorCount,
+    recentVisitors: visitorLog.slice(-10), // Last 10 visitors
+  });
+});
+
+// Route handler for translation
 app.get("/translate", (req, res) => {
-  const word = req.query.word; // get the word from the query
+  const word = req.query.word;
   console.log("Received word for translation:", word);
-  // define the translate fucntion
-  // call the translate function
   translate(word)
     .then((result) => {
       res.setHeader("Content-Type", "text/plain");
@@ -59,7 +99,6 @@ app.get("/translate", (req, res) => {
 app.get("/textfile", (req, res) => {
   const { author, title } = req.query;
   const filePath = path.join(__dirname, "latintexts", author, `${title}.txt`);
-  // Use fs.readFile to read the contents of the file
   fs.readFile(filePath, "utf8", (err, data) => {
     if (err) {
       console.error("Error reading the file:", err);
@@ -67,30 +106,27 @@ app.get("/textfile", (req, res) => {
       return;
     }
     res.setHeader("Content-Type", "text/plain");
-    res.send(data); // Send the file contents as the response
+    res.send(data);
   });
 });
 
 app.get("/initnotes", (req, res) => {
-  // Extract author from query parameters
   const author = req.query.author || req.params.author;
-  // Construct the directory path
   const directoryPath = author
     ? path.join(__dirname, "latintexts", author)
     : path.join(__dirname, "latintexts");
-  // Read the directory
   fs.readdir(directoryPath, (err, files) => {
     if (err) {
       console.error(`Error reading directory ${directoryPath}:`, err);
       return res
-        .status(500) // Use 500 for internal server errors
+        .status(500)
         .send(`Error reading directory ${directoryPath}: ${err.message}`);
     }
     res.json(files);
   });
 });
 
-// start the server
+// Start the server
 app.listen(port, "0.0.0.0", () => {
   console.log(`Server is listening on port ${port}`);
 });
