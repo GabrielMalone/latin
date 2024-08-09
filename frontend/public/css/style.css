@@ -520,7 +520,6 @@ span {
 }
 #contact{
     position: absolute;
-    top -10vw;
     color: var(--color-text-highlight);
     font-family: 'Courier New', Courier, monospace;
     size: 1vw;
